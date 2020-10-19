@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/Content/footer/bootstrap-grid.css">
+   
+    <style>
+        li.dropdown-submenu:hover ul {
+            display: block;
+            left: 100%;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+            .dropdown-submenu:hover .dropdown-menu {
+                top: 0;
+            }
+
+        #footer-section {
+            background-color: rgba(20, 20, 20, 0.904);
+        }
+
+            #footer-section h6 {
+                color: white;
+            }
+
+        tbody th {
+            padding: 0px;
+        }
+
+        #col-margin {
+        }
+
+        #footer-end {
+            background-color: rgba(27, 32, 32, 0.856);
+        }
+
+        #logo-fb {
+            width: 46px;
+            margin-left: 20px;
+        }
+
+        #logo-insta {
+            margin-left: 20px;
+            width: 46px;
+        }
+
+        #logo-gmp {
+            width: 86px;
+            margin-bottom: 5px;
+            margin-left: 3px;
+        }
+
+        .img-fluid {
+            width: 20vw;
+        }
+    </style>
+</head>
+<body style="padding-bottom:0px;">
+    
+
+    </div>
+    <div class="navbar navbar-inverse navbar-fixed-top ">
+        <div class="container">
+        
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Harmony022", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse text-center">
+                <ul class="nav navbar-nav">
+                    <li>
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Nekretnine <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a href="#">Stanovi</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Prodaja", "prikaziStanoveProdaja", "vidiNekretnine")</li>
+                                    <li>@Html.ActionLink("Izdavanje", "prikaziStanoveRenta", "vidiNekretnine")</li>
+
+                                </ul>
+                            </li>
+
+
+
+                            <li class="nav-divider"></li>
+
+                        </ul>
+                    </li>
+
+                    <li>@Html.ActionLink("Stanovi", "prikaziStanove", "vidiNekretnine")</li>
+                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if(@User.Identity.Name == "baaaaaajchela@live.com"){
+                    <li>@Html.ActionLink(" Admin panel  ", "prikaziGlavnuStranicu", "Admin")</li>
+                    }
+                    @Html.Partial("_LoginPartial")
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+       
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+    <section class="container-fluid" style="width:100% !important">
+        <div id="footer-section" class="row">
+
+            <div class="col-lg-3 p-5">
+                <h6 id="location">Lokacija: <small class="text-muted">Kneza Miloša 7 lokal 13, Beška 22324</small></h6>
+
+                <img class="img-fluid" src="~/Content/footer/mapa.jpg" alt="mapa">
+
+            </div>
+            <div id="icon-section" class="col-lg-2 d-lg-block d-none text-left p-5">
+                <div>
+                    <a href="https://www.facebook.com/harmony022nekretnine" target="_blank">
+                        <img id="logo-fb" class="img-fluid mt-4" src="~/Content/footer/FAVPNG_facebook-clip-art_wSjXEE4f.png" alt="fb">
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.instagram.com/harmony022_nekretnine/" target="_blank">
+                        <img id="logo-insta" class="img-fluid mt-5" src="~/Content/footer/instagram.png" alt="instagramLogo">
+                    </a>
+                </div>
+
+                <div>
+                    <img id="logo-gmp" class="img-fluid mt-4" src="~/Content/footer/logo.png" alt="google">
+                </div>
+
+            </div>
+            <div id="col-margin" class="col-lg-3 p-5">
+                <table class="table">
+                    <h6>Kontakt</h6>
+                    <tbody class="text-muted text-left">
+                        <tr>
+                            <th>Tel: 022/571-339</th>
+                        </tr>
+                        <tr>
+                            <th>Mob: 061/159-71-51</th>
+                        </tr>
+                        <tr>
+                            <th>Mejl: harmony022Beska@gmail.com</th>
+                        </tr>
+                        <tr>
+                            <th>Viber/wp/insta</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+            <div id="col-margin" class="col-lg-3 p-5">
+
+                <table class="table">
+                    <h6>Pružamo širok asortiman usluga</h6>
+                    <tbody class="text-muted text-left">
+                        <tr>
+                            <th>Iznajmljivanje i prodaja nepokretne imovine.</th>
+                        </tr>
+                        <tr>
+                            <th>Uknjižba nepokretnosti i legalizacija.</th>
+                        </tr>
+                        <tr>
+                            <th>Sve vrste usluga u katastar.</th>
+                        </tr>
+                        <tr>
+                            <th>Legalizacija.</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+        <div id="footer-end" class="row">
+            <div class="col-lg-12 p-3   d-lg-block d-none text-center">
+                <h5 class="text-muted"> &copy;2020 <a href="https://mdbootstrap.com/education/bootstrap/" class="text-decoration-none text-light"> BajchelaWEB</a></h5>
+            </div>
+
+
+            <div class="col-6 p-3 d-lg-none   text-left">
+                <h5 class="text-muted"> &copy;2020 <a href="https://mdbootstrap.com/education/bootstrap/" class="text-decoration-none text-light"> BajchelaWEB</a></h5>
+            </div>
+            <div class="col-6 d-md-block d-lg-none text-right">
+                <a href="https://www.facebook.com/harmony022nekretnine" target="_blank">
+                    <img id="logo-fb" class="img-fluid " src="~/Content/footer/FAVPNG_facebook-clip-art_wSjXEE4f.png" alt="fb" style="width: 40px;">
+                </a><a href="https://www.instagram.com/harmony022_nekretnine/" target="_blank">
+                    <img id="logo-insta" class="img-fluid " src="~/Content/footer//instagram.png" alt="instagramLogo" style="width: 40px;">
+                </a>
+                <img id="logo-gmp" class="img-fluid " src="~/Content/footer/logo.png" alt="google" style="width: 70px;">
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

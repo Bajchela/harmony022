@@ -1,0 +1,91 @@
+﻿@using Harmony022.Models
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<div style="background-color:#b35900 ; padding: 0 5px 5px 5px; margin-top: -3px;">
+    <form action="/Pretrazi/showSearch" method="get">
+        <div class="row">
+            <div class=col-sm-3>
+                <h4><b>Vrsta nekrenine</b></h4>
+                <select class="form-control" id="StudentGender" name="VrstaLokacije">
+                    <option>Stan</option>
+                    <option>Kuća</option>
+                    <option>Vikendica</option>
+                    <option>Poslovni prostor</option>
+                    <option>Građevinsko zemiljište</option>
+                    <option>Poljoprivredno zemiljište</option>
+                </select>
+            </div>
+
+            <div class="col-sm-3">
+                <h4><b>Cena od</b></h4>
+                <input type="number" name="txtCenaOd" />
+            </div>
+
+            <div class="col-sm-3">
+                <h4><b>Cena do</b></h4>
+                <input type="number"  name="txtCenaDo" />
+            </div>
+
+            <div class="col-sm-3">
+                <h4><b>Tip nekretnine</b></h4>
+                <select class="form-control" id="StudentGender" name="TipLokacije">
+                    <option>Prodaja</option>
+                    <option>Izdavanje</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-3">
+
+                <h4><b>Lokacija</b></h4>
+
+                @{
+                    List<prikaziPretragaHarmony> listPretraga = new List<prikaziPretragaHarmony>();
+                    harmony022Model db = new harmony022Model();
+
+                    listPretraga = db.prikaziPretragaHarmony.ToList();
+                    var pretrazeno = from x in listPretraga
+                                     orderby x.Mesto
+                                     select x.Mesto;
+                    pretrazeno = pretrazeno.Distinct();
+                                <select class="form-control" id="StudentGender" name="Mesto">
+                                    
+                                    <option>Sve</option>
+
+                                    @foreach (var item in pretrazeno)
+                                    {
+                                        <option>@item</option>
+                                    }
+                                </select>
+                }
+                               
+            </div>
+
+            <div class="col-sm-3">
+                <h4><b>Kvadratura od</b></h4>
+                <input type="number" name="txtKvadraturaOd" />
+            </div>
+
+            <div class="col-sm-3">
+
+                <h4><b>Kvadratura do</b></h4>
+                <input type="number" name="txtKvadraturaDo" />
+
+            </div>
+
+            <div class="col-sm-3">
+                <input class="btn btn-success" type="submit" style="margin-left:-0px; margin-top:30px" value="Pretraži nekreninu" />
+            </div>
+
+        </div>
+
+</form>
+</div>

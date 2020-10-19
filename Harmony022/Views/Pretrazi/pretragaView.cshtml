@@ -1,0 +1,52 @@
+﻿@model  List<Harmony022.Models.prikaziPretragaHarmony>
+
+@Html.Action("PrikaziSlajder", "Home")
+
+@Html.Partial("PretragaHome")
+
+<style>
+    .card {
+        margin-left: 60px;
+        margin-top: 15px;
+        float: left;
+        width: 15em;
+        background-repeat: no-repeat;
+        background-size: contain;
+        opacity: 0.7;
+    }
+
+        .card:hover {
+            opacity: 1.0;
+        }
+</style>
+<body  style="background-color: #00ffff;">
+
+
+    @for (int i = 0; i < Model.Count; i++)
+    {
+
+
+    <row>
+        <div style="border: 2px;">
+            <column>
+                <div class="card" style="width: 18rem;">
+                    <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;border-style: solid;">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">@Model.ElementAt(i).Lokacija,  @Model.ElementAt(i).Mesto  @Model.ElementAt(i).Drzava</h3>
+
+                        <p class="card-text text-center"><strong>Kvadratura: @Model.ElementAt(i).Kvadratura m2</strong> <br /><strong>Cena: @Model.ElementAt(i).Cena Eura</strong></p>
+
+
+                        <a href="#" class="btn center-block btn-primary " style="margin-left:15px">Detaljnije</a>
+                        <br />
+                    </div>
+                </div>
+
+            </column>
+        </div>
+
+    </row>
+    }
+
+</body>
+

@@ -1,0 +1,391 @@
+﻿@model Harmony.Models.tblStan
+
+@{
+    ViewBag.Title = "Details";
+}
+<style>
+    #SlajderColumn {
+                    width: 640px;
+                }
+                
+                .overviewList {
+                    margin-top: 10px;
+                }
+                
+                .overviewList li {
+                    font-size: 16px;
+                    line-height: 32px;
+                    outline-width: 25px;
+                    border-bottom: 1px solid #a8a8a8;
+                    float: left;
+                    display: block;
+                    width: 94%;
+                }
+                
+                .overview {
+                    padding-top: px;
+                    width: 320px;
+                    height: 340px;
+                    background-color: #f8f8f8;
+                    border: 1px solid #d6d6d6;
+                    border-radius: 15px;
+                }
+                
+                .overviewList li {
+                    border-bottom: 1px solid #dcdcdc;
+                    font-size: 14px;
+                }
+                
+                .overviewList li:last-child {
+                    border: none;
+                    padding-bottom: 0px;
+                }
+                
+                .overviewList span {
+                    font-size: 13px;
+                    font-family: Proxima Nova Semi-bold;
+                    float: right;
+                    color: #4a4786;
+                }
+                
+                tabela,
+                th,
+                td {
+                    border: 0px solid;
+                    border-collapse: collapse;
+                }
+                
+                .tabela {
+                    padding: 25px;
+                }
+                /* Position the image container (needed to position the left and right arrows) */
+                
+                .containerS {
+                    position: relative;
+                }
+                /* Hide the images by default */
+                
+                .mySlides {
+                    display: none;
+                }
+                /* Add a pointer when hovering over the thumbnail images */
+                
+                .cursor {
+                    cursor: pointer;
+                }
+                /* On hover, add a black background color with a little bit see-through */
+                
+                .prev:hover,
+                .next:hover {
+                    background-color: rgba(0, 0, 0, 0.8);
+                }
+                /* Container for image text */
+                
+                .caption-containerS {
+                    text-align: center;
+                    background-color: #222;
+                    padding: 2px 16px;
+                    color: white;
+                }
+                
+                .row:after {
+                    content: "";
+                    display: table;
+                    clear: both;
+                }
+                /* Six columns side by side */
+                
+                .column {
+                    margin-left: 25px;
+                    float: left;
+                    width: 36.66%;
+                }
+                /* Add a transparency effect for thumnbail images */
+                
+                .demo {
+                    opacity: 0.6;
+                }
+                
+                .active,
+                .demo:hover {
+                    opacity: 1;
+                }
+                /* Hide the images by default */
+                
+                .mySlides {
+                    display: none;
+                }
+                /* On hover, add a black background color with a little bit see-through */
+                
+                .prev:hover,
+                .next:hover {
+                    background-color: rgba(0, 0, 0, 0.8);
+                }
+                /* Caption text */
+                
+                .text {
+                    color: #f2f2f2;
+                    font-size: 15px;
+                    padding: 8px 12px;
+                    position: absolute;
+                    bottom: 8px;
+                    width: 100%;
+                    text-align: center;
+                }
+                /* Number text (1/3 etc) */
+                
+                .numbertext {
+                    color: #f2f2f2;
+                    font-size: 12px;
+                    padding: 8px 12px;
+                    position: absolute;
+                    top: 0;
+                }
+                /* The dots/bullets/indicators */
+                
+                .dot {
+                    cursor: pointer;
+                    height: 15px;
+                    width: 15px;
+                    margin: 0 2px;
+                    background-color: #bbb;
+                    border-radius: 50%;
+                    display: inline-block;
+                    transition: background-color 0.6s ease;
+                }
+                /* Fading animation */
+                
+                .fade {
+                    -webkit-animation-name: fade;
+                    -webkit-animation-duration: 1.5s;
+                    animation-name: fade;
+                    animation-duration: 1.5s;
+                }
+                
+                -webkit-keyframes fade {
+                    from {
+                        opacity: .4
+                    }
+                    to {
+                        opacity: 1
+                    }
+                }
+                
+                keyframes fade {
+                    from {
+                        opacity: .4
+                    }
+                    to {
+                        opacity: 1
+                    }
+                }
+</style>
+<h2>Details</h2>
+
+<div id="section-container" class="container p-5 text-left" style="background: #b35900;">
+    <div class="row">
+        <div class=" col-12 col-lg-8">
+            <div class="carousell">
+                <button class="carousel_button carousel_button--left is-hidden">
+                    <i class="fas fa-angle-left"></i>
+                </button>
+                <div class="carousel_track-container">
+                    <ul class="carousel_track">
+                        <li class="carousel_slide current-slide">
+                            <img class="carousel-img " src="./img/1.jpg" alt="">
+                        </li>
+                        <li class="carousel_slide">
+                            <img class="carousel-img" src="./img/2.jpg" alt="" />
+                        </li>
+                        <li class="carousel_slide">
+                            <img class="carousel-img" src="./img/3.jpg" alt="">
+                        </li>
+                        <li class="carousel_slide">
+                            <img class="carousel-img" src="./img/4.jpg" alt="">
+                        </li>
+                        <li class="carousel_slide">
+                            <img class="carousel-img" src="./img/5.jpg" alt="">
+                        </li>
+                        <li class="carousel_slide">
+                            <img class="carousel-img" src="./img/6.jpg" alt="">
+                        </li>
+                        <li class="carousel_slide">
+                            <img class="carousel-img" src="./img/7.jpg" alt="">
+                        </li>
+                        <li class="carousel_slide">
+                            <img class="carousel-img" src="./img/8.jpg" alt="">
+                        </li>
+                        <li class="carousel_slide">
+                            <img class="carousel-img" src="./img/9.jpg" alt="">
+                        </li>
+                        <li class="carousel_slide">
+                            <img class="carousel-img" src="./img/10.jpg" alt="">
+                        </li>
+
+                    </ul>
+                </div>
+                <button class="carousel_button carousel_button--right">
+                    <i class="fas fa-angle-right"></i>
+                </button>
+                <div class="carousel_nav">
+                    <button class="carousel__indicator current-slide"></button>
+                    <button class="carousel__indicator"></button>
+                    <button class="carousel__indicator"></button>
+                    <button class="carousel__indicator"></button>
+                    <button class="carousel__indicator"></button>
+                    <button class="carousel__indicator"></button>
+                    <button class="carousel__indicator"></button>
+                    <button class="carousel__indicator"></button>
+                    <button class="carousel__indicator"></button>
+                    <button class="carousel__indicator"></button>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-10 offset-1 offset-lg-0   col-lg-4 mt-lg-0 mt-5 informacije">
+
+            <ul class="overviewList">
+                <li>Šifra <span>@Html.DisplayFor(model => model.Sifra)</span></li>
+                <li>Mesto <span>@Html.DisplayFor(model => model.Mesto)</span></li>
+                <li>Lokacija <span>@Html.DisplayFor(model => model.Lokacija)</span></li>
+                <li>Površina placa<span> @Html.DisplayFor(model => model.Povrsina_Placa)</span></li>
+                <li>Kvadratura<span>62m2</span></li>
+                <li>Grejanje<span>/</span></li>
+                <li>Sobnost<span>2</span></li>
+                <li>Sprat<span>/</span></li>
+                <li>Terasa<span>/</span></li>
+                <li>Uknjižen<span>DA</span></li>
+                <li>Cena<span>17.400 €</span></li>
+                <li>Ažuriran <span>29.06.2020.</span></li>
+
+
+
+            </ul>
+            <div class="clearfix"></div>
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 offset-1 col-lg-12 offset-lg-0  informacije_2">
+            <ul class="py-2">
+                <li class="li_1">
+                    <p>Opis: Kablovska, wi-fi, klima, veš mašina. Zakupnina: 200 € U zakupninu ulaze troškovi grejanja, kablovske, interneta, komunalije. Struja se plaća po utrošku. Depozit : 200 €</p>
+                </li>
+                <li class="li_2">
+                    <p>
+                        Dva parking mesta u garaži: 50 € Blizina filozofskog fakulteta, vozdove i doma zdravlja. reg. br. posrednika 1189 Agencijska provizija: 50% od prve mesečne zakupnine
+                    </p>
+
+                </li>
+                <li class="li_3" class="text-right mb-5" style="list-style: none;">
+                    <i class="fas fa-phone-square"></i> 065/530-82-05
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<div>
+    <h4>tblStan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            
+        </dt>
+
+        <dd>
+        </dd>
+
+        <dt>
+        </dt>
+
+        <dd>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lokacija)
+        </dt>
+
+        <dd>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Povrsina_Placa)
+        </dt>
+
+        <dd>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kvadratura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kvadratura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grejanje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grejanje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sobnost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sobnost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sprat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sprat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Terasa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Terasa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Knjizen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Knjizen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Azuriran)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Azuriran)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Kuca_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

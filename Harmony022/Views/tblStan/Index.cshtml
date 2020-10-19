@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Harmony022.Models.tblStan>
+
+@{
+    ViewBag.Title = "Stanovi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h2>Stanovi</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sifra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mesto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lokacija)
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.Kvadratura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grejanje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sobnost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sprat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Terasa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Uknjizen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Azuriran)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Slika)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vrsta_Nekretnine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drzava)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Slajder)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="padding-bottom:15px;" >
+            @Html.DisplayFor(modelItem => item.Sifra)
+        </td>
+        <td style="padding-bottom:15px;" >
+            @Html.DisplayFor(modelItem => item.Mesto)
+        </td>
+        <td style="padding-bottom:15px;" >
+            @Html.DisplayFor(modelItem => item.Lokacija)
+        </td>
+        <td style="padding-bottom:15px;" >
+            @Html.DisplayFor(modelItem => item.Povrsina_Placa)
+        </td>
+        <td style="padding-bottom:15px;" >
+            @Html.DisplayFor(modelItem => item.Kvadratura)
+        </td>
+        <td style="padding-bottom:15px;" >
+            @Html.DisplayFor(modelItem => item.Grejanje)
+        </td>
+        <td style="padding-bottom:15px;" >
+            @Html.DisplayFor(modelItem => item.Sobnost)
+        </td>
+        <td style="padding-bottom:15px;" >
+            @Html.DisplayFor(modelItem => item.Sprat)
+        </td>
+        <td style="padding-bottom:15px;" >
+            @Html.DisplayFor(modelItem => item.Terasa)
+        </td>
+        <td style="padding-bottom:15px;" >
+            @Html.DisplayFor(modelItem => item.Uknjizen)
+        </td>
+        <td style="padding-bottom:15px;" >
+            @Html.DisplayFor(modelItem => item.Cena)
+        </td>
+        <td style="padding-bottom:15px;" >
+            @Html.DisplayFor(modelItem => item.Azuriran)
+        </td>
+        <td style="padding-bottom:15px;" >
+            @Html.DisplayFor(modelItem => item.Slika)
+        </td>
+        <td style="padding-bottom:15px;" >
+            @Html.DisplayFor(modelItem => item.Vrsta_Nekretnine)
+        </td>
+        <td style="padding-bottom:15px;" >
+            @Html.DisplayFor(modelItem => item.Drzava)
+        </td>
+        <td style="padding-bottom:15px;" >
+            @Html.DisplayFor(modelItem => item.Slajder)
+        </td>
+        <td style="padding-bottom:15px;" >
+            @Html.ActionLink("Edit","Edit", "tblStan", new { id=item.Stan_Id }, null) |
+            @Html.ActionLink("Details", "Details","tblStan", new { id=item.Stan_Id },null ) |
+            @Html.ActionLink("Delete", "Delete", "tblStan",new { id=item.Stan_Id }, null)
+        </td>
+    </tr>
+}
+
+</table>

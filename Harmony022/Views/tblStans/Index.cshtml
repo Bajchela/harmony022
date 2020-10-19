@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Harmony.Models.tblStan>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sifra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mesto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lokacija)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Povrsina_Placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kvadratura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grejanje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sobnost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sprat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Terasa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Knjizen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Azuriran)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sifra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mesto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lokacija)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Povrsina_Placa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kvadratura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grejanje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sobnost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sprat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Terasa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Knjizen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Azuriran)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Kuca_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Kuca_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Kuca_Id })
+        </td>
+    </tr>
+}
+
+</table>

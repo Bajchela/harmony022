@@ -1,0 +1,144 @@
+﻿@model Harmony022.Models.tblStan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblStan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sifra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sifra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mesto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mesto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lokacija)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lokacija)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Povrsina_Placa)
+        </dt>
+
+     
+        <dt>
+            @Html.DisplayNameFor(model => model.Kvadratura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kvadratura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grejanje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grejanje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sobnost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sobnost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sprat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sprat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Terasa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Terasa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uknjizen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uknjizen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Azuriran)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Azuriran)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Slika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Slika)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vrsta_Nekretnine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vrsta_Nekretnine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Drzava)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Drzava)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Slajder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Slajder)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit","tblStan", new { id = Model.Stan_Id },null) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

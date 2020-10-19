@@ -1,0 +1,120 @@
+﻿@model  Harmony022.Models.tblStan
+
+    <style>
+        .fokus:hover {
+            cursor: pointer;
+        }
+
+        .fokuc img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dveSlike {
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+
+        .glavnaSlika2 {
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+
+
+        hr {
+            width: 100%;
+        }
+
+        @@media (min-width:1200px) and (max-width: 1920px) {
+            .nazivArtikla, .normalnaCena {
+                font-size: 17px;
+            }
+
+            .akcijskaCena {
+                font-size: 17px;
+            }
+
+            .sporednaSlika2 {
+                position: absolute;
+                top: 0px;
+                left: 25px;
+            }
+        }
+
+        @@media (min-width:992px) and (max-width: 1199px) {
+            .nazivArtikla, .normalnaCena {
+                font-size: 15px;
+            }
+
+            .akcijskaCena, .normalnaCena {
+                font-size: 16px;
+            }
+
+            .sporednaSlika2 {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            }
+        }
+
+        @@media (min-width:768px) and (max-width: 991px) {
+            .nazivArtikla, .normalnaCena {
+                font-size: 14px;
+            }
+
+            .akcijskaCena {
+                font-size: 15px;
+            }
+
+            .sporednaSlika2 {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            }
+        }
+
+        @@media (max-width: 767px) {
+            .nazivArtikla, .normalnaCena {
+                font-size: 13px;
+            }
+
+            .akcijskaCena {
+                font-size: 14px;
+            }
+
+            .sporednaSlika2 {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            }
+        }
+    </style>
+<div class="row" style="margin-top:10px" @*onclick="location.href='@Url.Action("NewProductDetails", "ProductDetails", new { sifra = Model.Sifra })'"*@>
+    <div class="col-xs-10 col-xs-offset-1">
+        <div class="row" style="text-align:center">
+           
+                <img src="@Model.Slika" class="img-responsive" style="max-height:213px;" />
+         
+        </div>
+        <div class="row">
+            <hr />
+        </div>
+    
+        <div class="row" style="min-height:40px; max-height:40px; margin-top:10px">
+           
+            <text style="color:#767676" class="nazivArtikla">@Model.Mesto, @Model.Lokacija <br /> @Model.Kvadratura</text>
+        </div>
+                    
+            <div class="row" style="text-decoration: line-through; background-color:white; color:#767676; margin-top:-3px">
+           
+                <span style="color:#767676" class="normalnaCena">EURO @Model.Cena.00</span>
+                   
+            </div>
+   
+
+
+    </div>
+</div>

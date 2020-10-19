@@ -1,0 +1,20 @@
+﻿@using System.Web;
+@using Harmony022.Models;
+
+
+
+
+@Html.Action("PrikaziSlajder")
+
+
+
+@Html.Partial("PretragaHome")
+
+
+
+@{
+    harmony022Model db = new harmony022Model();
+    List<tblStan> stanovi = db.tblStan.ToList();
+}
+<h1 style="text-align:center; margin-bottom:-20px">Stanovi</h1>
+@Html.Partial("caroselAppartman", stanovi)

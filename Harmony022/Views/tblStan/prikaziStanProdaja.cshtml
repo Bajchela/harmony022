@@ -1,0 +1,473 @@
+﻿@model List<Harmony022.Models.tblStan>
+
+@{
+    ViewBag.Title = "prikaziStanProdaja";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    .carousell {
+        position: relative;
+        height: 420px;
+        width: 420px;
+        width: 80%;
+        margin: 0px auto;
+    }
+
+    .carousel-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .carousel_track-container {
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .carousel_track {
+        padding: 0px;
+        margin: 0;
+        list-style: none;
+        position: relative;
+        height: 100%;
+        transition: transform 350ms ease-in;
+    }
+
+    .carousel_slide {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .carousel_button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .carousel_button--left {
+        left: -40px;
+    }
+
+    .carousel_button--right {
+        right: -40px;
+    }
+
+    i {
+        font-size: 24px;
+    }
+
+    .carousel_nav {
+        display: flex;
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    .carousel__indicator {
+        border: 0;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        background-color: rgba(245, 245, 245, 0.836);
+        margin: 0 12px;
+        cursor: pointer;
+    }
+
+        .carousel__indicator.current-slide {
+            background-color: rgb(41, 40, 40);
+        }
+
+    .is-hidden {
+        display: none;
+    }
+
+    .informacije_2 p {
+        font-size: 14px;
+    }
+
+    .img-c {
+        width: 200px;
+        height: 200px;
+        float: left;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .img-w {
+        position: absolute;
+        width: 98%;
+        height: 98%;
+        background-size: contain;
+        background-position: top;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        transition: transform ease-in-out 300ms;
+    }
+
+    #section-container {
+    }
+
+    .informacije {
+        width: 280px;
+        height: 420px;
+        background: white;
+        border-radius: 8px;
+        position: relative;
+    }
+
+    .informacije_2 {
+        width: 1110px;
+        height:;
+        background: white;
+        margin-top: 50px;
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+    }
+
+        .informacije_2 .li_1 {
+            top: 10px;
+            left: 20px;
+        }
+
+        .informacije_2 .li_2 {
+            top: 50px;
+            left: 20px;
+        }
+
+        .informacije_2 .li_3 {
+            bottom: 5px;
+        }
+
+    .img-w img {
+        display: none;
+    }
+
+    .img-c {
+        transition: width ease 400ms, height ease 350ms, left cubic-bezier(0.4, 0, 0.2, 1) 420ms, top cubic-bezier(0.4, 0, 0.2, 1) 420ms;
+    }
+
+        .img-c:hover .img-w {
+            transform: scale(1.08);
+            transition: transform cubic-bezier(0.4, 0, 0.2, 1) 450ms;
+        }
+
+        .img-c.active {
+            width: 80% !important;
+            height: 80% !important;
+            /*Fiksiranje slika kada se otvore*/
+            margin-top: 100px;
+            margin-left: 180px;
+            position: fixed;
+            z-index: 2;
+        }
+
+        .img-c.postactive {
+            position: absolute;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .img-c.active.positioned {
+            left: 0 !important;
+            top: 0 !important;
+            transition-delay: 50ms;
+            background-size: 300px 100px;
+        }
+
+    #Footer {
+        width: 100%;
+        background-color: #222222;
+    }
+
+    .footerFB {
+        height: 50px;
+    }
+
+    .footerInst {
+        height: 50px;
+    }
+
+    .footerMaps {
+        height: 50px;
+    }
+
+    #PodaciDrugi {
+        height: 100px;
+        margin-top: 5px;
+    }
+
+    #KontOsn {
+        margin-left: 0px;
+        margin-top: -25px;
+    }
+
+    #SlajderColumn {
+        width: 640px;
+    }
+
+    .overviewList {
+        margin-top: 10px;
+    }
+
+        .overviewList li {
+            font-size: 16px;
+            line-height: 32px;
+            outline-width: 25px;
+            border-bottom: 1px solid #a8a8a8;
+            float: left;
+            display: block;
+            width: 94%;
+        }
+
+    .overview {
+        padding-top: px;
+        width: 320px;
+        height: 340px;
+        background-color: #f8f8f8;
+        border: 1px solid #d6d6d6;
+        border-radius: 15px;
+    }
+
+    .overviewList li {
+        border-bottom: 1px solid #dcdcdc;
+        font-size: 14px;
+    }
+
+        .overviewList li:last-child {
+            border: none;
+            padding-bottom: 0px;
+        }
+
+    .overviewList span {
+        font-size: 13px;
+        font-family: Proxima Nova Semi-bold;
+        float: right;
+        color: #4a4786;
+    }
+
+    tabela,
+    th,
+    td {
+        border: 0px solid;
+        border-collapse: collapse;
+    }
+
+    .tabela {
+        padding: 25px;
+    }
+    /* Position the image container (needed to position the left and right arrows) */
+
+    .containerS {
+        position: relative;
+    }
+    /* Hide the images by default */
+
+    .mySlides {
+        display: none;
+    }
+    /* Add a pointer when hovering over the thumbnail images */
+
+    .cursor {
+        cursor: pointer;
+    }
+    /* On hover, add a black background color with a little bit see-through */
+
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    /* Container for image text */
+
+    .caption-containerS {
+        text-align: center;
+        background-color: #222;
+        padding: 2px 16px;
+        color: white;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* Six columns side by side */
+
+    .column {
+        margin-left: 25px;
+        float: left;
+        width: 36.66%;
+    }
+    /* Add a transparency effect for thumnbail images */
+
+    .demo {
+        opacity: 0.6;
+    }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+        }
+    /* Hide the images by default */
+
+    .mySlides {
+        display: none;
+    }
+    /* On hover, add a black background color with a little bit see-through */
+
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    /* Caption text */
+
+    .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+    /* Number text (1/3 etc) */
+
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+    /* The dots/bullets/indicators */
+
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+    /* Fading animation */
+
+    .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+    }
+</style>
+
+<body>
+    <div id="section-container" class="container p-5 text-left" style="background: #b35900;">
+        <div class="row">
+            <div class=" col-12 col-lg-8">
+                <div class="carousell">
+                    <button class="carousel_button carousel_button--left is-hidden">
+                        <i class="fas fa-angle-left"></i>
+                    </button>
+                    <div class="carousel_track-container">
+                        <ul class="carousel_track">
+
+                            @{
+
+                                Harmony022.Models.harmony022Model db = new Harmony022.Models.harmony022Model();
+
+                                List<Harmony022.Models.tblSlike> slike = new List<Harmony022.Models.tblSlike>();
+
+                                slike = db.tblSlike.ToList();
+
+                                var saljiStan = from c in slike
+                                                where c.sifra == Model.ElementAt(0).Sifra.ToString()
+                                                select c.referenca;
+
+                                foreach (string sifra in saljiStan)
+                                {
+                                    <li class="carousel_slide current-slide">
+                                        <img class="carousel-img " src="@sifra.ToString()" alt="">
+                                    </li>
+
+                                }
+
+
+                            }
+                        </ul>
+                    </div>
+                    <button class="carousel_button carousel_button--right">
+                        <i class="fas fa-angle-right"></i>
+                    </button>
+                    <div class="carousel_nav">
+                        <button class="carousel__indicator current-slide"></button>
+
+                        @for (int i = 0; i < saljiStan.Count() - 1; i++)
+                        {
+                            <button class="carousel__indicator"></button>
+                        }
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 offset-1 offset-lg-0   col-lg-4 mt-lg-0 mt-5 informacije">
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+
+
+                    <ul class="overviewList">
+                        <li>Šifra: <span>@Model.ElementAt(i).Sifra</span></li>
+                        <li>Mesto: <span>@Model.ElementAt(i).Mesto</span></li>
+                        <li>Lokacija: <span>@Model.ElementAt(i).Lokacija</span></li>
+                        <li>Površina placa: <span>@Model.ElementAt(i).Povrsina_Placa m2</span></li>
+                        <li>Kvadratura: <span>@Model.ElementAt(i).Kvadratura m2</span></li>
+                        <li>Grejanje: <span>@Model.ElementAt(i).Grejanje</span></li>
+                        <li>Sobnost: <span>@Model.ElementAt(i).Sobnost</span></li>
+                        <li>Sprat: <span>@Model.ElementAt(i).Sprat</span></li>
+                        <li>Terasa: <span>@Model.ElementAt(i).Terasa</span></li>
+                        <li>Uknjižen: <span>@Model.ElementAt(i).Uknjizen</span></li>
+                        <li>Cena: <span>@Model.ElementAt(i).Cena €</span></li>
+                        <li>Ažuriran: <span>@Model.ElementAt(i).Azuriran.ToString()</span></li>
+                    </ul>
+
+                    <div class="clearfix"></div>
+
+                }
+            </div>
+        </div>
+        @if (@Model.ElementAt(0).Opis == null) { }
+        else
+        {
+            <div class="row">
+                <div class="col-10 offset-1 col-lg-12 offset-lg-0  informacije_2">
+                    <ul class="py-2">
+                        <li class="li_1">
+                            <p>
+                                Opis:
+                                @Model.ElementAt(0).Opis.ToString()
+                            </p>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+        }
+
+    </div>
+  
+                @Scripts.Render("~/Scripts/prikaziNekretninu/jquery-3.5.0.slim.min.js")
+                @Scripts.Render("~/Scripts/prikaziNekretninu/bootstrap.min.js")
+                @Scripts.Render("~/Scripts/prikaziNekretninu/script.js")
+                <script src="https://kit.fontawesome.com/5b6c3ae83b.js" crossorigin="anonymous"></script>
+            </body>

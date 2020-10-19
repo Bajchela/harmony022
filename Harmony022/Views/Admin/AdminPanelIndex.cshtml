@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "AdminPanel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    @*<form action="/Admin/prikaziUnosNekretnine" method="get">
+        tblStanEdit
+        <div class="row">
+            <input class="btn btn-success" type="submit" style="margin-left: 20px; margin-top:30px" name="strDugme" value="Kuća" />
+            <input class="btn btn-success" type="submit" style="margin-left: 20px; margin-top:30px" name="strDugme" value="Stan" />
+            <input class="btn btn-success" type="submit" style="margin-left: 20px; margin-top:30px" value="Vikendica" />
+            <input class="btn btn-success" type="submit" style="margin-left: 20px; margin-top:30px" value="Poslovni prostor" />
+            <input class="btn btn-success" type="submit" style="margin-left: 20px; margin-top:30px" value="Građevinsko zemljište" />
+            <input class="btn btn-success" type="submit" style="margin-left: 20px; margin-top:30px" value="Poljoprivredno zemljište" />
+        </div>
+
+    </form>*@
+
+    <form action="/Admin/prikaziIzmenuNekretnine" method="get">
+        <div class="row">
+
+            <input class="btn btn-success" type="submit" style="margin-left:20px; margin-top:30px" name="strDugme" value="Kuća" />
+            <input class="btn btn-success" type="submit" style="margin-left: 20px; margin-top:30px" name="strDugme" value="Stan" />
+            <input class="btn btn-success" type="submit" style="margin-left:20px; margin-top:30px" value="Vikendica" />
+            <input class="btn btn-success" type="submit" style="margin-left:20px; margin-top:30px" value="Poslovni prostor" />
+            <input class="btn btn-success" type="submit" style="margin-left:20px; margin-top:30px" value="Građevinsko zemljište" />
+            <input class="btn btn-success" type="submit" style="margin-left:20px; margin-top:30px" value="Poljoprivredno zemljište" />
+        </div>
+    </form>
+</nav>
+
+
+<ul class="nav nav-tabs">
+    <li id="upOpis" class="tabic active TabBottomLine"><a data-toggle="tab" href="#Dodajkuću">Kuća</a></li>
+    <li id="upDokument" class="tabic"><a id="doc" data-toggle="tab" href="#dodajStan">Stan</a></li>
+    @*<li id="upKomentar" class="tabic"><a id="kom" data-toggle="tab" href="#komentari">KOMENTARI</a></li>*@
+</ul>
+<div class="row" style="margin-top:10px">
+    <div class="tab-content">
+        <div id="Dodajkuću" class="tab-pane fade in active">
+            <div class="col-sm-12" style="margin-top: 12px">
+               
+            </div>
+        </div>
+        <div id="dodajStan" class="tab-pane fade">
+            <div class="col-md-12">
+                @Html.Partial("addAppartmanAdmin")
+            </div>
+        </div>
+        @*<div id="komentari" class="tab-pane fade">
+                <div class="col-sm-12">
+                    @Html.Action("GetComments", "ProductDetails", new { prodID = Model.RobID })
+                </div>
+            </div>*@
+    </div>
+</div>
