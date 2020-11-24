@@ -1,20 +1,102 @@
 ﻿@using System.Web;
 @using Harmony022.Models;
 
+<style>
+    #Appartman:hover {
+        background-color: cornflowerblue;
+    }
 
+    #Vikendice:hover {
+        background-color: cornflowerblue;
+    }
+
+    #Home:hover {
+        background-color: cornflowerblue;
+    }
+
+    #BusinessSpace:hover {
+        background-color: cornflowerblue;
+    }
+
+    #GradjZemljiste:hover {
+        background-color: cornflowerblue;
+    }
+
+    #PoljZemljiste:hover {
+        background-color: cornflowerblue;
+    }
+</style>
 
 
 @Html.Action("PrikaziSlajder")
 
+<hr style="height: 2px; border-width: 0;    background-color: #f0f0f0">
 
 
 @Html.Partial("PretragaHome")
 
-
+<hr style="height: 2px; border-width: 0;    background-color: #f0f0f0">
 
 @{
-    harmony022Model db = new harmony022Model();
+    Harmony022.Models.Harmony022ModelEntities db = new Harmony022.Models.Harmony022ModelEntities();
     List<tblStan> stanovi = db.tblStan.ToList();
+    List<tblKuca> kuce = db.tblKuca.ToList();
+
 }
-<h1 style="text-align:center; margin-bottom:-20px">Stanovi</h1>
-@Html.Partial("caroselAppartman", stanovi)
+
+<div style="margin-left: 15%">
+    <button type="button" id="Appartman" onclick="changeCarosel('Appartman')" class="btn btn-outline-primary">Stanovi</button>
+    <button type="button" onclick="changeCarosel('Vikendice')" id="Vikendice" class="btn btn-outline-primary">Vikendice</button>
+    <button type="button" onclick="changeCarosel('Home')" id="Home" class="btn btn-outline-primary">Kuće</button>
+    <button type="button" id="BusinessSpace" class="btn btn-outline-primary">Poslovni prostor</button>
+    <button type="button" id="GradjZemljiste" class="btn btn-outline-primary">Građevinska zemljišta</button>
+    <button type="button" id="PoljZemljiste" class="btn btn-outline-primary">Poljoprovredno zemljište</button>
+
+</div>
+
+
+<div id="caroselAppartman">
+    <h1 style="text-align:center; margin-bottom:-20px">Stanovi</h1>
+    @Html.Partial("caroselAppartman", stanovi)
+</div>
+
+<div id="caroselHome">
+    <h1 style="text-align:center; margin-bottom:-20px">Stanovi</h1>
+    @Html.Partial("caroselHome", kuce)
+</div>
+
+<script>
+    $( document ).ready(function() {
+       document.getElementById("caroselAppartman").style.display = "Block";
+       document.getElementById("caroselHome").style.display = "none";
+    });
+
+    function changeCarosel(type) {
+        if (type == 'Appartman') {
+            document.getElementById("caroselAppartman").style.display = "Block";
+            document.getElementById("caroselHome").style.display = "none";
+            //document.getElementById("").style.display = "none";
+            //document.getElementById("").style.display = "none";
+            //document.getElementById("").style.display = "none";
+            //document.getElementById("").style.display = "none";
+        }
+        else if (type == 'Vikendice') {
+            console.log(type);
+
+            document.getElementById("caroselHome").style.display = "Block";
+            document.getElementById("caroselAppartman").style.display = "none"
+            //document.getElementById("").style.display = "none"
+            //document.getElementById("").style.display = "none"
+            //document.getElementById("").style.display = "none"
+            //document.getElementById("").style.display = "none"
+        }
+        if (type == 'Home') {
+            document.getElementById("caroselHome").style.display = "block";
+            document.getElementById("caroselAppartman").style.display = "none"
+            //document.getElementById("").style.display = "none";
+            //document.getElementById("").style.display = "none";
+            //document.getElementById("").style.display = "none";
+            //document.getElementById("").style.display = "none";
+        }
+    }
+</script>

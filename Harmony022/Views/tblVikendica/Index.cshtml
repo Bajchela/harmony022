@@ -1,0 +1,124 @@
+﻿@model IEnumerable<Harmony022.Models.tblVikendica>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Mesto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lokacija)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Povrsina_Placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kvadratura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grejanje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sobnost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sprat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Terasa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Uknjizen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Slika)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vrsta_Nekretnine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Slajder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Opis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drzava)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PocetnaStrana)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cena)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mesto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lokacija)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Povrsina_Placa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kvadratura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grejanje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sobnost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sprat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Terasa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Uknjizen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Slika)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vrsta_Nekretnine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Slajder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drzava)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PocetnaStrana)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cena)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

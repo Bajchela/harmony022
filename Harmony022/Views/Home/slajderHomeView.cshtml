@@ -15,26 +15,26 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" sstyle="margin: 0 auto;">
         <div class="item active">
-            <img src="@Model.ElementAt(0).Slika.ToString()" style="width:1680px ;height: 400px " alt=@Model.ElementAt(0).Sifra.ToString()>
+            <img src="@Model.ElementAt(0).Slika.ToString()" style="width:1680px ;height: 400px;font-family: Abril Fatface " alt=@Model.ElementAt(0).Sifra.ToString()>
             <div class="carousel-caption">
-                <a style="color:white" href="https://localhost:44346/tblStan/prikaziNekretninuStanProdaja?stan=@Model.ElementAt(0).Stan_Id"><h1 style="background-color: #b35900; ">Lokacija: @Model.ElementAt(0).Mesto, @Model.ElementAt(0).Lokacija <br /> @Model.ElementAt(0).Drzava </h1></a>
-                <a style="color:white" href="https://localhost:44346/tblStan/prikaziNekretninuStanProdaja?stan=@Model.ElementAt(0).Stan_Id">
-                    <h1 style="background-color: #b35900; "> Kvadratura: @Model.ElementAt(0).Kvadratura m2</h1></a>
+                <a style="color:white;font-family: Abril Fatface" href="http://194.146.57.57/tblStan/prikaziNekretninuStanProdaja?stan=@Model.ElementAt(0).Stan_Id"><h1 >Lokacija: @Model.ElementAt(0).Mesto, @Model.ElementAt(0).Lokacija <br /> @Model.ElementAt(0).Drzava </h1></a>
+                <a style="color:white;font-family: Abril Fatface" href="http://194.146.57.57/tblStan/prikaziNekretninuStanProdaja?stan=@Model.ElementAt(0).Stan_Id">
+                    <h1 style=" "> Kvadratura: @Model.ElementAt(0).Kvadratura m2</h1></a>
 
-                    <a style="color:white" href="https://localhost:44346/tblStan/prikaziNekretninuStanProdaja?stan=@Model.ElementAt(0).Stan_Id">       <h1 style="background-color: #b35900;">Cena: @Model.ElementAt(0).Cena Eura</h1></a>
+                    <a style="color:white" href="http://194.146.57.57/tblStan/prikaziNekretninuStanProdaja?stan=@Model.ElementAt(0).Stan_Id">       <h1 style="font-family: Abril Fatface">Cena: @Model.ElementAt(0).Cena Eura</h1></a>
 </div>
         </div>
         @for (int i = 1; i < Model.Count; i++)
         {
     <div class="item">
-        <img src="@Model.ElementAt(i).Slika.ToString()" style="width:1680px ;height: 400px " alt=@Model.ElementAt(i).Sifra.ToString()>
+        <img src="@Model.ElementAt(i).Slika.ToString()" style="width:1680px ;height: 400px;font-family: Abril Fatface " alt=@Model.ElementAt(i).Sifra.ToString()>
         <div class="carousel-caption">
-            <a style="color:white" href="https://localhost:44346/tblStan/prikaziNekretninuStanProdaja?stan=@Model.ElementAt(i).Stan_Id"><h1 style="background-color: #b35900; ">Lokacija: @Model.ElementAt(0).Mesto, @Model.ElementAt(0).Lokacija <br /> @Model.ElementAt(0).Drzava </h1></a>
-            <a style="color:white" href="https://localhost:44346/tblStan/prikaziNekretninuStanProdaja?stan=@Model.ElementAt(i).Stan_Id">
-                <h1 style="background-color: #b35900; "> Kvadratura: @Model.ElementAt(0).Kvadratura m2</h1>
+            <a style="color:white;font-family: Abril Fatface" href="http://194.146.57.57/tblStan/prikaziNekretninuStanProdaja?stan=@Model.ElementAt(i).Stan_Id"><h1 >Lokacija: @Model.ElementAt(0).Mesto, @Model.ElementAt(0).Lokacija <br /> @Model.ElementAt(0).Drzava </h1></a>
+            <a style="color:white;font-family: Abril Fatface" href="http://194.146.57.57/tblStan/prikaziNekretninuStanProdaja?stan=@Model.ElementAt(i).Stan_Id">
+                <h1 > Kvadratura: @Model.ElementAt(0).Kvadratura m2</h1>
             </a>
 
-            <a style="color:white" href="https://localhost:44346/tblStan/prikaziNekretninuStanProdaja?stan=@Model.ElementAt(i).Stan_Id">       <h1 style="background-color: #b35900;">Cena: @Model.ElementAt(0).Cena Eura</h1></a>
+            <a style="color:white;font-family: Abril Fatface" href="http://194.146.57.57/tblStan/prikaziNekretninuStanProdaja?stan=@Model.ElementAt(i).Stan_Id">       <h1 style="font-family: Abril Fatface" >Cena: @Model.ElementAt(0).Cena Eura</h1></a>
         </div>
     </div>
         }

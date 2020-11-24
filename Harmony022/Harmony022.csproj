@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
@@ -120,12 +126,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -180,7 +180,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PretraziController.cs" />
+    <Compile Include="Controllers\tblKucasController.cs" />
     <Compile Include="Controllers\tblStanController.cs" />
+    <Compile Include="Controllers\tblVikendicaController.cs" />
     <Compile Include="Controllers\UploadFilesController.cs" />
     <Compile Include="Controllers\vidiNekretnineController.cs" />
     <Compile Include="Global.asax.cs">
@@ -188,48 +190,57 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AspNetRoles.cs">
-      <DependentUpon>harmony022Model.tt</DependentUpon>
+      <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserClaims.cs">
-      <DependentUpon>harmony022Model.tt</DependentUpon>
+      <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserLogins.cs">
-      <DependentUpon>harmony022Model.tt</DependentUpon>
+      <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserRoles.cs">
+      <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUsers.cs">
-      <DependentUpon>harmony022Model.tt</DependentUpon>
+      <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>harmony022Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\harmony022Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>harmony022Model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\harmony022Model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>harmony022Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\harmony022Model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>harmony022Model.edmx</DependentUpon>
+      <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\prikaziHarmoni022.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>prikaziHarmoni022.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\prikaziHarmoni022.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\prikaziHarmoni022.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>prikaziHarmoni022.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\prikaziPretragaHarmony.cs">
-      <DependentUpon>harmony022Model.tt</DependentUpon>
+      <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblKuca.cs">
+      <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblSlajderGlavni.cs">
-      <DependentUpon>harmony022Model.tt</DependentUpon>
+      <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblSlike.cs">
-      <DependentUpon>harmony022Model.tt</DependentUpon>
+      <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblStan.cs">
-      <DependentUpon>harmony022Model.tt</DependentUpon>
+      <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblVikendica.cs">
+      <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -247,30 +258,32 @@
     <Content Include="Content\footernovi\logo-fb-black-png-1.png" />
     <Content Include="Content\footernovi\logo.png" />
     <Content Include="Content\footernovi\mapa.jpg" />
+    <Content Include="Content\Nekretnine\logo.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\harmony022Model.Context.tt">
+    <Content Include="Models\prikaziHarmoni022.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>harmony022Model.edmx</DependentUpon>
-      <LastGenOutput>harmony022Model.Context.cs</LastGenOutput>
+      <DependentUpon>prikaziHarmoni022.edmx</DependentUpon>
+      <LastGenOutput>prikaziHarmoni022.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\harmony022Model.tt">
+    <Content Include="Models\prikaziHarmoni022.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>harmony022Model.edmx</DependentUpon>
-      <LastGenOutput>harmony022Model.cs</LastGenOutput>
+      <DependentUpon>prikaziHarmoni022.edmx</DependentUpon>
+      <LastGenOutput>prikaziHarmoni022.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\harmony022Model.edmx">
+    <EntityDeploy Include="Models\prikaziHarmoni022.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>harmony022Model.Designer.cs</LastGenOutput>
+      <LastGenOutput>prikaziHarmoni022.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\harmony022Model.edmx.diagram">
-      <DependentUpon>harmony022Model.edmx</DependentUpon>
+    <Content Include="Models\prikaziHarmoni022.edmx.diagram">
+      <DependentUpon>prikaziHarmoni022.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -337,6 +350,22 @@
     <Content Include="Views\Home\caroselAppartman.cshtml" />
     <Content Include="Views\tblStan\shortAppartamn.cshtml" />
     <Content Include="Views\tblStan\AppartmansView.cshtml" />
+    <Content Include="Views\tblKucas\Create.cshtml" />
+    <Content Include="Views\tblKucas\Delete.cshtml" />
+    <Content Include="Views\tblKucas\Details.cshtml" />
+    <Content Include="Views\tblKucas\Edit.cshtml" />
+    <Content Include="Views\tblKucas\Index.cshtml" />
+    <Content Include="Views\tblKucas\showHomeSellView.cshtml" />
+    <Content Include="Views\vidiNekretnine\sellHome.cshtml" />
+    <Content Include="Views\vidiNekretnine\rentHome.cshtml" />
+    <Content Include="Views\Home\caroselHome.cshtml" />
+    <Content Include="Views\tblKucas\HomeView.cshtml" />
+    <Content Include="Views\Admin\addHomeAdminView.cshtml" />
+    <Content Include="Views\tblVikendica\Create.cshtml" />
+    <Content Include="Views\tblVikendica\Delete.cshtml" />
+    <Content Include="Views\tblVikendica\Details.cshtml" />
+    <Content Include="Views\tblVikendica\Edit.cshtml" />
+    <Content Include="Views\tblVikendica\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -380,6 +409,8 @@
           <DevelopmentServerPort>58756</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>https://localhost:44346/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>https://localhost:44346/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

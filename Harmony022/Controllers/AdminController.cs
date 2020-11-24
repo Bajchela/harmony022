@@ -5,11 +5,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Harmony022.Controllers
 {
     public class AdminController : Controller
     {
-        private harmony022Model db = new harmony022Model();
+        private Harmony022.Models.Harmony022ModelEntities db = new Harmony022.Models.Harmony022ModelEntities();
 
         // GET: Admin
         public ActionResult Index()
@@ -28,6 +29,10 @@ namespace Harmony022.Controllers
             {
                 return View("addAppartmanAdmin");
             }
+            if(strDugme == "Kuca")
+            {
+                return View("addAHomeAdmin");
+            }
             return View("Index");
         }
 
@@ -40,6 +45,14 @@ namespace Harmony022.Controllers
                 var pretrazeno = from c in listPretraga
                                  select c;
                 return View("../tblStan/AppartmansView", pretrazeno.ToList());
+            }
+            if (strDugme == "Kuća")
+            {
+                List<tblKuca> listPretraga = new List<tblKuca>();
+                listPretraga = db.tblKuca.ToList();
+                var pretrazeno = from c in listPretraga
+                                 select c;
+                return View("../tblKucas/Index", pretrazeno.ToList());
             }
             return View("Index");
         }

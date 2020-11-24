@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\BorislavPC\Desktop\Harmony022MVC project\Harmony022\Harmony022\Models\harmony022Model.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\BorislavPC\Desktop\Harmony022\Harmony022\Models\prikaziHarmoni022.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -14,24 +14,16 @@ namespace Harmony022.Models
     
     public partial class prikaziPretragaHarmony
     {
-        public int Stan_Id { get; set; }
-        public string Sifra { get; set; }
-        public string Mesto { get; set; }
         public string Lokacija { get; set; }
-        public Nullable<int> Povrsina_Placa { get; set; }
-        public Nullable<int> Kvadratura { get; set; }
-        public string Grejanje { get; set; }
-        public string Sobnost { get; set; }
-        public string Sprat { get; set; }
-        public string Terasa { get; set; }
-        public string Uknjizen { get; set; }
-        public Nullable<int> Cena { get; set; }
-        public Nullable<System.DateTime> Azuriran { get; set; }
+        public string Mesto { get; set; }
         public string Slika { get; set; }
-        public string Vrsta_Nekretnine { get; set; }
-        public Nullable<bool> Slajder { get; set; }
-        public string Parking { get; set; }
-        public string Opis { get; set; }
+        public int Kvadratura { get; set; }
         public string Drzava { get; set; }
+        public int Cena { get; set; }
+        public bool Slajder { get; set; }
+        public string Vrsta_Nekretnine { get; set; }
+        public string Sifra { get; set; }
+        public int Stan_Id { get; set; }
+        public int Kuca_Id { get; set; }
     }
 }

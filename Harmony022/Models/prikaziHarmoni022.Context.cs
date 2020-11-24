@@ -13,10 +13,10 @@ namespace Harmony022.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class harmony022Model : DbContext
+    public partial class Harmony022ModelEntities : DbContext
     {
-        public harmony022Model()
-            : base("name=harmony022Model")
+        public Harmony022ModelEntities()
+            : base("name=Harmony022ModelEntities")
         {
         }
     
@@ -25,14 +25,17 @@ namespace Harmony022.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<tblSlike> tblSlike { get; set; }
-        public virtual DbSet<tblSlajderGlavni> tblSlajderGlavni { get; set; }
-        public virtual DbSet<tblStan> tblStan { get; set; }
-        public virtual DbSet<prikaziPretragaHarmony> prikaziPretragaHarmony { get; set; }
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<tblKuca> tblKuca { get; set; }
+        public virtual DbSet<tblSlike> tblSlike { get; set; }
+        public virtual DbSet<tblStan> tblStan { get; set; }
+        public virtual DbSet<tblSlajderGlavni> tblSlajderGlavni { get; set; }
+        public virtual DbSet<prikaziPretragaHarmony> prikaziPretragaHarmony { get; set; }
+        public virtual DbSet<tblVikendica> tblVikendica { get; set; }
     }
 }

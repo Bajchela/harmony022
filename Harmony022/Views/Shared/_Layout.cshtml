@@ -6,10 +6,11 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Abril+Fatface" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="~/Content/footer/bootstrap-grid.css">
-   
+
     <style>
         li.dropdown-submenu:hover ul {
             display: block;
@@ -64,13 +65,17 @@
         }
     </style>
 </head>
-<body style="padding-bottom:0px;">
-    
+<body style="padding-bottom:0px; background-color:white;">  
 
-    </div>
-    <div class="navbar navbar-inverse navbar-fixed-top ">
-        <div class="container">
+    <div class="navbar navbar-inverse navbar-fixed-top " style="background-color:white">
+        <div >
         
+            <div class="col-12 ">
+                <!--<img class="col-2 "style="float:unset;text-align:center" src="~/Content/Nekretnine/logo.jpg"/>-->
+            </div>
+        </div>
+        <div class="container">
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -96,7 +101,14 @@
 
                                 </ul>
                             </li>
+                            <li class="dropdown-submenu">
+                                <a href="#">Kuće</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Prodaja", "showHomeSell", "vidiNekretnine")</li>
+                                    <li>@Html.ActionLink("Izdavanje", "showHomeRent", "vidiNekretnine")</li>
 
+                                </ul>
+                            </li>
 
 
                             <li class="nav-divider"></li>
@@ -110,17 +122,18 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    @if(@User.Identity.Name == "baaaaaajchela@live.com"){
-                    <li>@Html.ActionLink(" Admin panel  ", "prikaziGlavnuStranicu", "Admin")</li>
+                    @if (@User.Identity.Name != "")
+                    {
+                        <li>@Html.ActionLink(" Admin panel  ", "prikaziGlavnuStranicu", "Admin")</li>
                     }
                     @Html.Partial("_LoginPartial")
                 </ul>
-                
+
             </div>
         </div>
     </div>
-
-    <div class="container body-content">
+    
+    <div class="container body-content" style="margin-top:100px">
         @RenderBody()
        
 
@@ -225,6 +238,7 @@
             </div>
         </div>
     </section>
+
 </body>
 
 </html>

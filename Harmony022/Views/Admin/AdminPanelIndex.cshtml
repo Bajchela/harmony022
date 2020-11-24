@@ -45,7 +45,8 @@
     <div class="tab-content">
         <div id="Dodajkuću" class="tab-pane fade in active">
             <div class="col-sm-12" style="margin-top: 12px">
-               
+                @Html.Partial("addHomeAdminView")
+
             </div>
         </div>
         <div id="dodajStan" class="tab-pane fade">
@@ -53,10 +54,14 @@
                 @Html.Partial("addAppartmanAdmin")
             </div>
         </div>
+        <div id="dodajKucu" class="tab-pane fade">
+            <div class="col-md-12">
+            </div>
+        </div>
         @*<div id="komentari" class="tab-pane fade">
-                <div class="col-sm-12">
-                    @Html.Action("GetComments", "ProductDetails", new { prodID = Model.RobID })
-                </div>
-            </div>*@
+            <div class="col-sm-12">
+                @Html.Action("GetComments", "ProductDetails", new { prodID = Model.RobID })
+            </div>
+        </div>*@
     </div>
 </div>

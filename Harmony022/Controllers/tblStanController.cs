@@ -14,7 +14,7 @@ namespace Harmony022.Controllers
 {
     public class tblStanController : Controller
     {
-        private harmony022Model db = new harmony022Model();
+        private Harmony022.Models.Harmony022ModelEntities db = new Harmony022.Models.Harmony022ModelEntities();
 
         // GET: tblStan
         public ActionResult Index()

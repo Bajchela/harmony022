@@ -6,7 +6,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 
-<div style="background-color:#b35900 ; padding: 0 5px 5px 5px; margin-top: -3px;">
+<div style="background-color:#f0f0f0 ; padding: 0 5px 5px 5px; margin-top: -3px;">
     <form action="/Pretrazi/showSearch" method="get">
         <div class="row">
             <div class=col-sm-3>
@@ -49,7 +49,7 @@
 
                 @{
                     List<prikaziPretragaHarmony> listPretraga = new List<prikaziPretragaHarmony>();
-                    harmony022Model db = new harmony022Model();
+                    Harmony022.Models.Harmony022ModelEntities db = new Harmony022.Models.Harmony022ModelEntities();
 
                     listPretraga = db.prikaziPretragaHarmony.ToList();
                     var pretrazeno = from x in listPretraga
@@ -82,7 +82,7 @@
             </div>
 
             <div class="col-sm-3">
-                <input class="btn btn-success" type="submit" style="margin-left:-0px; margin-top:30px" value="Pretraži nekreninu" />
+                <input class="btn btn-success" type="submit" style="margin-left:-0px; margin-top:30px; background-color:cornflowerblue; float:right" value="Pretraži nekreninu" />
             </div>
 
         </div>

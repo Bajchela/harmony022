@@ -9,7 +9,7 @@ namespace Harmony022.Controllers
 {
     public class HomeController : Controller
     {
-        private harmony022Model db = new harmony022Model();
+        private Harmony022.Models.Harmony022ModelEntities db = new Harmony022.Models.Harmony022ModelEntities();
 
         public ActionResult PrikaziSlajder()
         {
