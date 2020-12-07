@@ -33,6 +33,11 @@ namespace Harmony022.Controllers
             {
                 return View("addAHomeAdmin");
             }
+            if (strDugme == "Vikendica")
+            {               
+                return View("addCottageAdmin");
+            }
+            
             return View("Index");
         }
 
@@ -53,6 +58,14 @@ namespace Harmony022.Controllers
                 var pretrazeno = from c in listPretraga
                                  select c;
                 return View("../tblKucas/Index", pretrazeno.ToList());
+            }
+            if (strDugme == "Vikendica")
+            {
+                List<tblVikendica> listPretraga = new List<tblVikendica>();
+                listPretraga = db.tblVikendica.ToList();
+                var pretrazeno = from c in listPretraga
+                                 select c;
+                return View("../tblVikendica/Index", pretrazeno.ToList());
             }
             return View("Index");
         }

@@ -244,6 +244,114 @@ namespace Harmony022.Controllers
             }
             return View("../tblKucas/Index", db.tblKuca);
         }
+
+        public ActionResult DodajVikendicu(HttpPostedFileBase file)
+        {
+            tblVikendica tabelaVikendice = new tblVikendica();
+
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+
+                    string filename = Path.GetFileName(file.FileName);
+                    string filePath = Path.Combine(HttpContext.Server.MapPath("~/Content/Nekretnine/VikendiceProdaja/" + Request.Form["Šifra"].ToString()), filename);
+
+
+
+                    bool exists = System.IO.Directory.Exists(HttpContext.Server.MapPath("~/Content/Nekretnine/VikendiceProdaja/" + Request.Form["Šifra"].ToString()));
+
+                    if (!exists)
+                        System.IO.Directory.CreateDirectory(HttpContext.Server.MapPath("~/Content/Nekretnine/VikendiceProdaja/" + Request.Form["Šifra"].ToString()));
+
+                    tabelaVikendice.Vrsta_Nekretnine = Request.Form["VrstaNekretnine"];
+                    tabelaVikendice.Sifra = Request.Form["Šifra"];
+                    tabelaVikendice.Mesto = Request.Form["Mesto"];
+                    tabelaVikendice.Lokacija = Request.Form["Lokacija"];
+                    tabelaVikendice.Sobnost = Request.Form["Sobnost"];
+                    tabelaVikendice.Sprat = Request.Form["Sprat"];
+                    tabelaVikendice.Kvadratura = int.Parse(Request.Form["Kvadratura"].ToString());
+                    tabelaVikendice.Uknjizen = Request.Form["Uknjižen"];
+                    tabelaVikendice.Grejanje = Request.Form["Grejanje"];
+                    tabelaVikendice.Terasa = Request.Form["Terasa"];
+                    tabelaVikendice.Cena = int.Parse(Request.Form["Cena"].ToString());
+                    tabelaVikendice.Azuriran = DateTime.Parse(Request.Form["Ažurirano"].ToString());
+                    tabelaVikendice.Drzava = Request.Form["Drzava"];
+                    if (Request.Form["Slajder"].ToString() == "DA" || Request.Form["Slajder"].ToString() == "da")
+                    {
+                        tabelaVikendice.Slajder = true;
+
+                    }
+                    else
+                    {
+                        tabelaVikendice.Slajder = false;
+                    }
+                    tabelaVikendice.Slika = "/Content/Nekretnine/VikendiceProdaja/" + Request.Form["Šifra"].ToString() + "/" + filename;
+                    db.tblVikendica.Add(tabelaVikendice);
+
+                    db.SaveChanges();
+                    file.SaveAs(filePath);
+
+                }
+                ViewBag.Mesasage = "Uploaded files Saved successfully in a folder !";
+                return View("../tblVikendica/Details", tabelaVikendice);
+            }
+            catch (Exception e1)
+            {
+                string strGlupopst = e1.ToString();
+                ViewBag.Mesasage = "Uploaded files Saved unsuccessfully in a folder !";
+                return View("../tblVikendica/Index", tabelaVikendice);
+            }
+
+        }
+
+        public ActionResult DodajSlikeVikendicu(HttpPostedFileBase[] files)
+        {
+            tblSlike slike = new tblSlike();
+            //Ensure model state is valid  
+            if (ModelState.IsValid)
+            {   //iterating through multiple file collection   
+                foreach (HttpPostedFileBase file in files)
+                {
+
+                    //Checking file is available to save.  
+                    if (file != null)
+                    {
+                        string pathString = Server.MapPath("/Content/Nekretnine/KuceProdaja/" + Request.Form["Šifra"].ToString());
+
+                        bool exists = System.IO.Directory.Exists(HttpContext.Server.MapPath("/Content/Nekretnine/VikendiceProdaja/" + Request.Form["Šifra"].ToString()));
+
+                        if (!exists)
+                        {
+                            System.IO.Directory.CreateDirectory(pathString);
+                        }
+                        var InputFileName = Path.GetFileName(file.FileName);
+
+                        var ServerSavePath = Path.Combine(Server.MapPath("/Content/Nekretnine/VikendiceProdaja/" + Request.Form["Šifra"].ToString()), InputFileName);
+                        //Save file to server folder  
+                        slike.sifra = Request.Form["Šifra"].ToString();
+                        slike.referenca = "/Content/Nekretnine/VikendiceProdaja/" + Request.Form["Šifra"].ToString() + "/" + InputFileName;
+                        file.SaveAs(ServerSavePath);
+
+                        try
+                        {
+                            db.tblSlike.Add(slike);
+                            db.SaveChanges();
+
+                        }
+                        catch (Exception e1)
+                        {
+                            Console.WriteLine(e1.ToString());
+                        }
+
+                        //assigning file uploaded status to ViewBag for showing message to user.  
+                        ViewBag.UploadStatus = files.Count().ToString() + " files uploaded successfully.";
+                    }
+
+                }
+            }
+            return View("../tblVikendica/Index", db.tblVikendica);
+        }
         #endregion
     }
 }

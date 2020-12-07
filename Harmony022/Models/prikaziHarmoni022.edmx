@@ -65,6 +65,7 @@
           <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="sifra" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tblKuca">
           <Key>
@@ -139,12 +140,9 @@ warning 6002: The table/view 'Harmony022.dbo.tblSlajderGlavni' does not have a p
           <Property Name="Drzava" Type="nvarchar" MaxLength="30" />
           <Property Name="PocetnaStrana" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Harmony022.dbo.tblVikendica' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="tblVikendica">
           <Key>
             <PropertyRef Name="Vikendica_Id" />
-            <PropertyRef Name="Sifra" />
           </Key>
           <Property Name="Vikendica_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Sifra" Type="nvarchar" MaxLength="15" Nullable="false" />
@@ -164,6 +162,7 @@ warning 6002: The table/view 'Harmony022.dbo.tblVikendica' does not have a prima
           <Property Name="Drzava" Type="nvarchar" MaxLength="30" />
           <Property Name="PocetnaStrana" Type="bit" />
           <Property Name="Cena" Type="int" />
+          <Property Name="Azuriran" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -245,6 +244,7 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
           <EntitySet Name="tblKuca" EntityType="Self.tblKuca" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSlike" EntityType="Self.tblSlike" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblStan" EntityType="Self.tblStan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVikendica" EntityType="Self.tblVikendica" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSlajderGlavni" EntityType="Self.tblSlajderGlavni" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [tblSlajderGlavni].[Slajder_Id] AS [Slajder_Id], 
@@ -252,28 +252,6 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
     [tblSlajderGlavni].[Putanja] AS [Putanja], 
     [tblSlajderGlavni].[Cena] AS [Cena]
     FROM [dbo].[tblSlajderGlavni] AS [tblSlajderGlavni]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="tblVikendica" EntityType="Self.tblVikendica" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [tblVikendica].[Vikendica_Id] AS [Vikendica_Id], 
-    [tblVikendica].[Sifra] AS [Sifra], 
-    [tblVikendica].[Mesto] AS [Mesto], 
-    [tblVikendica].[Lokacija] AS [Lokacija], 
-    [tblVikendica].[Povrsina_Placa] AS [Povrsina_Placa], 
-    [tblVikendica].[Kvadratura] AS [Kvadratura], 
-    [tblVikendica].[Grejanje] AS [Grejanje], 
-    [tblVikendica].[Sobnost] AS [Sobnost], 
-    [tblVikendica].[Sprat] AS [Sprat], 
-    [tblVikendica].[Terasa] AS [Terasa], 
-    [tblVikendica].[Uknjizen] AS [Uknjizen], 
-    [tblVikendica].[Slika] AS [Slika], 
-    [tblVikendica].[Vrsta_Nekretnine] AS [Vrsta_Nekretnine], 
-    [tblVikendica].[Slajder] AS [Slajder], 
-    [tblVikendica].[Opis] AS [Opis], 
-    [tblVikendica].[Drzava] AS [Drzava], 
-    [tblVikendica].[PocetnaStrana] AS [PocetnaStrana], 
-    [tblVikendica].[Cena] AS [Cena]
-    FROM [dbo].[tblVikendica] AS [tblVikendica]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="prikaziPretragaHarmony" EntityType="Self.prikaziPretragaHarmony" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -373,6 +351,7 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
           <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetUserRoles" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserRoles" />
+          <Property Name="sifra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tblKuca">
           <Key>
@@ -542,7 +521,6 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
         <EntityType Name="tblVikendica">
           <Key>
             <PropertyRef Name="Vikendica_Id" />
-            <PropertyRef Name="Sifra" />
           </Key>
           <Property Name="Vikendica_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Sifra" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
@@ -562,6 +540,7 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
           <Property Name="Drzava" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="PocetnaStrana" Type="Boolean" />
           <Property Name="Cena" Type="Int32" />
+          <Property Name="Azuriran" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -617,6 +596,7 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="Harmony022Model.AspNetUsers">
               <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="sifra" ColumnName="sifra" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
@@ -724,6 +704,7 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
           <EntitySetMapping Name="tblVikendica">
             <EntityTypeMapping TypeName="Harmony022Model.tblVikendica">
               <MappingFragment StoreEntitySet="tblVikendica">
+                <ScalarProperty Name="Azuriran" ColumnName="Azuriran" />
                 <ScalarProperty Name="Cena" ColumnName="Cena" />
                 <ScalarProperty Name="PocetnaStrana" ColumnName="PocetnaStrana" />
                 <ScalarProperty Name="Drzava" ColumnName="Drzava" />

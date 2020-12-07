@@ -114,9 +114,11 @@
             @Html.DisplayFor(modelItem => item.Cena)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+       
+
+            @Html.ActionLink("Edit", "Edit", "tblVikendica", new { id = item.Vikendica_Id }, null) |
+            @Html.ActionLink("Details", "Details", "tblVikendica", new { id = item.Vikendica_Id }, null) |
+            @Html.ActionLink("Delete", "Delete", "tblVikendica", new { id = item.Vikendica_Id }, null) |
         </td>
     </tr>
 }

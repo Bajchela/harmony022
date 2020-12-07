@@ -366,12 +366,15 @@
     <Content Include="Views\tblVikendica\Details.cshtml" />
     <Content Include="Views\tblVikendica\Edit.cshtml" />
     <Content Include="Views\tblVikendica\Index.cshtml" />
+    <Content Include="Views\vidiNekretnine\sellCottage.cshtml" />
+    <Content Include="Views\tblVikendica\showCottage.cshtml" />
+    <Content Include="Views\vidiNekretnine\rentCottage.cshtml" />
+    <Content Include="Views\Admin\addCottageAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Nekretnine\StanoviProdaja\" />
     <Folder Include="Views\Accoutn\" />
-    <Folder Include="Views\AdminPanel\" />
     <Folder Include="Views\UploadFiles\" />
   </ItemGroup>
   <ItemGroup>
