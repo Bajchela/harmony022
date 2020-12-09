@@ -230,6 +230,9 @@
     <Compile Include="Models\tblKuca.cs">
       <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tblPoslovniProstor.cs">
+      <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblSlajderGlavni.cs">
       <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
     </Compile>
@@ -258,8 +261,10 @@
     <Content Include="Content\footernovi\logo-fb-black-png-1.png" />
     <Content Include="Content\footernovi\logo.png" />
     <Content Include="Content\footernovi\mapa.jpg" />
+    <Content Include="Content\Harmony022.png" />
     <Content Include="Content\Nekretnine\logo.jpg" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Geometar\geometar.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -370,6 +375,10 @@
     <Content Include="Views\tblVikendica\showCottage.cshtml" />
     <Content Include="Views\vidiNekretnine\rentCottage.cshtml" />
     <Content Include="Views\Admin\addCottageAdmin.cshtml" />
+    <Content Include="Views\Home\Geometar.cshtml" />
+    <Content Include="Views\Home\Projektant.cshtml" />
+    <Content Include="Views\Home\ONama.cshtml" />
+    <Content Include="Views\Home\caroselCottage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

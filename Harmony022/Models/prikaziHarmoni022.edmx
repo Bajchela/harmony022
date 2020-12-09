@@ -92,6 +92,28 @@
           <Property Name="PocetnaStrana" Type="bit" />
           <Property Name="Cena" Type="int" />
         </EntityType>
+        <EntityType Name="tblPoslovniProstor">
+          <Key>
+            <PropertyRef Name="PoslovniProstor_Id" />
+          </Key>
+          <Property Name="PoslovniProstor_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sifra" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Mesto" Type="nvarchar" MaxLength="15" />
+          <Property Name="Lokacija" Type="nvarchar" MaxLength="15" />
+          <Property Name="Kvadratura" Type="int" />
+          <Property Name="Grejanje" Type="nvarchar" MaxLength="40" />
+          <Property Name="Sobnost" Type="nvarchar" MaxLength="15" />
+          <Property Name="Sprat" Type="nvarchar" MaxLength="15" />
+          <Property Name="Uknjizen" Type="nvarchar" MaxLength="15" />
+          <Property Name="Slika" Type="nvarchar(max)" />
+          <Property Name="Vrsta_Nekretnine" Type="nvarchar" MaxLength="15" />
+          <Property Name="Slajder" Type="bit" />
+          <Property Name="Opis" Type="nvarchar(max)" />
+          <Property Name="Drzava" Type="nvarchar" MaxLength="30" />
+          <Property Name="PocetnaStrana" Type="bit" />
+          <Property Name="Cena" Type="int" />
+          <Property Name="Azuriran" Type="datetime" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Harmony022.dbo.tblSlajderGlavni' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="tblSlajderGlavni">
@@ -242,6 +264,7 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblKuca" EntityType="Self.tblKuca" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPoslovniProstor" EntityType="Self.tblPoslovniProstor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSlike" EntityType="Self.tblSlike" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblStan" EntityType="Self.tblStan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblVikendica" EntityType="Self.tblVikendica" Schema="dbo" store:Type="Tables" />
@@ -517,6 +540,7 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
           <EntitySet Name="tblVikendica" EntityType="Harmony022Model.tblVikendica" />
+          <EntitySet Name="tblPoslovniProstor" EntityType="Harmony022Model.tblPoslovniProstor" />
         </EntityContainer>
         <EntityType Name="tblVikendica">
           <Key>
@@ -532,6 +556,28 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
           <Property Name="Sobnost" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Sprat" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Terasa" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Uknjizen" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Slika" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Vrsta_Nekretnine" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Slajder" Type="Boolean" />
+          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Drzava" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PocetnaStrana" Type="Boolean" />
+          <Property Name="Cena" Type="Int32" />
+          <Property Name="Azuriran" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblPoslovniProstor">
+          <Key>
+            <PropertyRef Name="PoslovniProstor_Id" />
+          </Key>
+          <Property Name="PoslovniProstor_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sifra" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Mesto" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Lokacija" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Kvadratura" Type="Int32" />
+          <Property Name="Grejanje" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Sobnost" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Sprat" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Uknjizen" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Slika" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Vrsta_Nekretnine" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
@@ -723,6 +769,29 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
                 <ScalarProperty Name="Mesto" ColumnName="Mesto" />
                 <ScalarProperty Name="Sifra" ColumnName="Sifra" />
                 <ScalarProperty Name="Vikendica_Id" ColumnName="Vikendica_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPoslovniProstor">
+            <EntityTypeMapping TypeName="Harmony022Model.tblPoslovniProstor">
+              <MappingFragment StoreEntitySet="tblPoslovniProstor">
+                <ScalarProperty Name="Azuriran" ColumnName="Azuriran" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="PocetnaStrana" ColumnName="PocetnaStrana" />
+                <ScalarProperty Name="Drzava" ColumnName="Drzava" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="Slajder" ColumnName="Slajder" />
+                <ScalarProperty Name="Vrsta_Nekretnine" ColumnName="Vrsta_Nekretnine" />
+                <ScalarProperty Name="Slika" ColumnName="Slika" />
+                <ScalarProperty Name="Uknjizen" ColumnName="Uknjizen" />
+                <ScalarProperty Name="Sprat" ColumnName="Sprat" />
+                <ScalarProperty Name="Sobnost" ColumnName="Sobnost" />
+                <ScalarProperty Name="Grejanje" ColumnName="Grejanje" />
+                <ScalarProperty Name="Kvadratura" ColumnName="Kvadratura" />
+                <ScalarProperty Name="Lokacija" ColumnName="Lokacija" />
+                <ScalarProperty Name="Mesto" ColumnName="Mesto" />
+                <ScalarProperty Name="Sifra" ColumnName="Sifra" />
+                <ScalarProperty Name="PoslovniProstor_Id" ColumnName="PoslovniProstor_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

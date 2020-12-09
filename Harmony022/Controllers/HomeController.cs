@@ -11,6 +11,19 @@ namespace Harmony022.Controllers
     {
         private Harmony022.Models.Harmony022ModelEntities db = new Harmony022.Models.Harmony022ModelEntities();
 
+        public ActionResult prikaziONamaStranicu()
+        {
+            return View("ONama");
+        }
+        public ActionResult prikaziGeometarStranicu()
+        {
+            return View("Geometar");
+        }
+        public ActionResult prikaziProjektantStranicu()
+        {
+            return View("Projektant");
+        }
+
         public ActionResult PrikaziSlajder()
         {
                       

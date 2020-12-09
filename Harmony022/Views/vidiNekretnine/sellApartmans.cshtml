@@ -6,6 +6,14 @@
     body{
         background-color: #f0f0f0;
     }
+    hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #000;
+        margin: 1em 0;
+        padding: 0;
+    }
 </style>
 
 @{
@@ -16,7 +24,7 @@
 
 <div class="container" style="background-color: white;margin-top: 15px; align-items: left; padding-bottom: 30px; margin-top:  -20px;">
     <br />
-    <h3 style="text-align: center;font-family: Abril Fatface">- Prodaja stanova -</h3>
+    <h3 style="text-align: center; ">- Prodaja stanova -</h3>
     <hr />
     <row>
         @if (Model.Count > 20)
@@ -28,12 +36,12 @@
 
                         <div class="card-body">
 
-                            <h5 class="card-title" style="font-family: Abril Fatface; font-weight: bold;"><h3 style="text-align: center;"> Šifra: @Model.ElementAt(i).Sifra.ToString()</h3></h5>
-                            <h4 class="card-text" style="font-family: Abril Fatface; font-weight: bold; text-align: center">Lokacija: @Model.ElementAt(i).Mesto.ToString() <br> @Model.ElementAt(i).Drzava.ToString()</h4>
+                            <h5 class="card-title" style="  font-weight: bold;"><h3 style="text-align: center;"> Šifra: @Model.ElementAt(i).Sifra.ToString()</h3></h5>
+                            <h4 class="card-text" style="  font-weight: bold; text-align: center">Lokacija: @Model.ElementAt(i).Mesto.ToString() <br> @Model.ElementAt(i).Drzava.ToString()</h4>
                             <p class="card-text">
 
                             </p>
-                            <p class="card-text bg-light" style="transform: rotate(0);font-family: Abril Fatface;  font-weight: bold; text-align: center">
+                            <p class="card-text bg-light" style="transform: rotate(0);   font-weight: bold; text-align: center">
                                 Kvadratura: @Model.ElementAt(i).Kvadratura.ToString() m2 <br>Cena: @Model.ElementAt(i).Cena.ToString() Eura
                                 <br>
                                 <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;">
@@ -64,12 +72,12 @@
 
                         <div class="card-body">
 
-                            <h5 class="card-title" style="font-family: Abril Fatface; font-weight: bold;"><h3 style="text-align: center;"> Šifra: @Model.ElementAt(i).Sifra.ToString()</h3></h5>
-                            <h4 class="card-text" style="font-family: Abril Fatface; font-weight: bold; text-align: center">Lokacija: @Model.ElementAt(i).Mesto.ToString() <br> @Model.ElementAt(i).Drzava.ToString()</h4>
+                            <h5 class="card-title" style="  font-weight: bold;"><h3 style="text-align: center;"> Šifra: @Model.ElementAt(i).Sifra.ToString()</h3></h5>
+                            <h4 class="card-text" style="  font-weight: bold; text-align: center">Lokacija: @Model.ElementAt(i).Mesto.ToString() <br> @Model.ElementAt(i).Drzava.ToString()</h4>
                             <p class="card-text">
 
                             </p>
-                            <p class="card-text bg-light" style="transform: rotate(0);font-family: Abril Fatface;  font-weight: bold; text-align: center">
+                            <p class="card-text bg-light" style="transform: rotate(0);   font-weight: bold; text-align: center">
                                 Kvadratura: @Model.ElementAt(i).Kvadratura.ToString() m2 <br>Cena: @Model.ElementAt(i).Cena.ToString() Eura
                                 <br>
                                 <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;">

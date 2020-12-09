@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title Harmony022 - Agencija za nekretnine</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Abril+Fatface" />
@@ -123,20 +123,55 @@
                         </ul>
                     </li>
 
-                    <li>@Html.ActionLink("Stanovi", "prikaziStanove", "vidiNekretnine")</li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Legalizacija <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                            <li>@Html.ActionLink("Geometar", "prikaziGeometarStranicu", "Home")</li>
+                            <li>@Html.ActionLink("Projektant", "prikaziProjektantStranicu", "Home")</li>
+                        </ul>
+
+                    </li>
+
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Katastar nepokretnosti<span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a>Sve vrsta usluga u katastru</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a>Uknjižba</a>
+                                    </li>
+                                    <li>
+                                        <a>Vlasnički list</a>
+                                    </li>
+                                    <li>
+                                        <a>Kopija plana</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>@Html.ActionLink("O nama", "prikaziONamaStranicu", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
 
 
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    @if (@User.Identity.Name != "")
-                    {
-                        <li>@Html.ActionLink(" Admin panel  ", "prikaziGlavnuStranicu", "Admin")</li>
-                    }
-                    @Html.Partial("_LoginPartial")
-                </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            @if (@User.Identity.Name != "")
+                            {
+                                <li>@Html.ActionLink(" Admin panel  ", "prikaziGlavnuStranicu", "Admin")</li>
+                            }
+                            @Html.Partial("_LoginPartial")
+                        </ul>
 
-            </div>
+</div>
         </div>
     </div>
     
