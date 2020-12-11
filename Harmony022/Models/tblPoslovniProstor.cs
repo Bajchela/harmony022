@@ -31,5 +31,6 @@ namespace Harmony022.Models
         public Nullable<bool> PocetnaStrana { get; set; }
         public Nullable<int> Cena { get; set; }
         public Nullable<System.DateTime> Azuriran { get; set; }
+        public string Kupatilo { get; set; }
     }
 }

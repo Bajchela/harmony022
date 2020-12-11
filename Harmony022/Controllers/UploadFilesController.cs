@@ -21,8 +21,7 @@ namespace Harmony022.Controllers
             return View();
         }
 
-        #region prodajaStanova
-
+        #region Stanovi
         [HttpPost]
         public ActionResult DodajStan(HttpPostedFileBase file)
             {
@@ -57,6 +56,7 @@ namespace Harmony022.Controllers
                     tabelaStan.Cena = int.Parse(Request.Form["Cena"].ToString());
                     tabelaStan.Azuriran = DateTime.Parse(Request.Form["Ažurirano"].ToString());
                     tabelaStan.Drzava = Request.Form["Drzava"];
+                    tabelaStan.Opis = Request.Form["Opis"];
                     if (Request.Form["Slajder"].ToString() == "DA" || Request.Form["Slajder"].ToString() == "da")
                     {
                         tabelaStan.Slajder = true;
@@ -84,7 +84,6 @@ namespace Harmony022.Controllers
             }
             
         }
-
         public ActionResult DodajSlikeStana(HttpPostedFileBase[] files)
         {
             tblSlike slikeStana = new tblSlike();
@@ -134,7 +133,7 @@ namespace Harmony022.Controllers
         }
         #endregion
 
-        #region prodajaKuce
+        #region Kuce
         [HttpPost]
         public ActionResult dodajKucu(HttpPostedFileBase file)
         {
@@ -169,6 +168,8 @@ namespace Harmony022.Controllers
                     tableHome.Cena = int.Parse(Request.Form["Cena"].ToString());
                     tableHome.Azuriran = DateTime.Parse(Request.Form["Ažurirano"].ToString());
                     tableHome.Drzava = Request.Form["Drzava"];
+                    tableHome.Opis = Request.Form["Opis"];
+
                     if (Request.Form["Slajder"].ToString() == "DA" || Request.Form["Slajder"].ToString() == "da")
                     {
                         tableHome.Slajder = true;
@@ -196,7 +197,6 @@ namespace Harmony022.Controllers
             }
 
         }
-
         public ActionResult DodajSlikeKuce(HttpPostedFileBase[] files)
         {
             tblSlike slikeKuce = new tblSlike();
@@ -244,7 +244,10 @@ namespace Harmony022.Controllers
             }
             return View("../tblKucas/Index", db.tblKuca);
         }
+        #endregion
 
+        #region Vikendica
+        [HttpPost]
         public ActionResult DodajVikendicu(HttpPostedFileBase file)
         {
             tblVikendica tabelaVikendice = new tblVikendica();
@@ -277,6 +280,8 @@ namespace Harmony022.Controllers
                     tabelaVikendice.Cena = int.Parse(Request.Form["Cena"].ToString());
                     tabelaVikendice.Azuriran = DateTime.Parse(Request.Form["Ažurirano"].ToString());
                     tabelaVikendice.Drzava = Request.Form["Drzava"];
+                    tabelaVikendice.Opis = Request.Form["Opis"];
+
                     if (Request.Form["Slajder"].ToString() == "DA" || Request.Form["Slajder"].ToString() == "da")
                     {
                         tabelaVikendice.Slajder = true;
@@ -304,7 +309,6 @@ namespace Harmony022.Controllers
             }
 
         }
-
         public ActionResult DodajSlikeVikendicu(HttpPostedFileBase[] files)
         {
             tblSlike slike = new tblSlike();
@@ -353,5 +357,118 @@ namespace Harmony022.Controllers
             return View("../tblVikendica/Index", db.tblVikendica);
         }
         #endregion
+
+        #region PoslovniProstor
+        [HttpPost]
+        public ActionResult DodajBS(HttpPostedFileBase file)
+        {
+            tblPoslovniProstor tabelaBS = new tblPoslovniProstor();
+
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+
+                    string filename = Path.GetFileName(file.FileName);
+                    string filePath = Path.Combine(HttpContext.Server.MapPath("~/Content/Nekretnine/PoslovniProstorProdaja/" + Request.Form["Šifra"].ToString()), filename);
+
+
+
+                    bool exists = System.IO.Directory.Exists(HttpContext.Server.MapPath("~/Content/Nekretnine/PoslovniProstorProdaja/" + Request.Form["Šifra"].ToString()));
+
+                    if (!exists)
+                        System.IO.Directory.CreateDirectory(HttpContext.Server.MapPath("~/Content/Nekretnine/PoslovniProstorProdaja/" + Request.Form["Šifra"].ToString()));
+
+                    tabelaBS.Vrsta_Nekretnine = Request.Form["VrstaNekretnine"];
+                    tabelaBS.Sifra = Request.Form["Šifra"];
+                    tabelaBS.Mesto = Request.Form["Mesto"];
+                    tabelaBS.Lokacija = Request.Form["Lokacija"];
+                    tabelaBS.Sobnost = Request.Form["Sobnost"];
+                    tabelaBS.Sprat = Request.Form["Sprat"];
+                    tabelaBS.Kvadratura = int.Parse(Request.Form["Kvadratura"].ToString());
+                    tabelaBS.Uknjizen = Request.Form["Uknjižen"];
+                    tabelaBS.Grejanje = Request.Form["Grejanje"];
+                    tabelaBS.Cena = int.Parse(Request.Form["Cena"].ToString());
+                    tabelaBS.Azuriran = DateTime.Parse(Request.Form["Ažurirano"].ToString());
+                    tabelaBS.Drzava = Request.Form["Drzava"];
+                    tabelaBS.Opis = Request.Form["Opis"];
+
+                    if (Request.Form["Slajder"].ToString() == "DA" || Request.Form["Slajder"].ToString() == "da")
+                    {
+                        tabelaBS.Slajder = true;
+
+                    }
+                    else
+                    {
+                        tabelaBS.Slajder = false;
+                    }
+                    tabelaBS.Slika = "/Content/Nekretnine/PoslovniProstorProdaja/" + Request.Form["Šifra"].ToString() + "/" + filename;
+                    db.tblPoslovniProstor.Add(tabelaBS);
+
+                    db.SaveChanges();
+                    file.SaveAs(filePath);
+                }
+
+                ViewBag.Mesasage = "Uspešno ste dodali novi poslovni prostor";
+                return View("../tblPoslovniProstor/Details", tabelaBS);
+            }
+            catch (Exception e1)
+            {
+                string strGlupopst = e1.ToString();
+                ViewBag.Mesasage = "Neuspesno dodavanje novog poslovni prostor !";
+                return View("../tblPoslovniProstor/Index", tabelaBS);
+            }
+
+        }
+        public ActionResult DodajSlikeBS(HttpPostedFileBase[] files)
+        {
+            tblSlike slike = new tblSlike();
+            //Ensure model state is valid  
+            if (ModelState.IsValid)
+            {   //iterating through multiple file collection   
+                foreach (HttpPostedFileBase file in files)
+                {
+
+                    //Checking file is available to save.  
+                    if (file != null)
+                    {
+                        string pathString = Server.MapPath("/Content/Nekretnine/PoslovniProstorProdaja/" + Request.Form["Šifra"].ToString());
+
+                        bool exists = System.IO.Directory.Exists(HttpContext.Server.MapPath("/Content/Nekretnine/PoslovniProstorProdaja/" + Request.Form["Šifra"].ToString()));
+
+                        if (!exists)
+                        {
+                            System.IO.Directory.CreateDirectory(pathString);
+                        }
+                        var InputFileName = Path.GetFileName(file.FileName);
+
+                        var ServerSavePath = Path.Combine(Server.MapPath("/Content/Nekretnine/PoslovniProstorProdaja/" + Request.Form["Šifra"].ToString()), InputFileName);
+                        //Save file to server folder  
+                        slike.sifra = Request.Form["Šifra"].ToString();
+                        slike.referenca = "/Content/Nekretnine/PoslovniProstorProdaja/" + Request.Form["Šifra"].ToString() + "/" + InputFileName;
+                        file.SaveAs(ServerSavePath);
+
+                        try
+                        {
+                            db.tblSlike.Add(slike);
+                            db.SaveChanges();
+
+                        }
+                        catch (Exception e1)
+                        {
+                            Console.WriteLine(e1.ToString());
+                        }
+
+                        //assigning file uploaded status to ViewBag for showing message to user.  
+                        ViewBag.UploadStatus = files.Count().ToString() + " files uploaded successfully.";
+                    }
+
+                }
+            }
+            return View("../tblPoslovniProstor/Index", db.tblPoslovniProstor);
+        }
+        #endregion
+
+
     }
 }

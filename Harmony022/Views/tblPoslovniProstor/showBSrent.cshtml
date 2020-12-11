@@ -1,7 +1,7 @@
-﻿@model List<Harmony022.Models.tblStan>
+﻿@model List<Harmony022.Models.tblPoslovniProstor>
 
 @{
-    ViewBag.Title = "prikaziStanProdaja";
+    ViewBag.Title = "Poslovi prostori";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -389,11 +389,11 @@
 
                                 slike = db.tblSlike.ToList();
 
-                                var saljiStan = from c in slike
+                                var saljiPP = from c in slike
                                                 where c.sifra == Model.ElementAt(0).Sifra.ToString()
                                                 select c.referenca;
 
-                                foreach (string sifra in saljiStan)
+                                foreach (string sifra in saljiPP)
                                 {
                                     <li class="carousel_slide current-slide">
                                         <img class="carousel-img " src="@sifra.ToString()" alt="">
@@ -411,7 +411,7 @@
                     <div class="carousel_nav">
                         <button class="carousel__indicator current-slide"></button>
 
-                        @for (int i = 0; i < saljiStan.Count() - 1; i++)
+                        @for (int i = 0; i < saljiPP.Count() - 1; i++)
                         {
                             <button class="carousel__indicator"></button>
                         }
@@ -424,20 +424,18 @@
                 {
 
 
-                    <ul class="overviewList">
-                        <li>Šifra: <span>@Model.ElementAt(i).Sifra</span></li>
-                        <li>Mesto: <span>@Model.ElementAt(i).Mesto</span></li>
-                        <li>Lokacija: <span>@Model.ElementAt(i).Lokacija</span></li>
-                        <li>Površina placa: <span>@Model.ElementAt(i).Povrsina_Placa m2</span></li>
-                        <li>Kvadratura: <span>@Model.ElementAt(i).Kvadratura m2</span></li>
-                        <li>Grejanje: <span>@Model.ElementAt(i).Grejanje</span></li>
-                        <li>Sobnost: <span>@Model.ElementAt(i).Sobnost</span></li>
-                        <li>Sprat: <span>@Model.ElementAt(i).Sprat</span></li>
-                        <li>Terasa: <span>@Model.ElementAt(i).Terasa</span></li>
-                        <li>Uknjižen: <span>@Model.ElementAt(i).Uknjizen</span></li>
-                        <li>Cena: <span>@Model.ElementAt(i).Cena €</span></li>
-                        <li>Ažuriran: <span>@Model.ElementAt(i).Azuriran.ToString()</span></li>
-                    </ul>
+                <ul class="overviewList">
+                    <li>Šifra: <span>@Model.ElementAt(i).Sifra</span></li>
+                    <li>Mesto: <span>@Model.ElementAt(i).Mesto</span></li>
+                    <li>Lokacija: <span>@Model.ElementAt(i).Lokacija</span></li>
+                    <li>Sprat: <span>@Model.ElementAt(i).Sprat</span></li>
+                    <li>Kvadratura: <span>@Model.ElementAt(i).Kvadratura m2</span></li>
+                    <li>Grejanje: <span>@Model.ElementAt(i).Grejanje</span></li>
+                    <li>Kupatilo: <span>@Model.ElementAt(i).Kupatilo </span></li>
+                    <li>Uknjižen: <span>@Model.ElementAt(i).Uknjizen</span></li>
+                    <li>Cena: <span>@Model.ElementAt(i).Cena €</span></li>
+                    <li>Ažuriran: <span>@Model.ElementAt(i).Azuriran.ToString()</span></li>
+                </ul>
 
                     <div class="clearfix"></div>
 

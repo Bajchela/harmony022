@@ -42,14 +42,15 @@
     List<tblStan> stanovi = db.tblStan.ToList();
     List<tblKuca> kuce = db.tblKuca.ToList();
     List<tblVikendica> vikendica = db.tblVikendica.ToList();
+    List<tblPoslovniProstor> poslovniProstor = db.tblPoslovniProstor.ToList();
 
 }
 
 <div style="margin-left: 15%">
     <button type="button" id="Appartman" onclick="changeCarosel('Appartman')" class="btn btn-outline-primary">Stanovi</button>
-    <button type="button" onclick="changeCarosel('Vikendice')" id="Vikendice" class="btn btn-outline-primary">Vikendice</button>
-    <button type="button" onclick="changeCarosel('Home')" id="Home" class="btn btn-outline-primary">Kuće</button>
-    <button type="button" id="BusinessSpace" class="btn btn-outline-primary">Poslovni prostor</button>
+    <button type="button" id="Vikendice" onclick="changeCarosel('Vikendice')"  class="btn btn-outline-primary">Vikendice</button>
+    <button type="button" id="Home" onclick="changeCarosel('Home')"  class="btn btn-outline-primary">Kuće</button>
+    <button type="button" id="BusinessSpace" onclick="changeCarosel('PoslovniProstor')"  class="btn btn-outline-primary">Poslovni prostor</button>
     <button type="button" id="GradjZemljiste" class="btn btn-outline-primary">Građevinska zemljišta</button>
     <button type="button" id="PoljZemljiste" class="btn btn-outline-primary">Poljoprovredno zemljište</button>
 
@@ -70,11 +71,16 @@
     <h1 style="text-align:center; margin-bottom:-20px">Vikendice</h1>
     @Html.Partial("caroselCottage",vikendica)
 </div>
+<div id="caroselBS">
+    <h1 style="text-align:center; margin-bottom:-20px">Poslovni prostori</h1>
+    @Html.Partial("caroselBS", poslovniProstor)
+</div>
 <script>
     $( document ).ready(function() {
        document.getElementById("caroselAppartman").style.display = "Block";
        document.getElementById("caroselHome").style.display = "none";
        document.getElementById("caroselCottage").style.display = "none";
+        document.getElementById("caroselBS").style.display = "none";
 
     });
 
@@ -83,7 +89,7 @@
             document.getElementById("caroselAppartman").style.display = "Block";
             document.getElementById("caroselHome").style.display = "none";
             document.getElementById("caroselCottage").style.display = "none";
-            //document.getElementById("").style.display = "none";
+            document.getElementById("caroselBS").style.display = "none";
             //document.getElementById("").style.display = "none";
             //document.getElementById("").style.display = "none";
         }
@@ -93,7 +99,7 @@
             document.getElementById("caroselCottage").style.display = "Block";
             document.getElementById("caroselAppartman").style.display = "none"
             document.getElementById("caroselHome").style.display = "none";
-            //document.getElementById("").style.display = "none"
+            document.getElementById("caroselBS").style.display = "none";
             //document.getElementById("").style.display = "none"
             //document.getElementById("").style.display = "none"
         }
@@ -101,7 +107,15 @@
             document.getElementById("caroselHome").style.display = "block";
             document.getElementById("caroselAppartman").style.display = "none"
             document.getElementById("caroselCottage").style.display = "none";
+            document.getElementById("caroselBS").style.display = "none";
             //document.getElementById("").style.display = "none";
+            //document.getElementById("").style.display = "none";
+        }
+        if (type == 'PoslovniProstor') {
+            document.getElementById("caroselBS").style.display = "block";
+            document.getElementById("caroselHome").style.display = "none";
+            document.getElementById("caroselAppartman").style.display = "none"
+            document.getElementById("caroselCottage").style.display = "none";
             //document.getElementById("").style.display = "none";
             //document.getElementById("").style.display = "none";
         }

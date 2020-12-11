@@ -42,7 +42,7 @@
                                 Kvadratura: @Model.ElementAt(i).Kvadratura.ToString() m2 <br>Cena: @Model.ElementAt(i).Cena.ToString() Eura
                                 <br>
                                 <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;">
-                                <a href=@Url.Action("showCottage", "tblVikendica", new { stan = Model.ElementAt(i).Vikendica_Id }) style="text-align: center">Detljanije...</a>
+                                <a href=@Url.Action("prikaziNekretninuVikendiceProdaja", "tblVikendica", new { stan = Model.ElementAt(i).Vikendica_Id }) style="text-align: center">Detljanije...</a>
                             </p>
                         </div>
 
@@ -78,7 +78,7 @@
                                 Kvadratura: @Model.ElementAt(i).Kvadratura.ToString() m2 <br>Cena: @Model.ElementAt(i).Cena.ToString() Eura
                                 <br>
                                 <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;">
-                                <a href=@Url.Action("prikaziNekretninuStanProdaja", "tblVikendica", new { stan = Model.ElementAt(i).Vikendica_Id }) style="text-align: center">Detljanije...</a>
+                                <a href=@Url.Action("prikaziNekretninuVikendiceProdaja", "tblVikendica", new { stan = Model.ElementAt(i).Vikendica_Id }) style="text-align: center">Detljanije...</a>
                             </p>
                         </div>
 

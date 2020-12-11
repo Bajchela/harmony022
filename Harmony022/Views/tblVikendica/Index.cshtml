@@ -93,7 +93,10 @@
             @Html.DisplayFor(modelItem => item.Uknjizen)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Slika)
+            @if (item.Slika.ToString().Length > 0)
+            {
+                <p>IMA</p>
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Vrsta_Nekretnine)
@@ -116,9 +119,9 @@
         <td>
        
 
-            @Html.ActionLink("Edit", "Edit", "tblVikendica", new { id = item.Vikendica_Id }, null) |
-            @Html.ActionLink("Details", "Details", "tblVikendica", new { id = item.Vikendica_Id }, null) |
-            @Html.ActionLink("Delete", "Delete", "tblVikendica", new { id = item.Vikendica_Id }, null) |
+            @Html.ActionLink("Edit", "Edit", "tblVikendica", new { id = item.Vikendica_Id }, null) 
+            @Html.ActionLink("Details", "Details", "tblVikendica", new { id = item.Vikendica_Id }, null) 
+            @Html.ActionLink("Delete", "Delete", "tblVikendica", new { id = item.Vikendica_Id }, null) 
         </td>
     </tr>
 }

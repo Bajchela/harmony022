@@ -113,6 +113,7 @@
           <Property Name="PocetnaStrana" Type="bit" />
           <Property Name="Cena" Type="int" />
           <Property Name="Azuriran" Type="datetime" />
+          <Property Name="Kupatilo" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Harmony022.dbo.tblSlajderGlavni' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -587,6 +588,7 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
           <Property Name="PocetnaStrana" Type="Boolean" />
           <Property Name="Cena" Type="Int32" />
           <Property Name="Azuriran" Type="DateTime" Precision="3" />
+          <Property Name="Kupatilo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -775,6 +777,7 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
           <EntitySetMapping Name="tblPoslovniProstor">
             <EntityTypeMapping TypeName="Harmony022Model.tblPoslovniProstor">
               <MappingFragment StoreEntitySet="tblPoslovniProstor">
+                <ScalarProperty Name="Kupatilo" ColumnName="Kupatilo" />
                 <ScalarProperty Name="Azuriran" ColumnName="Azuriran" />
                 <ScalarProperty Name="Cena" ColumnName="Cena" />
                 <ScalarProperty Name="PocetnaStrana" ColumnName="PocetnaStrana" />

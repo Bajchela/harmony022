@@ -118,6 +118,15 @@
                                 </ul>
                             </li>
 
+                            <li class="dropdown-submenu">
+                                <a href="#">Poslovni prostor</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Prodaja", "showBSSell", "vidiNekretnine")</li>
+                                    <li>@Html.ActionLink("Izdavanje", "showBSRent", "vidiNekretnine")</li>
+
+                                </ul>
+                            </li>
+
                             <li class="nav-divider"></li>
 
                         </ul>
@@ -157,6 +166,7 @@
                             </li>
                         </ul>
                     </li>
+
 
                     <li>@Html.ActionLink("O nama", "prikaziONamaStranicu", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>

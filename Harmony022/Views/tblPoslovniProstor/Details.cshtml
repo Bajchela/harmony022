@@ -1,4 +1,4 @@
-﻿@model Harmony022.Models.tblVikendica
+﻿@model Harmony022.Models.tblPoslovniProstor
 
 @{
     ViewBag.Title = "Details";
@@ -8,9 +8,17 @@
 <h2>Details</h2>
 
 <div>
-    <h4>tblVikendica</h4>
+    <h4>tblPoslovniProstor</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sifra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sifra)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Mesto)
         </dt>
@@ -25,14 +33,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Lokacija)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Povrsina_Placa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Povrsina_Placa)
         </dd>
 
         <dt>
@@ -65,14 +65,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Sprat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Terasa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Terasa)
         </dd>
 
         <dt>
@@ -139,9 +131,17 @@
             @Html.DisplayFor(model => model.Cena)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Azuriran)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Azuriran)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.Vikendica_Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PoslovniProstor_Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

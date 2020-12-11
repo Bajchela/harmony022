@@ -114,6 +114,33 @@ namespace Harmony022.Controllers
             return View("rentCottage", pretrazeno.ToList().ToPagedList(page ?? 5, 8));
         }
 
+        public ActionResult showBSSell(int? page = 1)
+        {
+            List<tblPoslovniProstor> listaPoslovnIProstor = new List<tblPoslovniProstor>();
+
+            var listBS = db.tblPoslovniProstor.ToList();
+
+            var pretrazeno = from c in listBS
+                             where c.Vrsta_Nekretnine == "Prodaja"
+                             orderby c.Cena descending
+                             select c;
+
+            return View("sellBS", pretrazeno.ToList().ToPagedList(page ?? 5, 8));
+        }
+        public ActionResult showBSRent(int? page = 1)
+        {
+            List<tblPoslovniProstor> listaPoslovnIProstor = new List<tblPoslovniProstor>();
+
+            var listBS = db.tblPoslovniProstor.ToList();
+
+            var pretrazeno = from c in listBS
+                             where c.Vrsta_Nekretnine == "Izdavanje"
+                             orderby c.Cena descending
+                             select c;
+
+            return View("rentBS", pretrazeno.ToList().ToPagedList(page ?? 5, 8));
+        }
+
     }
 
 }

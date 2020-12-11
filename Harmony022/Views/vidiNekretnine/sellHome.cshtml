@@ -45,7 +45,7 @@
                                 Kvadratura: @Model.ElementAt(i).Kvadratura.ToString() m2 <br>Cena: @Model.ElementAt(i).Cena.ToString() Eura
                                 <br>
                                 <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;">
-                                <a href=@Url.Action("showHomeSell", "tblKucas", new { stan = Model.ElementAt(i).Kuca_Id }) style="text-align: center">Detljanije...</a>
+                                <a href=@Url.Action("showSellHome", "tblKucas", new { kuca = Model.ElementAt(i).Kuca_Id }) style="text-align: center">Detljanije...</a>
                             </p>
                         </div>
 
@@ -81,7 +81,7 @@
                                 Kvadratura: @Model.ElementAt(i).Kvadratura.ToString() m2 <br>Cena: @Model.ElementAt(i).Cena.ToString() Eura
                                 <br>
                                 <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;">
-                                <a href=@Url.Action("prikaziNekretninuStanProdaja", "tblStan", new { stan = Model.ElementAt(i).Kuca_Id }) style="text-align: center">Detljanije...</a>
+                                <a href=@Url.Action("showSellHome", "tblKucas", new { kuca = Model.ElementAt(i).Kuca_Id }) style="text-align: center">Detljanije...</a>
                             </p>
                         </div>
 

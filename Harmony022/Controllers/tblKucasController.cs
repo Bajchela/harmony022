@@ -135,5 +135,16 @@ namespace Harmony022.Controllers
                             select c;
             return View("showHomeSellView", saljiKucu.ToList());
         }
+        public ActionResult showSellHome(int kuca)
+        {
+            List<tblKuca> listPretraga = new List<tblKuca>();
+
+            listPretraga = db.tblKuca.ToList();
+
+            var saljiKucu = from c in listPretraga
+                            where c.Kuca_Id == kuca
+                            select c;
+            return View("showHomeSellView", saljiKucu.ToList());
+        }
     }
 }

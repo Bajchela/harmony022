@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Harmony022.Models.tblKuca>
+﻿@model IEnumerable<Harmony022.Models.tblPoslovniProstor>
 
 @{
     ViewBag.Title = "Index";
@@ -22,9 +22,6 @@
             @Html.DisplayNameFor(model => model.Lokacija)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Povrsina_Placa)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Kvadratura)
         </th>
         <th>
@@ -37,13 +34,7 @@
             @Html.DisplayNameFor(model => model.Sprat)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Terasa)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Uknjizen)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Azuriran)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Slika)
@@ -55,9 +46,6 @@
             @Html.DisplayNameFor(model => model.Slajder)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Parking)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Opis)
         </th>
         <th>
@@ -65,6 +53,12 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PocetnaStrana)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Azuriran)
         </th>
         <th></th>
     </tr>
@@ -81,9 +75,6 @@
             @Html.DisplayFor(modelItem => item.Lokacija)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Povrsina_Placa)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Kvadratura)
         </td>
         <td>
@@ -96,28 +87,20 @@
             @Html.DisplayFor(modelItem => item.Sprat)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Terasa)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Uknjizen)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Azuriran)
-        </td>
-        <td>
-            @if (item.Slika.ToString().Length > 0)
+            @if(item.Slika.ToString().Length > 0)
             {
                 <p>IMA</p>
             }
+            @*@Html.DisplayFor(modelItem => item.Slika)*@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Vrsta_Nekretnine)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Slajder)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Parking)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Opis)
@@ -129,9 +112,15 @@
             @Html.DisplayFor(modelItem => item.PocetnaStrana)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", "tblKucas", new { id=item.Kuca_Id },null) 
-            @Html.ActionLink("Details", "Details", "tblKucas", new { id=item.Kuca_Id },null) 
-            @Html.ActionLink("Delete", "Delete", "tblKucas", new { id=item.Kuca_Id },null)
+            @Html.DisplayFor(modelItem => item.Cena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Azuriran)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit","tblPoslovniProstor",new { id=item.PoslovniProstor_Id },null) |
+            @Html.ActionLink("Details", "Details", "tblPoslovniProstor", new { id=item.PoslovniProstor_Id },null) |
+            @Html.ActionLink("Delete", "Delete", "tblPoslovniProstor", new { id=item.PoslovniProstor_Id },null)
         </td>
     </tr>
 }

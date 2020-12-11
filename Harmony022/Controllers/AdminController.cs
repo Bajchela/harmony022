@@ -37,6 +37,10 @@ namespace Harmony022.Controllers
             {               
                 return View("addCottageAdmin");
             }
+            if (strDugme == "PoslovniProstor")
+            {
+                return View("addBSAdmin");
+            }
             
             return View("Index");
         }
@@ -49,7 +53,7 @@ namespace Harmony022.Controllers
                 listPretraga = db.tblStan.ToList();
                 var pretrazeno = from c in listPretraga
                                  select c;
-                return View("../tblStan/AppartmansView", pretrazeno.ToList());
+                return View("../tblStan/Index", pretrazeno.ToList());
             }
             if (strDugme == "Kuća")
             {
@@ -66,6 +70,14 @@ namespace Harmony022.Controllers
                 var pretrazeno = from c in listPretraga
                                  select c;
                 return View("../tblVikendica/Index", pretrazeno.ToList());
+            }
+            if (strDugme == "PoslovniProstor")
+            {
+                List<tblPoslovniProstor> listPretraga = new List<tblPoslovniProstor>();
+                listPretraga = db.tblPoslovniProstor.ToList();
+                var pretrazeno = from c in listPretraga
+                                 select c;
+                return View("../tblPoslovniProstor/Index", pretrazeno.ToList());
             }
             return View("Index");
         }

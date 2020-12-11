@@ -1,10 +1,10 @@
 ﻿@using PagedList;
 @using PagedList.Mvc
 
-@model  IPagedList<Harmony022.Models.tblKuca>
+@model  IPagedList<Harmony022.Models.tblPoslovniProstor>
 
 @{
-    ViewBag.Title = "rentApartmans";
+    ViewBag.Title = "Prodaja poslovnog prostora";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -21,8 +21,8 @@
 
 <div class="container" style="background-color: white;margin-top: 15px; align-items: left; padding-bottom: 30px; margin-top:  -20px;">
     <br />
-    <h3 style="text-align: center; ">- Izdavanje kuća -</h3>
-    <hr />
+    <h3 style="text-align: center; ">- Prodaja poslovnog prostora -</h3>
+    <hr style=" background-color: #ccc" />
     <row>
         @if (Model.Count > 20)
         {
@@ -42,7 +42,7 @@
                                 Kvadratura: @Model.ElementAt(i).Kvadratura.ToString() m2 <br>Cena: @Model.ElementAt(i).Cena.ToString() Eura
                                 <br>
                                 <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;">
-                                <a href=@Url.Action("showRentHome", "tblKucas", new { kuca = Model.ElementAt(i).Kuca_Id }) style="text-align: center">Detljanije...</a>
+                                <a href=@Url.Action("prikaziNekretninuPoslovniProstorProdaja", "tblPoslovniProstor", new { BS = Model.ElementAt(i).PoslovniProstor_Id }) style="text-align: center">Detljanije...</a>
                             </p>
                         </div>
 
@@ -78,7 +78,7 @@
                                 Kvadratura: @Model.ElementAt(i).Kvadratura.ToString() m2 <br>Cena: @Model.ElementAt(i).Cena.ToString() Eura
                                 <br>
                                 <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;">
-                                <a href=@Url.Action("showRentHome", "tblKucas", new { kuca = Model.ElementAt(i).Kuca_Id }) style="text-align: center">Detljanije...</a>
+                                <a href=@Url.Action("prikaziNekretninuPoslovniProstorProdaja", "tblPoslovniProstor", new { BS = Model.ElementAt(i).PoslovniProstor_Id }) style="text-align: center">Detljanije...</a>
                             </p>
                         </div>
 
@@ -98,9 +98,9 @@
     </row>
 </div>
 
-<hr />
+<hr style=" background-color: #ccc;" />
 <div style="text-align:center; display:block;background-color: white;">
-    @Html.PagedListPager(Model, page => Url.Action("showHomeRent", "vidiNekretnine", new { page }));
+    @Html.PagedListPager(Model, page => Url.Action("prikaziIzdavanjePoslovniProstor", "vidiNekretnine", new { page }));
 
 </div>
 s

@@ -123,5 +123,17 @@ namespace Harmony022.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult prikaziNekretninuVikendiceProdaja(int stan)
+        {
+            List<tblVikendica> listPretraga = new List<tblVikendica>();
+
+            listPretraga = db.tblVikendica.ToList();
+
+            var saljiStan = from c in listPretraga
+                            where c.Vikendica_Id == stan
+                            select c;
+            return View("showCottage", saljiStan.ToList());
+        }
+      
     }
 }

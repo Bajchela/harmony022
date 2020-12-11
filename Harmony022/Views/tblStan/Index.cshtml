@@ -96,8 +96,11 @@
         <td style="padding-bottom:15px;" >
             @Html.DisplayFor(modelItem => item.Azuriran)
         </td>
-        <td style="padding-bottom:15px;" >
-            @Html.DisplayFor(modelItem => item.Slika)
+        <td style="padding-bottom:15px;">
+            @if (item.Slika.ToString().Length > 0)
+            {
+                <p>IMA</p>
+            }
         </td>
         <td style="padding-bottom:15px;" >
             @Html.DisplayFor(modelItem => item.Vrsta_Nekretnine)
@@ -109,8 +112,8 @@
             @Html.DisplayFor(modelItem => item.Slajder)
         </td>
         <td style="padding-bottom:15px;" >
-            @Html.ActionLink("Edit","Edit", "tblStan", new { id=item.Stan_Id }, null) |
-            @Html.ActionLink("Details", "Details","tblStan", new { id=item.Stan_Id },null ) |
+            @Html.ActionLink("Edit","Edit", "tblStan", new { id=item.Stan_Id }, null) 
+            @Html.ActionLink("Details", "Details","tblStan", new { id=item.Stan_Id },null ) 
             @Html.ActionLink("Delete", "Delete", "tblStan",new { id=item.Stan_Id }, null)
         </td>
     </tr>

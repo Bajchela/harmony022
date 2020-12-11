@@ -28,7 +28,7 @@
             <input class="btn btn-success" type="submit" style="margin-left:20px; margin-top:30px" name="strDugme" value="Kuća" />
             <input class="btn btn-success" type="submit" style="margin-left: 20px; margin-top:30px" name="strDugme" value="Stan" />
             <input class="btn btn-success" type="submit" style="margin-left:20px; margin-top:30px" name="strDugme"  value="Vikendica" />
-            <input class="btn btn-success" type="submit" style="margin-left:20px; margin-top:30px" value="Poslovni prostor" />
+            <input class="btn btn-success" type="submit" style="margin-left:20px; margin-top:30px" name="strDugme" value="PoslovniProstor" />
             <input class="btn btn-success" type="submit" style="margin-left:20px; margin-top:30px" value="Građevinsko zemljište" />
             <input class="btn btn-success" type="submit" style="margin-left:20px; margin-top:30px" value="Poljoprivredno zemljište" />
         </div>
@@ -40,6 +40,7 @@
     <li id="upOpis" class="tabic active TabBottomLine"><a data-toggle="tab" href="#Dodajkuću">Kuća</a></li>
     <li id="upDokument" class="tabic"><a id="doc" data-toggle="tab" href="#dodajStan">Stan</a></li>
     <li id="upDokumentVikendica" class="tabic"><a id="doc" data-toggle="tab" href="#dodajVikendicu">Vikendica</a></li>
+    <li id="upDokumentPoslovniProstor" class="tabic"><a id="doc" data-toggle="tab" href="#dodajPoslovniProstor">Poslovni prostor</a></li>
 
     @*<li id="upKomentar" class="tabic"><a id="kom" data-toggle="tab" href="#komentari">KOMENTARI</a></li>*@
 </ul>
@@ -59,6 +60,11 @@
         <div id="dodajVikendicu" class="tab-pane fade">
             <div class="col-md-12">
                 @Html.Partial("addCottageAdmin")
+            </div>
+        </div>
+        <div id="dodajPoslovniProstor" class="tab-pane fade">
+            <div class="col-md-12">
+                @Html.Partial("addBSAdmin")
             </div>
         </div>
         @*<div id="komentari" class="tab-pane fade">
