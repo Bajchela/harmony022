@@ -1,10 +1,10 @@
 ﻿
-    <body>
+<body>
 
-        <div class="row" style="align-content:center; ">
-            <div class="flex-column">
-                @using (Html.BeginForm("DodajBS", "UploadFiles", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
+    <div class="row" style="align-content:center; ">
+        <div class="flex-column">
+            @using (Html.BeginForm("DodajLand", "UploadFiles", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
                 <table>
                     <tbody>
                         <tr>
@@ -21,22 +21,13 @@
                         <tr>
                             <td style="padding-bottom:15px;"> @Html.TextBox("Lokacija", "", "", new { placeholder = "Unesite lokaciju", style = "text-align: center", @class = "form-control" }) </td>
                         </tr>
+                      
                         <tr>
-                            <td style="padding-bottom:15px;"> @Html.TextBox("Sobnost", "", "", new { placeholder = "Unesite sobnost", style = "text-align: center", @class = "form-control" }) </td>
-                        </tr>
-                        <tr>
-                            <td style="padding-bottom:15px;"> @Html.TextBox("Sprat", "", "", new { placeholder = "Unesite sprat", style = "text-align: center", @class = "form-control" }) </td>
-                        </tr>
-                        <tr>
-                            <td style="padding-bottom:15px;"> @Html.TextBox("Kvadratura", "", "", new { @type = "number", placeholder = "Unesite kvadraturu", style = "text-align: center", @class = "form-control" }) </td>
+                            <td style="padding-bottom:15px;"> @Html.TextBox("Površina", "", "", new { @type = "number", placeholder = "Unesite kvadraturu", style = "text-align: center", @class = "form-control" }) </td>
                         </tr>
                         <tr>
                             <td style="padding-bottom:15px;"> @Html.TextBox("Uknjižen", "", "", new { placeholder = "Da li je uknjižen", style = "text-align: center", @class = "form-control" }) </td>
                         </tr>
-                        <tr>
-                            <td style="padding-bottom:15px;"> @Html.TextBox("Grejanje", "", "", new { placeholder = "Grejanje", style = "text-align: center", @class = "form-control" }) </td>
-                        </tr>                      
-                       
                         <tr>
                             <td style="padding-bottom:15px;"> @Html.TextBox("Cena", "", "", new { @type = "number", placeholder = "Unesite cenu u Evrima", style = "text-align: center", @class = "form-control" }) </td>
                         </tr>
@@ -55,43 +46,43 @@
                         <tr>
                             <td style="padding-bottom:15px; padding-top:15px;"> @Html.TextArea("Opis", new { placeholder = "Unesite opis nekretnine", style = "text-align: center", @class = "form-control" }) </td>
                         </tr>
-                        <tr>                            
+                        <tr>
                             <td style="padding-bottom:15px;"> @Html.TextBox("Početna strana", "", "", new { placeholder = "Slajder (DA ili NE)", style = "text-align: center", @class = "form-control" }) </td>
                         </tr>
-                    <tr>
-                        <td style="padding-bottom:15px;"> <input type="file" name="file" id="file" class="btn btn-primary" /> </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-bottom:15px;"> <input type="submit" class="button button4" value="Sačuvaj" /> </td>
-                    </tr>
+                        <tr>
+                            <td style="padding-bottom:15px;"> <input type="file" name="file" id="file" class="btn btn-primary" /> </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-bottom:15px;"> <input type="submit" class="button button4" value="Sačuvaj" /> </td>
+                        </tr>
                     </tbody>
                 </table>
 
-                }
-            </div>
-            <div class="flex-column" style="margin-left: 15px;">
-                <div style="text-align:center;background-color:orange;color:white;font-family:Arial;font-style:oblique;font-size:x-large; padding-bottom:15px;">
-                    Unesite poslovni prostor
-                </div>
-                @using (Html.BeginForm("DodajSlikeBS", "UploadFiles", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
-                    <div style="padding-bottom:15px; padding-top:15px;"> @Html.TextBox("Šifra", "", "", new { placeholder = "Unesite šifru", style = "text-align: center", @class = "form-control" }) </div>
-
-
-                    @Html.TextBox("files", "", new { @type = "file", @multiple = "multiple" })
-
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10" style="margin-top:10px;">
-                            <input type="submit" value="Upload" class="btn btn-primary" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10 text-success">
-                            @ViewBag.UploadStatus
-                        </div>
-                    </div>
-                }
-            </div>
+            }
         </div>
-    </body>
+        <div class="flex-column" style="margin-left: 15px;">
+            <div style="text-align:center;background-color:orange;color:white;font-family:Arial;font-style:oblique;font-size:x-large; padding-bottom:15px;">
+                Unesite poslovni prostor
+            </div>
+            @using (Html.BeginForm("DodajSlikeLand", "UploadFiles", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div style="padding-bottom:15px; padding-top:15px;"> @Html.TextBox("Šifra", "", "", new { placeholder = "Unesite šifru", style = "text-align: center", @class = "form-control" }) </div>
+
+
+                @Html.TextBox("files", "", new { @type = "file", @multiple = "multiple" })
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10" style="margin-top:10px;">
+                        <input type="submit" value="Upload" class="btn btn-primary" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10 text-success">
+                        @ViewBag.UploadStatus
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>
 

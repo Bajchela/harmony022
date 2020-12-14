@@ -41,6 +41,7 @@
     <li id="upDokument" class="tabic"><a id="doc" data-toggle="tab" href="#dodajStan">Stan</a></li>
     <li id="upDokumentVikendica" class="tabic"><a id="doc" data-toggle="tab" href="#dodajVikendicu">Vikendica</a></li>
     <li id="upDokumentPoslovniProstor" class="tabic"><a id="doc" data-toggle="tab" href="#dodajPoslovniProstor">Poslovni prostor</a></li>
+    <li id="upDokumentZemljiste" class="tabic"><a id="doc" data-toggle="tab" href="#dodajZemljiste">Zemljiste</a></li>
 
     @*<li id="upKomentar" class="tabic"><a id="kom" data-toggle="tab" href="#komentari">KOMENTARI</a></li>*@
 </ul>
@@ -67,10 +68,15 @@
                 @Html.Partial("addBSAdmin")
             </div>
         </div>
+        <div id="dodajZemljiste" class="tab-pane fade">
+            <div class="col-md-12">
+                @*   @Html.Partial("addLandAdmin") *@
+            </div>
+        </div>
         @*<div id="komentari" class="tab-pane fade">
             <div class="col-sm-12">
                 @Html.Action("GetComments", "ProductDetails", new { prodID = Model.RobID })
             </div>
         </div>*@
-    </div>
+            </div>
 </div>

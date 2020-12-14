@@ -57,7 +57,7 @@ namespace Harmony022.Controllers
 
             return View("sellApartmans", pretrazeno.ToList().ToPagedList(page ?? 5, 8));
         }
-
+         
         public ActionResult showHomeSell(int? page = 1)
         {
             List<tblKuca> listaKuca = new List<tblKuca>();
@@ -71,7 +71,6 @@ namespace Harmony022.Controllers
 
             return View("sellHome", pretrazeno.ToList().ToPagedList(page ?? 5, 8));
         }
-
         public ActionResult showHomeRent(int? page = 1)
         {
             List<tblKuca> listaHome = new List<tblKuca>();
@@ -141,6 +140,32 @@ namespace Harmony022.Controllers
             return View("rentBS", pretrazeno.ToList().ToPagedList(page ?? 5, 8));
         }
 
+        public ActionResult showLandSell(int? page = 1)
+        {
+            List<tblZemljiste> listaZemljiste = new List<tblZemljiste>();
+
+            var listZemljiste = db.tblZemljiste.ToList();
+
+            var pretrazeno = from c in listaZemljiste
+                             where c.Vrsta_Nekretnine == "Prodaja"
+                             orderby c.Cena descending
+                             select c;
+
+            return View("sellLand", pretrazeno.ToList().ToPagedList(page ?? 5, 8));
+        }
+        public ActionResult showLandRent(int? page = 1)
+        {
+            List<tblZemljiste> listaZemljiste = new List<tblZemljiste>();
+
+            var listland = db.tblZemljiste.ToList();
+
+            var pretrazeno = from c in listland
+                             where c.Vrsta_Nekretnine == "Izdavanje"
+                             orderby c.Cena descending
+                             select c;
+
+            return View("rentLand", pretrazeno.ToList().ToPagedList(page ?? 5, 8));
+        }
     }
 
 }

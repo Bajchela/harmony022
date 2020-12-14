@@ -184,6 +184,7 @@
     <Compile Include="Controllers\tblPoslovniProstorController.cs" />
     <Compile Include="Controllers\tblStanController.cs" />
     <Compile Include="Controllers\tblVikendicaController.cs" />
+    <Compile Include="Controllers\tblZemljistesController.cs" />
     <Compile Include="Controllers\UploadFilesController.cs" />
     <Compile Include="Controllers\vidiNekretnineController.cs" />
     <Compile Include="Global.asax.cs">
@@ -244,6 +245,9 @@
       <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblVikendica.cs">
+      <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblZemljiste.cs">
       <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -391,6 +395,15 @@
     <Content Include="Views\Admin\addBSAdmin.cshtml" />
     <Content Include="Views\Home\caroselBS.cshtml" />
     <Content Include="Views\tblPoslovniProstor\showBSsell.cshtml" />
+    <Content Include="Views\tblZemljistes\Create.cshtml" />
+    <Content Include="Views\tblZemljistes\Delete.cshtml" />
+    <Content Include="Views\tblZemljistes\Details.cshtml" />
+    <Content Include="Views\tblZemljistes\Edit.cshtml" />
+    <Content Include="Views\tblZemljistes\Index.cshtml" />
+    <Content Include="Views\tblZemljistes\showLand.cshtml" />
+    <Content Include="Views\vidiNekretnine\sellLand.cshtml" />
+    <Content Include="Views\vidiNekretnine\rentLand.cshtml" />
+    <Content Include="Views\Admin\addLandAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

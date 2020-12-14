@@ -38,5 +38,6 @@ namespace Harmony022.Models
         public virtual DbSet<prikaziPretragaHarmony> prikaziPretragaHarmony { get; set; }
         public virtual DbSet<tblVikendica> tblVikendica { get; set; }
         public virtual DbSet<tblPoslovniProstor> tblPoslovniProstor { get; set; }
+        public virtual DbSet<tblZemljiste> tblZemljiste { get; set; }
     }
 }
