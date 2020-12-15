@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="~/Content/footer/bootstrap-grid.css">
-
+    
     <style>
+        
         li.dropdown-submenu:hover ul {
             display: block;
             left: 100%;
@@ -65,9 +66,19 @@
         }
     </style>
 </head>
-<body style="padding-bottom:0px; background-color:white;">
+<body style=" padding-bottom: 0px;background-color: white;padding-top: 110px;">
  
+
     <div class="navbar navbar-inverse navbar-fixed-top " style="background-color:white">
+      
+        <div class="container-fluid">
+            <div class="row text-center">
+                <div class="col-12">
+                    <img id="logoSlika" src="~/Content/Harmony022.png" style="width: 200px;" alt="">
+                </div>
+
+            </div>
+        </div>
         <div>
 
             <div class="col-12 ">
@@ -84,6 +95,7 @@
                 </button>
                 @Html.ActionLink("Harmony022", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
+
             <div class="navbar-collapse collapse text-center">
                 <ul class="nav navbar-nav">
                     <li>
@@ -192,7 +204,7 @@
         </div>
     </div>
 
-    <div class="container body-content" style="margin-top:100px">
+    <div class="container body-content" style="margin-top:110px">
         @RenderBody()
 
 
@@ -301,3 +313,14 @@
 </body>
 
 </html>
+<script>
+    $(window).scroll(function () {
+        var scroll = $(window).scrollTop();
+        if ((scroll > 0) && (scroll < 50)) {
+            $('#logoSlika').width(200);
+        }
+        else if (scroll > 50) {
+            $('#logoSlika').width(100);
+        }
+    })
+</script>

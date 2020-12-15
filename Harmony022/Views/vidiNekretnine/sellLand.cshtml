@@ -42,7 +42,7 @@
                                 Površina: @Model.ElementAt(i).Povrsina.ToString() m2 <br>Cena: @Model.ElementAt(i).Cena.ToString() Eura
                                 <br>
                                 <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;">
-                                <a href=@Url.Action("prikaziNekretninuStanSell", "tblZemljistes", new { stan = Model.ElementAt(i).Zemljiste_Id }) style="text-align: center">Detljanije...</a>
+                                <a href=@Url.Action("prikaziNekretninuZemljisteSell", "tblZemljistes", new { zemlja = Model.ElementAt(i).Zemljiste_Id }) style="text-align: center">Detljanije...</a>
                             </p>
                         </div>
 
@@ -78,7 +78,7 @@
                                 Površina: @Model.ElementAt(i).Povrsina.ToString() m2 <br>Cena: @Model.ElementAt(i).Cena.ToString() Eura
                                 <br>
                                 <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;">
-                                <a href=@Url.Action("prikaziNekretninuStanSell", "tblZemljistes", new { stan = Model.ElementAt(i).Zemljiste_Id }) style="text-align: center">Detljanije...</a>
+                                <a href=@Url.Action("prikaziNekretninuZemljisteSell", "tblZemljistes", new { zemlja = Model.ElementAt(i).Zemljiste_Id }) style="text-align: center">Detljanije...</a>
                             </p>
                         </div>
 

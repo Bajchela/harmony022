@@ -492,7 +492,7 @@ namespace Harmony022.Controllers
                     tabelaLand.Sifra = Request.Form["Šifra"];
                     tabelaLand.Mesto = Request.Form["Mesto"];
                     tabelaLand.Lokacija = Request.Form["Lokacija"];
-                    tabelaLand.Povrsina = int.Parse(Request.Form["Kvadratura"].ToString());
+                    tabelaLand.Povrsina = int.Parse(Request.Form["Povrsina"].ToString());
                     tabelaLand.Uknjizen = Request.Form["Uknjižen"];
                     tabelaLand.Cena = int.Parse(Request.Form["Cena"].ToString());
                     tabelaLand.Azuriran = DateTime.Parse(Request.Form["Ažurirano"].ToString());

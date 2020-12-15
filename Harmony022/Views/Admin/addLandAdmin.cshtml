@@ -8,8 +8,8 @@
                 <table>
                     <tbody>
                         <tr>
-                            <td style="text-align:center;background-color:orange;color:white;font-family:Arial;font-style:oblique;font-size:x-large; padding-bottom:15px;">
-                                Unesite poslovni prostor
+                            <td style="text-align:center;background-color:saddlebrown;color:white;font-family:Arial;font-style:oblique;font-size:x-large; padding-bottom:15px;">
+                                Unesite poljoprivredno zemljište
                             </td>
                         </tr>
                         <tr>
@@ -23,7 +23,7 @@
                         </tr>
                       
                         <tr>
-                            <td style="padding-bottom:15px;"> @Html.TextBox("Površina", "", "", new { @type = "number", placeholder = "Unesite kvadraturu", style = "text-align: center", @class = "form-control" }) </td>
+                            <td style="padding-bottom:15px;"> @Html.TextBox("Povrsina", "", "", new { @type = "number", placeholder = "Unesite površinu", style = "text-align: center", @class = "form-control" }) </td>
                         </tr>
                         <tr>
                             <td style="padding-bottom:15px;"> @Html.TextBox("Uknjižen", "", "", new { placeholder = "Da li je uknjižen", style = "text-align: center", @class = "form-control" }) </td>
@@ -61,8 +61,8 @@
             }
         </div>
         <div class="flex-column" style="margin-left: 15px;">
-            <div style="text-align:center;background-color:orange;color:white;font-family:Arial;font-style:oblique;font-size:x-large; padding-bottom:15px;">
-                Unesite poslovni prostor
+            <div style="text-align:center;background-color:saddlebrown;color:white;font-family:Arial;font-style:oblique;font-size:x-large; padding-bottom:15px;">
+                Unesite slike polj. zemljišta
             </div>
             @using (Html.BeginForm("DodajSlikeLand", "UploadFiles", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {

@@ -132,10 +132,10 @@ namespace Harmony022.Controllers
             var saljiZemljiste = from c in listPretraga
                             where c.Zemljiste_Id == zemlja
                             select c;
-            return View("prikaziZemljisteIzdavanje", saljiZemljiste.ToList());
+            return View("showLand", saljiZemljiste.ToList());
         }
 
-        public ActionResult prikaziNekretninuStanSell(int zemlja)
+        public ActionResult prikaziNekretninuZemljisteSell(int zemlja)
         {
             List<tblZemljiste> listPretraga = new List<tblZemljiste>();
 
@@ -144,7 +144,7 @@ namespace Harmony022.Controllers
             var saljiZemljiste = from c in listPretraga
                             where c.Zemljiste_Id == zemlja
                                  select c;
-            return View("prikaziZemljisteProdaja", saljiZemljiste.ToList());
+            return View("showLand", saljiZemljiste.ToList());
         }
 
     }

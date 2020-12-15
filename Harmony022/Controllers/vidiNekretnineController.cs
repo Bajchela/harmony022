@@ -146,7 +146,7 @@ namespace Harmony022.Controllers
 
             var listZemljiste = db.tblZemljiste.ToList();
 
-            var pretrazeno = from c in listaZemljiste
+            var pretrazeno = from c in listZemljiste
                              where c.Vrsta_Nekretnine == "Prodaja"
                              orderby c.Cena descending
                              select c;

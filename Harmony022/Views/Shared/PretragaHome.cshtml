@@ -7,15 +7,15 @@
 </head>
 
 <div style="background-color:#f0f0f0 ; padding: 0 5px 5px 5px; margin-top: -3px;">
-    <form action="/Pretrazi/showSearch" method="get">
+    <form action="/Pretrazi/showSearch" method="post">
         <div class="row">
             <div class=col-sm-3>
                 <h4><b>Vrsta nekrenine</b></h4>
-                <select class="form-control" id="StudentGender" name="VrstaLokacije">
+                <select class="form-control" id="StudentGender" name="VrstaLokacije" value="@Request["VrstaLokacije"]">
                     <option>Stan</option>
                     <option>Kuća</option>
                     <option>Vikendica</option>
-                    <option>Poslovni prostor</option>
+                    <option>Poslovni prostor</option>d
                     <option>Građevinsko zemiljište</option>
                     <option>Poljoprivredno zemiljište</option>
                 </select>
@@ -23,17 +23,17 @@
 
             <div class="col-sm-3">
                 <h4><b>Cena od</b></h4>
-                <input type="number" name="txtCenaOd" />
+                <input type="number" name="txtCenaOd" value="@Request["txtCenaOd"]"/>
             </div>
 
             <div class="col-sm-3">
                 <h4><b>Cena do</b></h4>
-                <input type="number"  name="txtCenaDo" />
+                <input type="number"  name="txtCenaDo" value="@Request["txtCenaDo"]"/>
             </div>
 
             <div class="col-sm-3">
                 <h4><b>Tip nekretnine</b></h4>
-                <select class="form-control" id="StudentGender" name="TipLokacije">
+                <select class="form-control" id="StudentGender" name="TipLokacije" value="@Request["TipLokacije"]">
                     <option>Prodaja</option>
                     <option>Izdavanje</option>
                 </select>
@@ -56,35 +56,41 @@
                                      orderby x.Mesto
                                      select x.Mesto;
                     pretrazeno = pretrazeno.Distinct();
-                                <select class="form-control" id="StudentGender" name="Mesto">
-                                    
-                                    <option>Sve</option>
+                    <select class="form-control" id="StudentGender" name="Mesto" value="@Request["Mesto"]">
 
-                                    @foreach (var item in pretrazeno)
-                                    {
-                                        <option>@item</option>
-                                    }
-                                </select>
+                        <option>Sve</option>
+
+                        @foreach (var item in pretrazeno)
+                        {
+                            <option>@item</option>
+                        }
+                    </select>
                 }
-                               
+
             </div>
 
             <div class="col-sm-3">
                 <h4><b>Kvadratura od</b></h4>
-                <input type="number" name="txtKvadraturaOd" />
+                <input type="number" name="txtKvadraturaOd" value="@Request["txtKvadraturaOd"]" />
             </div>
 
             <div class="col-sm-3">
 
                 <h4><b>Kvadratura do</b></h4>
-                <input type="number" name="txtKvadraturaDo" />
+                <input type="number" name="txtKvadraturaDo" value="@Request["txtKvadraturaDo"]" />
 
             </div>
 
             <div class="col-sm-3">
-                <input class="btn btn-success" type="submit" style="margin-left:-0px; margin-top:30px; background-color:cornflowerblue; float:right" value="Pretraži nekreninu" />
+                <h4><b>Sortiraj</b></h4>
+                <select style=" display: inline-block; " class="form-control" id="sortiraj" name="sort" value="@Request["sort"]">
+                    <option>rastućoj ceni</option>
+                    <option>opadajućoj ceni</option>
+                    <option>rastućoj kvadraturi</option>
+                    <option>opadajućoj kvadraturi</option>
+                </select>
+                <input class="btn btn-success" type="submit" style="margin-left:-0px; margin-top:30px; background-color:cornflowerblue; float:right" value="Pretraži nekretnine" />
             </div>
-
         </div>
 
 </form>

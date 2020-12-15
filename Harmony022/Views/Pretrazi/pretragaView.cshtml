@@ -19,34 +19,43 @@
             opacity: 1.0;
         }
 </style>
-<body  style="background-color: #ced8e3;">
+
+        <body style="background-color: #ced8e3;">
+
+            @for (int i = 0; i < Model.Count; i++)
+            {
 
 
-    @for (int i = 0; i < Model.Count; i++)
-    {
+                <row>
+                    <div style="border: 2px;">
+                        <column>
+                            <div class="card" style="width: 18rem;">
+                                @if (@Model.ElementAt(i).Slika.ToString() != "")
+                                {
+                                    <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;border-style: solid;">
+
+                                }
+                                else
+                                {
+                                    <img src="~/Content/Harmony022.png" class="card-img-top" alt="0001" style="height: 100px; width: 204px;border-style: solid;">
+
+                                }
+                                <div class="card-body">
+                                    <h3 class="card-title text-center">@Model.ElementAt(i).Lokacija,  @Model.ElementAt(i).Mesto  @Model.ElementAt(i).Drzava</h3>
+
+                                    <p class="card-text text-center"><strong>Kvadratura: @Model.ElementAt(i).Kvadratura m2</strong> <br /><strong>Cena: @Model.ElementAt(i).Cena Eura</strong></p>
 
 
-    <row>
-        <div style="border: 2px;">
-            <column>
-                <div class="card" style="width: 18rem;">
-                    <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;border-style: solid;">
-                    <div class="card-body">
-                        <h3 class="card-title text-center">@Model.ElementAt(i).Lokacija,  @Model.ElementAt(i).Mesto  @Model.ElementAt(i).Drzava</h3>
+                                    <a href="#" class="btn center-block btn-primary " style="margin-left:15px">Detaljnije</a>
+                                    <br />
+                                </div>
+                            </div>
 
-                        <p class="card-text text-center"><strong>Kvadratura: @Model.ElementAt(i).Kvadratura m2</strong> <br /><strong>Cena: @Model.ElementAt(i).Cena Eura</strong></p>
-
-
-                        <a href="#" class="btn center-block btn-primary " style="margin-left:15px">Detaljnije</a>
-                        <br />
+                        </column>
                     </div>
-                </div>
 
-            </column>
-        </div>
+                </row>
+            }
 
-    </row>
-    }
-
-</body>
+        </body>
 
