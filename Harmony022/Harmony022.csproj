@@ -405,6 +405,7 @@
     <Content Include="Views\vidiNekretnine\rentLand.cshtml" />
     <Content Include="Views\Admin\addLandAdmin.cshtml" />
     <Content Include="Views\Home\caroselLand.cshtml" />
+    <Content Include="Views\Home\mapa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,17 +1,142 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿
+@{
+    ViewBag.Title = "Kontakt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<form class="container" id="myForm">
+
+
+    <div class="col-sm-6">
+        <div>
+            @*@using (Ajax.BeginForm("SubmitKontaktForm", "Contact", new AjaxOptions
+                {
+
+                    HttpMethod = "POST",
+                    UpdateTargetId = "ContactForm"
+                }))
+                {
+                    @Html.AntiForgeryToken();
+
+                    <div class="divSpacing" style="color:#767676">
+                        <div>*@
+            @Html.Label("Ime: ", new { @style = "color:#767676" })
+            <br />
+            @Html.TextBox("asada", "", new { @class = "form-control", style = "width:100%; max-width: 1000px !important", @required = "required" })
+            @*@Html.ValidationMessageFor(c => c.Ime, "", new { @class = "text-danger" })*@
+        </div>
+        <div>
+            @Html.Label("Email: ", new { @style = "color:#767676" })
+            <br />
+            @Html.TextBox("asada", "", new { @class = "form-control", style = "width:100%; max-width: 1000px !important", @required = "required" })
+            @*@Html.ValidationMessageFor(c => c.Email, "", new { @class = "text-danger" })*@
+        </div>
+        <div>
+            @Html.Label("Šifra nekretnine: ", new { @style = "color:#767676" })
+            <br />
+            @Html.TextBox("asada", "", new { @class = "form-control", style = "width:100%; max-width: 1000px !important", @required = "required" })
+            @*@Html.ValidationMessageFor(c => c.Tema, "", new { @class = "text-danger" })*@
+        </div>
+        <div>
+            @Html.Label("Poruka: ", new { @style = "color:#767676" })
+            <br />
+            @Html.TextArea("asada", new { @class = "form-control", @cols = 80, @rows = 10, style = "max-width: 1000px !important", @required = "required" })
+            @*@Html.ValidationMessageFor(c => c.Poruka, "", new { @class = "text-danger" })*@
+        </div>
+        <div style="margin-bottom:15px; margin-top: 5px" class="g-recaptcha" data-sitekey="6LcyKs8UAAAAAJIoj80R7BrPoM9aDnysV5Y_0n1i"></div>
+
+        <div style="margin-top: -12px">
+
+            @*<input type="submit" id="kontaktButton"  role="button" value="Pošalji" class="btn btn-success" />*@
+            <button type="button" class="form-control" id="kontaktButton">Pošalji</button>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom:90px">
+        <div id="mapSection2" class="col-xs-6" style="margin-top: 20px">
+            @Html.Partial("mapa")
+        </div>
+    </div>
+    @if (!string.IsNullOrWhiteSpace(ViewBag.AdMes))
+    {
+
+        <div class="alert alert-success" role="alert">
+            <a href="#" class="alert-link">
+                @ViewBag.AdMes
+            </a>
+        </div>
+    }
+    @if (!string.IsNullOrWhiteSpace(ViewBag.SmMes))
+    {
+
+        <div class="alert alert-success" role="alert">
+            <a href="#" class="alert-link">
+                @ViewBag.SmMes
+            </a>
+        </div>
+    }
+
+</form>
+<script>
+    $(document).ready(function () {
+        function detectmob() {
+            if (navigator.userAgent.match(/Android/i)
+                || navigator.userAgent.match(/webOS/i)
+                || navigator.userAgent.match(/iPhone/i)
+                || navigator.userAgent.match(/iPad/i)
+                || navigator.userAgent.match(/iPod/i)
+                || navigator.userAgent.match(/BlackBerry/i)
+                || navigator.userAgent.match(/Windows Phone/i)
+            ) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        //$("#myForm").on("submit", function (event) {
+        //    event.preventDefault();
+        //    // your code...
+        //});
+        $("#kontaktButton").click(function () {
+            var ime = $("#Ime").val();
+            var email = $("#Email").val();
+            var tema = $("#Tema").val();
+            var poruka = $("#Poruka").val();
+
+            var data0 = {
+                Ime: ime, Email: email, Tema: tema, Poruka: poruka
+            };
+
+            //var jsonData = JSON.stringify(data0);
+            $.ajax({
+                type: 'POST',
+                url: "/Contact/SubmitKontaktForm",
+                data: data0,
+                dataType: 'json',
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.responseText);
+                    } else {
+                        alert(response.responseText);
+                    }
+                },
+                error: function () {
+                    alert("Neupesno poslato");
+                }
+            });
+
+            //$.ajax({
+            //    type: "POST",
+            //    url: "../Contact/SubmitKontaktForm",
+            //    data: data0,
+            //    success: function (msg) {
+            //        alert("Uspešno poslato");
+            //    }
+            //});
+        });
+
+
+    });
+</script>
