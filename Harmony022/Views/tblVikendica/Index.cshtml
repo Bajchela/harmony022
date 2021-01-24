@@ -13,6 +13,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Sifra)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Mesto)
         </th>
         <th>
@@ -48,9 +51,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Slajder)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Opis)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.Drzava)
         </th>
@@ -64,66 +65,67 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mesto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Lokacija)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Povrsina_Placa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Kvadratura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Grejanje)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sobnost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sprat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Terasa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Uknjizen)
-        </td>
-        <td>
-            @if (item.Slika.ToString().Length > 0)
-            {
-                <p>IMA</p>
-            }
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Vrsta_Nekretnine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Slajder)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Opis)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Drzava)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PocetnaStrana)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cena)
-        </td>
-        <td>
-       
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Sifra)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Mesto)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Lokacija)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Povrsina_Placa)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Kvadratura)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Grejanje)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Sobnost)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Sprat)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Terasa)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Uknjizen)
+    </td>
+    <td>
+        @if (item.Slika.ToString().Length > 0)
+        {
+            <p>IMA</p>
+        }
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Vrsta_Nekretnine)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Slajder)
+    </td>
 
-            @Html.ActionLink("Edit", "Edit", "tblVikendica", new { id = item.Vikendica_Id }, null) 
-            @Html.ActionLink("Details", "Details", "tblVikendica", new { id = item.Vikendica_Id }, null) 
-            @Html.ActionLink("Delete", "Delete", "tblVikendica", new { id = item.Vikendica_Id }, null) 
-        </td>
-    </tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Drzava)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PocetnaStrana)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cena)
+    </td>
+    <td>
+
+
+        @Html.ActionLink("Edit", "Edit", "tblVikendica", new { id = item.Vikendica_Id }, null)
+        @Html.ActionLink("Details", "Details", "tblVikendica", new { id = item.Vikendica_Id }, null)
+        @Html.ActionLink("Delete", "Delete", "tblVikendica", new { id = item.Vikendica_Id }, null)
+    </td>
+</tr>
 }
 
 </table>

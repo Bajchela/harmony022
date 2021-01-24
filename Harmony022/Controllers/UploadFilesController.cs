@@ -157,6 +157,7 @@ namespace Harmony022.Controllers
                     tableHome.Vrsta_Nekretnine = Request.Form["VrstaNekretnine"];
                     tableHome.Sifra = Request.Form["Šifra"];
                     tableHome.Mesto = Request.Form["Mesto"];
+                    tableHome.Povrsina_Placa = int.Parse(Request.Form["Površina placa"]);
                     tableHome.Lokacija = Request.Form["Lokacija"];
                     tableHome.Sobnost = Request.Form["Sobnost"];
                     tableHome.Sprat = Request.Form["Sprat"];
