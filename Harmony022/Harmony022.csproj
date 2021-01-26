@@ -180,6 +180,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PretraziController.cs" />
+    <Compile Include="Controllers\tblGradjevinskoZemljistesController.cs" />
     <Compile Include="Controllers\tblKucasController.cs" />
     <Compile Include="Controllers\tblPoslovniProstorController.cs" />
     <Compile Include="Controllers\tblStanController.cs" />
@@ -227,6 +228,9 @@
       <DependentUpon>prikaziHarmoni022.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\prikaziPretragaHarmony.cs">
+      <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblGradjevinskoZemljiste.cs">
       <DependentUpon>prikaziHarmoni022.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblKuca.cs">
@@ -406,6 +410,15 @@
     <Content Include="Views\Admin\addLandAdmin.cshtml" />
     <Content Include="Views\Home\caroselLand.cshtml" />
     <Content Include="Views\Home\mapa.cshtml" />
+    <Content Include="Views\tblGradjevinskoZemljistes\Create.cshtml" />
+    <Content Include="Views\tblGradjevinskoZemljistes\Delete.cshtml" />
+    <Content Include="Views\tblGradjevinskoZemljistes\Details.cshtml" />
+    <Content Include="Views\tblGradjevinskoZemljistes\Edit.cshtml" />
+    <Content Include="Views\tblGradjevinskoZemljistes\Index.cshtml" />
+    <Content Include="Views\tblGradjevinskoZemljistes\showConstructionLand.cshtml" />
+    <Content Include="Views\vidiNekretnine\sellConstructionLand.cshtml" />
+    <Content Include="Views\vidiNekretnine\rentConstructionLand.cshtml" />
+    <Content Include="Views\Admin\addConstructionLandAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

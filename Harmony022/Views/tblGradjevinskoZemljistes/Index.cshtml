@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Harmony022.Models.tblGradjevinskoZemljiste>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Povrsina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Opis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Uknjizen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Slajder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PocetnaStrana)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Azuriran)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vrsta_Nekretnine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mesto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lokacija)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Povrsina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Uknjizen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Slajder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PocetnaStrana)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Azuriran)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vrsta_Nekretnine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mesto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lokacija)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Gradj_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Gradj_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Gradj_Id })
+        </td>
+    </tr>
+}
+
+</table>

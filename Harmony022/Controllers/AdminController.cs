@@ -79,6 +79,14 @@ namespace Harmony022.Controllers
                                  select c;
                 return View("../tblPoslovniProstor/Index", pretrazeno.ToList());
             }
+            if (strDugme == "Zemljiste")
+            {
+                List<tblZemljiste> listPretraga = new List<tblZemljiste>();
+                listPretraga = db.tblZemljiste.ToList();
+                var pretrazeno = from c in listPretraga
+                                 select c;
+                return View("../tblZemljistes/Index", pretrazeno.ToList());
+            }
             return View("Index");
         }
 

@@ -67,6 +67,25 @@
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="sifra" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="tblGradjevinskoZemljiste">
+          <Key>
+            <PropertyRef Name="Gradj_Id" />
+          </Key>
+          <Property Name="Gradj_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Povrsina" Type="int" />
+          <Property Name="Cena" Type="float" />
+          <Property Name="Opis" Type="nvarchar(max)" />
+          <Property Name="Uknjizen" Type="nvarchar" MaxLength="10" />
+          <Property Name="Slajder" Type="bit" />
+          <Property Name="PocetnaStrana" Type="bit" />
+          <Property Name="Azuriran" Type="datetime" />
+          <Property Name="Vrsta_Nekretnine" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mesto" Type="nvarchar" MaxLength="50" />
+          <Property Name="Drzava" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lokacija" Type="nvarchar" MaxLength="50" />
+          <Property Name="Slika" Type="nvarchar(max)" />
+          <Property Name="Sifra" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
         <EntityType Name="tblKuca">
           <Key>
             <PropertyRef Name="Kuca_Id" />
@@ -289,6 +308,7 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblGradjevinskoZemljiste" EntityType="Self.tblGradjevinskoZemljiste" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblKuca" EntityType="Self.tblKuca" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPoslovniProstor" EntityType="Self.tblPoslovniProstor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSlike" EntityType="Self.tblSlike" Schema="dbo" store:Type="Tables" />
@@ -578,6 +598,7 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
           <EntitySet Name="tblVikendica" EntityType="Harmony022Model.tblVikendica" />
           <EntitySet Name="tblPoslovniProstor" EntityType="Harmony022Model.tblPoslovniProstor" />
           <EntitySet Name="tblZemljiste" EntityType="Harmony022Model.tblZemljiste" />
+          <EntitySet Name="tblGradjevinskoZemljiste" EntityType="Harmony022Model.tblGradjevinskoZemljiste" />
         </EntityContainer>
         <EntityType Name="tblVikendica">
           <Key>
@@ -644,6 +665,25 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
           <Property Name="PocetnaStrana" Type="Boolean" />
           <Property Name="Cena" Type="Int32" />
           <Property Name="Azuriran" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblGradjevinskoZemljiste">
+          <Key>
+            <PropertyRef Name="Gradj_Id" />
+          </Key>
+          <Property Name="Gradj_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Povrsina" Type="Int32" />
+          <Property Name="Cena" Type="Double" />
+          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Uknjizen" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Slajder" Type="Boolean" />
+          <Property Name="PocetnaStrana" Type="Boolean" />
+          <Property Name="Azuriran" Type="DateTime" Precision="3" />
+          <Property Name="Vrsta_Nekretnine" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mesto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Drzava" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lokacija" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Slika" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sifra" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -873,6 +913,26 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
                 <ScalarProperty Name="Mesto" ColumnName="Mesto" />
                 <ScalarProperty Name="Sifra" ColumnName="Sifra" />
                 <ScalarProperty Name="Zemljiste_Id" ColumnName="Zemljiste_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblGradjevinskoZemljiste">
+            <EntityTypeMapping TypeName="Harmony022Model.tblGradjevinskoZemljiste">
+              <MappingFragment StoreEntitySet="tblGradjevinskoZemljiste">
+                <ScalarProperty Name="Sifra" ColumnName="Sifra" />
+                <ScalarProperty Name="Slika" ColumnName="Slika" />
+                <ScalarProperty Name="Lokacija" ColumnName="Lokacija" />
+                <ScalarProperty Name="Drzava" ColumnName="Drzava" />
+                <ScalarProperty Name="Mesto" ColumnName="Mesto" />
+                <ScalarProperty Name="Vrsta_Nekretnine" ColumnName="Vrsta_Nekretnine" />
+                <ScalarProperty Name="Azuriran" ColumnName="Azuriran" />
+                <ScalarProperty Name="PocetnaStrana" ColumnName="PocetnaStrana" />
+                <ScalarProperty Name="Slajder" ColumnName="Slajder" />
+                <ScalarProperty Name="Uknjizen" ColumnName="Uknjizen" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Povrsina" ColumnName="Povrsina" />
+                <ScalarProperty Name="Gradj_Id" ColumnName="Gradj_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

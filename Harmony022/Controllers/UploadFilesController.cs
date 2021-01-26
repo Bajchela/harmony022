@@ -516,13 +516,13 @@ namespace Harmony022.Controllers
                     file.SaveAs(filePath);
                 }
 
-                ViewBag.Mesasage = "Uspešno ste dodali novi poslovni prostor";
+                ViewBag.Mesasage = "Uspešno ste dodali novo zemljište";
                 return View("../tblZemljistes/Details", tabelaLand);
             }
             catch (Exception e1)
             {
                 string strGlupopst = e1.ToString();
-                ViewBag.Mesasage = "Neuspesno dodavanje novog poslovni prostor !";
+                ViewBag.Mesasage = "Neuspesno dodavanje novog zemljišta !";
                 return View("../tblZemljistes/Index", tabelaLand);
             }
 
@@ -572,8 +572,116 @@ namespace Harmony022.Controllers
 
                 }
             }
-            return View("../PoljoprivrednoZemljiste/Index", db.tblPoslovniProstor);
+            return View("../tblZemljistes/Index", db.tblZemljiste);
         }
         #endregion
+
+
+        #region Poljoprivredno Zemljiste
+        [HttpPost]
+        public ActionResult DodajConstructionLand(HttpPostedFileBase file)
+        {
+            tblGradjevinskoZemljiste tabelaLand = new tblGradjevinskoZemljiste();
+
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+
+                    string filename = Path.GetFileName(file.FileName);
+                    string filePath = Path.Combine(HttpContext.Server.MapPath("~/Content/Nekretnine/GrađevinskoZemljiste/" + Request.Form["Šifra"].ToString()), filename);
+
+                    bool exists = System.IO.Directory.Exists(HttpContext.Server.MapPath("~/Content/Nekretnine/GrađevinskoZemljiste/" + Request.Form["Šifra"].ToString()));
+
+                    if (!exists)
+                        System.IO.Directory.CreateDirectory(HttpContext.Server.MapPath("~/Content/Nekretnine/GrađevinskoZemljiste/" + Request.Form["Šifra"].ToString()));
+
+                    tabelaLand.Vrsta_Nekretnine = Request.Form["VrstaNekretnine"];
+                    tabelaLand.Sifra = Request.Form["Šifra"];
+                    tabelaLand.Mesto = Request.Form["Mesto"];
+                    tabelaLand.Lokacija = Request.Form["Lokacija"];
+                    tabelaLand.Povrsina = int.Parse(Request.Form["Povrsina"].ToString());
+                    tabelaLand.Uknjizen = Request.Form["Uknjižen"];
+                    tabelaLand.Cena = int.Parse(Request.Form["Cena"].ToString());
+                    tabelaLand.Azuriran = DateTime.Parse(Request.Form["Ažurirano"].ToString());
+                    tabelaLand.Drzava = Request.Form["Drzava"];
+                    tabelaLand.Opis = Request.Form["Opis"];
+
+                    if (Request.Form["Slajder"].ToString() == "DA" || Request.Form["Slajder"].ToString() == "da")
+                    {
+                        tabelaLand.Slajder = true;
+
+                    }
+                    else
+                    {
+                        tabelaLand.Slajder = false;
+                    }
+                    tabelaLand.Slika = "/Content/Nekretnine/GrađevinskoZemljiste/" + Request.Form["Šifra"].ToString() + "/" + filename;
+                    db.tblGradjevinskoZemljiste.Add(tabelaLand);
+
+                    db.SaveChanges();
+                    file.SaveAs(filePath);
+                }
+
+                ViewBag.Mesasage = "Uspešno ste dodali novo građevinsko zemljište";
+                return View("../tblGradjevinskoZemljistes/Details", tabelaLand);
+            }
+            catch (Exception e1)
+            {
+                string strGlupopst = e1.ToString();
+                ViewBag.Mesasage = "Neuspesno dodavanje novog građevinskog zemljišta !";
+                return View("../tblGradjevinskoZemljistes/Index", tabelaLand);
+            }
+
+        }
+        public ActionResult DodajSlikeConstructionLand(HttpPostedFileBase[] files)
+        {
+            tblSlike slike = new tblSlike();
+            //Ensure model state is valid  
+            if (ModelState.IsValid)
+            {   //iterating through multiple file collection   
+                foreach (HttpPostedFileBase file in files)
+                {
+
+                    //Checking file is available to save.  
+                    if (file != null)
+                    {
+                        string pathString = Server.MapPath("/Content/Nekretnine/GrađevinskoZemljiste/" + Request.Form["Šifra"].ToString());
+
+                        bool exists = System.IO.Directory.Exists(HttpContext.Server.MapPath("/Content/Nekretnine/GrađevinskoZemljiste/" + Request.Form["Šifra"].ToString()));
+
+                        if (!exists)
+                        {
+                            System.IO.Directory.CreateDirectory(pathString);
+                        }
+                        var InputFileName = Path.GetFileName(file.FileName);
+
+                        var ServerSavePath = Path.Combine(Server.MapPath("/Content/Nekretnine/GrađevinskoZemljiste/" + Request.Form["Šifra"].ToString()), InputFileName);
+                        //Save file to server folder  
+                        slike.sifra = Request.Form["Šifra"].ToString();
+                        slike.referenca = "/Content/Nekretnine/GrađevinskoZemljiste/" + Request.Form["Šifra"].ToString() + "/" + InputFileName;
+                        file.SaveAs(ServerSavePath);
+
+                        try
+                        {
+                            db.tblSlike.Add(slike);
+                            db.SaveChanges();
+
+                        }
+                        catch (Exception e1)
+                        {
+                            Console.WriteLine(e1.ToString());
+                        }
+
+                        //assigning file uploaded status to ViewBag for showing message to user.  
+                        ViewBag.UploadStatus = files.Count().ToString() + " files uploaded successfully.";
+                    }
+
+                }
+            }
+            return View("../PoljoprivrednoZemljiste/Index", db.tblGradjevinskoZemljiste);
+        }
+        #endregion
+
     }
 }

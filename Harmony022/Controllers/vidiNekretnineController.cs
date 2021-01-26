@@ -166,6 +166,33 @@ namespace Harmony022.Controllers
 
             return View("rentLand", pretrazeno.ToList().ToPagedList(page ?? 5, 8));
         }
+
+        public ActionResult showConstructionLandSell(int? page = 1)
+        {
+            List<tblGradjevinskoZemljiste> listaZemljiste = new List<tblGradjevinskoZemljiste>();
+
+            var listZemljiste = db.tblGradjevinskoZemljiste.ToList();
+
+            var pretrazeno = from c in listZemljiste
+                             where c.Vrsta_Nekretnine == "Prodaja"
+                             orderby c.Cena descending
+                             select c;
+
+            return View("sellConstructionLand", pretrazeno.ToList().ToPagedList(page ?? 5, 8));
+        }
+        public ActionResult showConstructionLandRent(int? page = 1)
+        {
+            List<tblGradjevinskoZemljiste> listaZemljiste = new List<tblGradjevinskoZemljiste>();
+
+            var listland = db.tblGradjevinskoZemljiste.ToList();
+
+            var pretrazeno = from c in listland
+                             where c.Vrsta_Nekretnine == "Izdavanje"
+                             orderby c.Cena descending
+                             select c;
+
+            return View("rentConstructionLand", pretrazeno.ToList().ToPagedList(page ?? 5, 8));
+        }
     }
 
 }
