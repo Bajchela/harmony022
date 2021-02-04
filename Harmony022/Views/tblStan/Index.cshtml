@@ -5,9 +5,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <h2>Stanovi</h2>
+<h2>Stanovi</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+    <form action="/Admin/prikaziPoPretraziStan" method="post">
+        <div class="row">
 
+            <div class="col-sm-3">
+                <h4><b>Sifra</b></h4>
+                <input type="number" name="sifra" value="" />
+            </div>
+            <input class="btn btn-success" type="submit" style="margin-left:20px; margin-top:30px" name="pretraga" value="pretraga" />
+
+        </div>
+    </form>
+
+</p>
 <table class="table">
     <tr>
         <th>
@@ -19,7 +33,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Lokacija)
         </th>
-      
+
         <th>
             @Html.DisplayNameFor(model => model.Kvadratura)
         </th>
@@ -58,65 +72,66 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td style="padding-bottom:15px;" >
-            @Html.DisplayFor(modelItem => item.Sifra)
-        </td>
-        <td style="padding-bottom:15px;" >
-            @Html.DisplayFor(modelItem => item.Mesto)
-        </td>
-        <td style="padding-bottom:15px;" >
-            @Html.DisplayFor(modelItem => item.Lokacija)
-        </td>
-        <td style="padding-bottom:15px;" >
-            @Html.DisplayFor(modelItem => item.Povrsina_Placa)
-        </td>
-        <td style="padding-bottom:15px;" >
-            @Html.DisplayFor(modelItem => item.Kvadratura)
-        </td>
-        <td style="padding-bottom:15px;" >
-            @Html.DisplayFor(modelItem => item.Grejanje)
-        </td>
-        <td style="padding-bottom:15px;" >
-            @Html.DisplayFor(modelItem => item.Sobnost)
-        </td>
-        <td style="padding-bottom:15px;" >
-            @Html.DisplayFor(modelItem => item.Sprat)
-        </td>
-        <td style="padding-bottom:15px;" >
-            @Html.DisplayFor(modelItem => item.Terasa)
-        </td>
-        <td style="padding-bottom:15px;" >
-            @Html.DisplayFor(modelItem => item.Uknjizen)
-        </td>
-        <td style="padding-bottom:15px;" >
-            @Html.DisplayFor(modelItem => item.Cena)
-        </td>
-        <td style="padding-bottom:15px;" >
-            @Html.DisplayFor(modelItem => item.Azuriran)
-        </td>
-        <td style="padding-bottom:15px;">
-            @if (item.Slika.ToString().Length > 0)
-            {
-                <p>IMA</p>
-            }
-        </td>
-        <td style="padding-bottom:15px;" >
-            @Html.DisplayFor(modelItem => item.Vrsta_Nekretnine)
-        </td>
-        <td style="padding-bottom:15px;" >
-            @Html.DisplayFor(modelItem => item.Drzava)
-        </td>
-        <td style="padding-bottom:15px;" >
-            @Html.DisplayFor(modelItem => item.Slajder)
-        </td>
-        <td style="padding-bottom:15px;" >
-            @Html.ActionLink("Edit","Edit", "tblStan", new { id=item.Stan_Id }, null) 
-            @Html.ActionLink("Details", "Details","tblStan", new { id=item.Stan_Id },null ) 
-            @Html.ActionLink("Delete", "Delete", "tblStan",new { id=item.Stan_Id }, null)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="padding-bottom:15px;">
+                @Html.DisplayFor(modelItem => item.Sifra)
+            </td>
+            <td style="padding-bottom:15px;">
+                @Html.DisplayFor(modelItem => item.Mesto)
+            </td>
+            <td style="padding-bottom:15px;">
+                @Html.DisplayFor(modelItem => item.Lokacija)
+            </td>
+            <td style="padding-bottom:15px;">
+                @Html.DisplayFor(modelItem => item.Povrsina_Placa)
+            </td>
+            <td style="padding-bottom:15px;">
+                @Html.DisplayFor(modelItem => item.Kvadratura)
+            </td>
+            <td style="padding-bottom:15px;">
+                @Html.DisplayFor(modelItem => item.Grejanje)
+            </td>
+            <td style="padding-bottom:15px;">
+                @Html.DisplayFor(modelItem => item.Sobnost)
+            </td>
+            <td style="padding-bottom:15px;">
+                @Html.DisplayFor(modelItem => item.Sprat)
+            </td>
+            <td style="padding-bottom:15px;">
+                @Html.DisplayFor(modelItem => item.Terasa)
+            </td>
+            <td style="padding-bottom:15px;">
+                @Html.DisplayFor(modelItem => item.Uknjizen)
+            </td>
+            <td style="padding-bottom:15px;">
+                @Html.DisplayFor(modelItem => item.Cena)
+            </td>
+            <td style="padding-bottom:15px;">
+                @Html.DisplayFor(modelItem => item.Azuriran)
+            </td>
+            <td style="padding-bottom:15px;">
+                @if (item.Slika.ToString().Length > 0)
+                {
+                    <p>IMA</p>
+                }
+            </td>
+            <td style="padding-bottom:15px;">
+                @Html.DisplayFor(modelItem => item.Vrsta_Nekretnine)
+            </td>
+            <td style="padding-bottom:15px;">
+                @Html.DisplayFor(modelItem => item.Drzava)
+            </td>
+            <td style="padding-bottom:15px;">
+                @Html.DisplayFor(modelItem => item.Slajder)
+            </td>
+            <td style="padding-bottom:15px;">
+                @Html.ActionLink("Edit", "Edit", "tblStan", new { id = item.Stan_Id }, null)
+                @Html.ActionLink("Details", "Details", "tblStan", new { id = item.Stan_Id }, null)
+                @Html.ActionLink("Delete", "Delete", "tblStan", new { id = item.Stan_Id }, null)
+            </td>
+        </tr>
+    }
 
 </table>

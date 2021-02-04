@@ -193,6 +193,20 @@ namespace Harmony022.Controllers
 
             return View("rentConstructionLand", pretrazeno.ToList().ToPagedList(page ?? 5, 8));
         }
+
+
+        public ActionResult showAllPicture(int? page = 1)
+        {
+            List<tblSlike> listaZemljiste = new List<tblSlike>();
+
+            var listZemljiste = db.tblGradjevinskoZemljiste.ToList();
+
+            var pretrazeno = from c in listZemljiste                            
+                             orderby c.Cena descending
+                             select c;
+
+            return View("../tblSlike/Index",pretrazeno.ToList().ToPagedList(page ?? 5, 20));
+        }
     }
 
 }

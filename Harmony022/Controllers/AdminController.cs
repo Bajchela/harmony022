@@ -97,11 +97,96 @@ namespace Harmony022.Controllers
                 return View("../tblGradjevinskoZemljistes/Index", pretrazeno.ToList());
             }
 
+            if (strDugme == "Slike")
+            {
+                List<tblSlike> listPretraga = new List<tblSlike>();
+                listPretraga = db.tblSlike.ToList();
+                var pretrazeno = from c in listPretraga
+                                 select c;
+                return View("../tblSlike/Index", pretrazeno.ToList());
+            }
 
+            if (strDugme == "Slike")
+            {
+                List<tblSlike> listPretraga = new List<tblSlike>();
+                listPretraga = db.tblSlike.ToList();
+                var pretrazeno = from c in listPretraga
+                                 select c;
+                return View("../tblSlike/Index", pretrazeno.ToList());
+            }
 
-            
             return View("Index");
         }
 
+        public ActionResult prikaziPoPretraziSlike(string sifra)
+        {
+
+            List<tblSlike> listPretraga = new List<tblSlike>();
+            listPretraga = db.tblSlike.ToList();
+            var pretrazeno = from c in listPretraga
+                             where c.sifra == sifra
+                             select c;
+            return View("../tblSlike/Index", pretrazeno.ToList());
+        }
+        public ActionResult prikaziPoPretraziGradjevinskogZemljista(string sifra)
+        {
+
+            List<tblGradjevinskoZemljiste> listPretraga = new List<tblGradjevinskoZemljiste>();
+            listPretraga = db.tblGradjevinskoZemljiste.ToList();
+            var pretrazeno = from c in listPretraga
+                             where c.Sifra == sifra
+                             select c;
+            return View("../tblGradjevinskoZemljistes/Index", pretrazeno.ToList());
+        }
+        public ActionResult prikaziPoPretraziZemljiste(string sifra)
+        {
+
+            List<tblZemljiste> listPretraga = new List<tblZemljiste>();
+            listPretraga = db.tblZemljiste.ToList();
+            var pretrazeno = from c in listPretraga
+                             where c.Sifra == sifra
+                             select c;
+            return View("../tblZemljistes/Index", pretrazeno.ToList());
+        }
+        public ActionResult prikaziPoPretraziStan(string sifra)
+        {
+
+            List<tblStan> listPretraga = new List<tblStan>();
+            listPretraga = db.tblStan.ToList();
+            var pretrazeno = from c in listPretraga
+                             where c.Sifra == sifra
+                             select c;
+            return View("../tblStan/Index", pretrazeno.ToList());
+        }
+        public ActionResult prikaziPoPretraziKucu(string sifra)
+        {
+
+            List<tblKuca> listPretraga = new List<tblKuca>();
+            listPretraga = db.tblKuca.ToList();
+            var pretrazeno = from c in listPretraga
+                             where c.Sifra == sifra
+                             select c;
+            return View("../tblKucas/Index", pretrazeno.ToList());
+        }
+        public ActionResult prikaziPoPretraziPP(string sifra)
+        {
+
+            List<tblPoslovniProstor> listPretraga = new List<tblPoslovniProstor>();
+            listPretraga = db.tblPoslovniProstor.ToList();
+            var pretrazeno = from c in listPretraga
+                             where c.Sifra == sifra
+                             select c;
+            return View("../tblPoslovniProstor/Index", pretrazeno.ToList());
+        }
+        public ActionResult prikaziPoPretraziVikendicu(string sifra)
+        {
+
+            List<tblVikendica> listPretraga = new List<tblVikendica>();
+            listPretraga = db.tblVikendica.ToList();
+            var pretrazeno = from c in listPretraga
+                             where c.Sifra == sifra
+                             select c;
+            return View("../tblVikendica/Index", pretrazeno.ToList());
+        }
     }
 }

@@ -5,10 +5,22 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Vikendice</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
+    <form action="/Admin/prikaziPoPretraziVikendicu" method="post">
+        <div class="row">
+
+            <div class="col-sm-3">
+                <h4><b>Sifra</b></h4>
+                <input type="number" name="sifra" value="" />
+            </div>
+            <input class="btn btn-success" type="submit" style="margin-left:20px; margin-top:30px" name="pretraga" value="pretraga" />
+
+        </div>
+    </form>
+
 </p>
 <table class="table">
     <tr>
@@ -64,68 +76,69 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Sifra)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Mesto)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Lokacija)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Povrsina_Placa)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Kvadratura)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Grejanje)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Sobnost)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Sprat)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Terasa)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Uknjizen)
-    </td>
-    <td>
-        @if (item.Slika.ToString().Length > 0)
-        {
-            <p>IMA</p>
-        }
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Vrsta_Nekretnine)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Slajder)
-    </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sifra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mesto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lokacija)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Povrsina_Placa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kvadratura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grejanje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sobnost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sprat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Terasa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Uknjizen)
+            </td>
+            <td>
+                @if (item.Slika.ToString().Length > 0)
+                {
+                    <p>IMA</p>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vrsta_Nekretnine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Slajder)
+            </td>
 
-    <td>
-        @Html.DisplayFor(modelItem => item.Drzava)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PocetnaStrana)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Cena)
-    </td>
-    <td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Drzava)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PocetnaStrana)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cena)
+            </td>
+            <td>
 
 
-        @Html.ActionLink("Edit", "Edit", "tblVikendica", new { id = item.Vikendica_Id }, null)
-        @Html.ActionLink("Details", "Details", "tblVikendica", new { id = item.Vikendica_Id }, null)
-        @Html.ActionLink("Delete", "Delete", "tblVikendica", new { id = item.Vikendica_Id }, null)
-    </td>
-</tr>
-}
+                @Html.ActionLink("Edit", "Edit", "tblVikendica", new { id = item.Vikendica_Id }, null)
+                @Html.ActionLink("Details", "Details", "tblVikendica", new { id = item.Vikendica_Id }, null)
+                @Html.ActionLink("Delete", "Delete", "tblVikendica", new { id = item.Vikendica_Id }, null)
+            </td>
+        </tr>
+    }
 
 </table>

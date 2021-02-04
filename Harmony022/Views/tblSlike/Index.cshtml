@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Harmony022.Models.tblSlike>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    <form action="/Admin/prikaziPoPretraziSlike" method="post">
+        <div class="row">
+            
+
+            <div class="col-sm-3">
+                <h4><b>Sifra</b></h4>
+                <input type="number" name="sifra" value="" />
+            </div>
+            <input class="btn btn-success" type="submit" style="margin-left:20px; margin-top:30px" name="pretraga" value="pretraga" />
+
+        </div>
+
+       
+    </form>
+</p>
+<table class="table">
+    <tr>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.sifra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.referenca)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.sifra)
+    </td>
+    <td>
+        @{
+            string tekst = "http://194.146.57.57/" + @item.referenca.ToString();
+        }
+        <a href="@tekst" target="_blank">Prikazi sliku</a>
+
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.referenca)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", "tblSlike", new { id = item.slikeId }, null) |
+        @Html.ActionLink("Details", "Details", "tblSlike", new { id = item.slikeId }, null) |
+        @Html.ActionLink("Delete", "Delete", "tblSlike", new { id = item.slikeId }, null)
+    </td>
+</tr>
+}
+
+</table>

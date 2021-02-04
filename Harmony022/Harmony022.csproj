@@ -183,6 +183,7 @@
     <Compile Include="Controllers\tblGradjevinskoZemljistesController.cs" />
     <Compile Include="Controllers\tblKucasController.cs" />
     <Compile Include="Controllers\tblPoslovniProstorController.cs" />
+    <Compile Include="Controllers\tblSlikeController.cs" />
     <Compile Include="Controllers\tblStanController.cs" />
     <Compile Include="Controllers\tblVikendicaController.cs" />
     <Compile Include="Controllers\tblZemljistesController.cs" />
@@ -420,6 +421,11 @@
     <Content Include="Views\vidiNekretnine\rentConstructionLand.cshtml" />
     <Content Include="Views\Admin\addConstructionLandAdmin.cshtml" />
     <Content Include="Views\Home\caroselConstructionLand.cshtml" />
+    <Content Include="Views\tblSlike\Create.cshtml" />
+    <Content Include="Views\tblSlike\Delete.cshtml" />
+    <Content Include="Views\tblSlike\Details.cshtml" />
+    <Content Include="Views\tblSlike\Edit.cshtml" />
+    <Content Include="Views\tblSlike\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

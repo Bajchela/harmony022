@@ -1,0 +1,43 @@
+﻿@model Harmony022.Models.tblSlike
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblSlike</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nekretnina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nekretnina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sifra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sifra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.referenca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.referenca)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.slikeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

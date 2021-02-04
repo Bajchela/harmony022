@@ -1,14 +1,25 @@
 ﻿@model IEnumerable<Harmony022.Models.tblPoslovniProstor>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Poslovni prostori";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
+<h2>Poslovni prostori</h2>
 <p>
     @Html.ActionLink("Create New", "Create")
+    <form action="/Admin/prikaziPoPretraziPP" method="post">
+        <div class="row">
+
+            <div class="col-sm-3">
+                <h4><b>Sifra</b></h4>
+                <input type="number" name="sifra" value="" />
+            </div>
+            <input class="btn btn-success" type="submit" style="margin-left:20px; margin-top:30px" name="pretraga" value="pretraga" />
+
+        </div>
+    </form>
+
 </p>
 <table class="table">
     <tr>
