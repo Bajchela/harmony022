@@ -78,7 +78,7 @@ namespace Harmony022.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Gradj_Id,Povrsina,Cena,Opis,Uknjizen,Slajder,PocetnaStrana,Azuriran,Vrsta_Nekretnine,Mesto,Lokacija")] tblGradjevinskoZemljiste tblGradjevinskoZemljiste)
+        public ActionResult Edit([Bind(Include = "Gradj_Id,Sifra,Drzava,Slika,Povrsina,Cena,Opis,Uknjizen,Slajder,PocetnaStrana,Azuriran,Vrsta_Nekretnine,Mesto,Lokacija")] tblGradjevinskoZemljiste tblGradjevinskoZemljiste)
         {
             if (ModelState.IsValid)
             {

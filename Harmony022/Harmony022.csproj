@@ -419,6 +419,7 @@
     <Content Include="Views\vidiNekretnine\sellConstructionLand.cshtml" />
     <Content Include="Views\vidiNekretnine\rentConstructionLand.cshtml" />
     <Content Include="Views\Admin\addConstructionLandAdmin.cshtml" />
+    <Content Include="Views\Home\caroselConstructionLand.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

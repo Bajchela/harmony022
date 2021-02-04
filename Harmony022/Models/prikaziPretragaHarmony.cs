@@ -28,5 +28,7 @@ namespace Harmony022.Models
         public int PP_Id { get; set; }
         public int Vikendica_Id { get; set; }
         public int Zemljiste_Id { get; set; }
+        public int GradjZemljiste_Id { get; set; }
+        public string Nekretnina { get; set; }
     }
 }

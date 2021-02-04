@@ -11,16 +11,16 @@
     <div class="col-sm-6">
         <div>
             @*@using (Ajax.BeginForm("SubmitKontaktForm", "Contact", new AjaxOptions
-                {
+            {
 
-                    HttpMethod = "POST",
-                    UpdateTargetId = "ContactForm"
-                }))
-                {
-                    @Html.AntiForgeryToken();
+                HttpMethod = "POST",
+                UpdateTargetId = "ContactForm"
+            }))
+            {
+                @Html.AntiForgeryToken();
 
-                    <div class="divSpacing" style="color:#767676">
-                        <div>*@
+                <div class="divSpacing" style="color:#767676">
+                    <div>*@
             @Html.Label("Ime: ", new { @style = "color:#767676" })
             <br />
             @Html.TextBox("Ime", "", new { @class = "form-control", style = "width:100%; max-width: 1000px !important", @required = "required" })
@@ -49,8 +49,10 @@
         <div style="margin-top: -12px">
 
             @*<input type="submit" id="kontaktButton"  role="button" value="Pošalji" class="btn btn-success" />*@
-            <button type="submit"  class="form-control" id="kontaktButton">Pošalji</button>
+            <button type="submit" class="form-control" id="kontaktButton">Pošalji</button>
         </div>
+
+
     </div>
 
     <div class="row" style="margin-bottom:90px">

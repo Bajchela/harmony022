@@ -243,21 +243,25 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
             <PropertyRef Name="PP_Id" />
             <PropertyRef Name="Vikendica_Id" />
             <PropertyRef Name="Zemljiste_Id" />
+            <PropertyRef Name="GradjZemljiste_Id" />
+            <PropertyRef Name="Nekretnina" />
           </Key>
-          <Property Name="Lokacija" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="Mesto" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Lokacija" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mesto" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Slika" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Kvadratura" Type="int" Nullable="false" />
-          <Property Name="Drzava" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Cena" Type="int" Nullable="false" />
+          <Property Name="Drzava" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cena" Type="float" Nullable="false" />
           <Property Name="Slajder" Type="bit" Nullable="false" />
-          <Property Name="Vrsta_Nekretnine" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Vrsta_Nekretnine" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Sifra" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="Stan_Id" Type="int" Nullable="false" />
           <Property Name="Kuca_Id" Type="int" Nullable="false" />
           <Property Name="PP_Id" Type="int" Nullable="false" />
           <Property Name="Vikendica_Id" Type="int" Nullable="false" />
           <Property Name="Zemljiste_Id" Type="int" Nullable="false" />
+          <Property Name="GradjZemljiste_Id" Type="int" Nullable="false" />
+          <Property Name="Nekretnina" Type="varchar" MaxLength="15" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -338,7 +342,9 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
     [prikaziPretragaHarmony].[Kuca_Id] AS [Kuca_Id], 
     [prikaziPretragaHarmony].[PP_Id] AS [PP_Id], 
     [prikaziPretragaHarmony].[Vikendica_Id] AS [Vikendica_Id], 
-    [prikaziPretragaHarmony].[Zemljiste_Id] AS [Zemljiste_Id]
+    [prikaziPretragaHarmony].[Zemljiste_Id] AS [Zemljiste_Id], 
+    [prikaziPretragaHarmony].[GradjZemljiste_Id] AS [GradjZemljiste_Id], 
+    [prikaziPretragaHarmony].[Nekretnina] AS [Nekretnina]
     FROM [dbo].[prikaziPretragaHarmony] AS [prikaziPretragaHarmony]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
@@ -513,21 +519,25 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
             <PropertyRef Name="PP_Id" />
             <PropertyRef Name="Vikendica_Id" />
             <PropertyRef Name="Zemljiste_Id" />
+            <PropertyRef Name="GradjZemljiste_Id" />
+            <PropertyRef Name="Nekretnina" />
           </Key>
-          <Property Name="Lokacija" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Mesto" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lokacija" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mesto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Slika" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Kvadratura" Type="Int32" Nullable="false" />
-          <Property Name="Drzava" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Drzava" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Cena" Type="Int32" Nullable="false" />
           <Property Name="Slajder" Type="Boolean" Nullable="false" />
-          <Property Name="Vrsta_Nekretnine" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Vrsta_Nekretnine" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Sifra" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Stan_Id" Type="Int32" Nullable="false" />
           <Property Name="Kuca_Id" Type="Int32" Nullable="false" />
           <Property Name="PP_Id" Type="Int32" Nullable="false" />
           <Property Name="Vikendica_Id" Type="Int32" Nullable="false" />
           <Property Name="Zemljiste_Id" Type="Int32" Nullable="false" />
+          <Property Name="GradjZemljiste_Id" Type="Int32" Nullable="false" />
+          <Property Name="Nekretnina" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -830,6 +840,8 @@ warning 6002: The table/view 'Harmony022.dbo.prikaziPretragaHarmony' does not ha
           <EntitySetMapping Name="prikaziPretragaHarmony">
             <EntityTypeMapping TypeName="Harmony022Model.prikaziPretragaHarmony">
               <MappingFragment StoreEntitySet="prikaziPretragaHarmony">
+                <ScalarProperty Name="Nekretnina" ColumnName="Nekretnina" />
+                <ScalarProperty Name="GradjZemljiste_Id" ColumnName="GradjZemljiste_Id" />
                 <ScalarProperty Name="Zemljiste_Id" ColumnName="Zemljiste_Id" />
                 <ScalarProperty Name="Vikendica_Id" ColumnName="Vikendica_Id" />
                 <ScalarProperty Name="PP_Id" ColumnName="PP_Id" />

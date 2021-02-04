@@ -87,6 +87,19 @@ namespace Harmony022.Controllers
                                  select c;
                 return View("../tblZemljistes/Index", pretrazeno.ToList());
             }
+
+            if (strDugme == "Građevinskozemljište")
+            {
+                List<tblGradjevinskoZemljiste> listPretraga = new List<tblGradjevinskoZemljiste>();
+                listPretraga = db.tblGradjevinskoZemljiste.ToList();
+                var pretrazeno = from c in listPretraga
+                                 select c;
+                return View("../tblGradjevinskoZemljistes/Index", pretrazeno.ToList());
+            }
+
+
+
+            
             return View("Index");
         }
 

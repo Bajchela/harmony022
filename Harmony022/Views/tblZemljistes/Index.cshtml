@@ -37,9 +37,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Slajder)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Opis)
-        </th>
+     
         <th>
             @Html.DisplayNameFor(model => model.Drzava)
         </th>
@@ -81,9 +79,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Slajder)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Opis)
-        </td>
+     
         <td>
             @Html.DisplayFor(modelItem => item.Drzava)
         </td>
@@ -97,9 +93,9 @@
             @Html.DisplayFor(modelItem => item.Azuriran)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Zemljiste_Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Zemljiste_Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Zemljiste_Id })
+            @Html.ActionLink("Edit", "Edit", "tblZemljistes", new { id=item.Zemljiste_Id }, null) |
+            @Html.ActionLink("Details", "Details", "tblZemljistes", new { id=item.Zemljiste_Id }, null) |
+            @Html.ActionLink("Delete", "Delete", "tblZemljistes", new { id=item.Zemljiste_Id },null)
         </td>
     </tr>
 }

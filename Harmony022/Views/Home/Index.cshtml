@@ -44,6 +44,7 @@
     List<tblVikendica> vikendica = db.tblVikendica.ToList();
     List<tblPoslovniProstor> poslovniProstor = db.tblPoslovniProstor.ToList();
     List<tblZemljiste> poljoprivrednoZemljiste = db.tblZemljiste.ToList();
+    List<tblGradjevinskoZemljiste> gradjevinskoZemljiste = db.tblGradjevinskoZemljiste.ToList();
 
 }
 
@@ -52,7 +53,7 @@
     <button type="button" id="Vikendice" onclick="changeCarosel('Vikendice')"  class="btn btn-outline-primary">Vikendice</button>
     <button type="button" id="Home" onclick="changeCarosel('Home')"  class="btn btn-outline-primary">Kuće</button>
     <button type="button" id="BusinessSpace" onclick="changeCarosel('PoslovniProstor')"  class="btn btn-outline-primary">Poslovni prostor</button>
-    <button type="button" id="GradjZemljiste" class="btn btn-outline-primary">Građevinska zemljišta</button>
+    <button type="button" id="GradjZemljiste" onclick="changeCarosel('GradjevinskoZemljiste')" class="btn btn-outline-primary">Građevinska zemljišta</button>
     <button type="button" id="PoljZemljiste" onclick="changeCarosel('Zemljiste')" class="btn btn-outline-primary">Poljoprovredno zemljište</button>
 
 </div>
@@ -76,8 +77,12 @@
     <h1 style="text-align:center; margin-bottom:-20px">Poslovni prostori</h1>
     @Html.Partial("caroselBS", poslovniProstor)
 </div>
+<div id="caroselConstructionLand">
+    <h1 style="text-align:center; margin-bottom:-20px">Građevinsko zemljište</h1>
+    @Html.Partial("caroselConstructionLand", gradjevinskoZemljiste)
+</div>
 <div id="caroselLand">
-    <h1 style="text-align:center; margin-bottom:-20px">Poslovni prostori</h1>
+    <h1 style="text-align:center; margin-bottom:-20px">Poljoprivredno zemljište</h1>
     @Html.Partial("caroselLand", poljoprivrednoZemljiste)
 </div>
 <script>
@@ -86,7 +91,8 @@
        document.getElementById("caroselHome").style.display = "none";
        document.getElementById("caroselCottage").style.display = "none";
        document.getElementById("caroselBS").style.display = "none";
-        document.getElementById("caroselLand").style.display = "none";
+       document.getElementById("caroselLand").style.display = "none";
+       document.getElementById("caroselConstructionLand").style.display = "none";
 
     });
 
@@ -97,7 +103,8 @@
             document.getElementById("caroselCottage").style.display = "none";
             document.getElementById("caroselBS").style.display = "none";
             document.getElementById("caroselLand").style.display = "none";
-            //document.getElementById("").style.display = "none";
+            document.getElementById("caroselConstructionLand").style.display = "none";
+
         }
         else if (type == 'Vikendice') {
             console.log(type);
@@ -107,7 +114,8 @@
             document.getElementById("caroselHome").style.display = "none";
             document.getElementById("caroselBS").style.display = "none";
             document.getElementById("caroselLand").style.display = "none";
-            //document.getElementById("").style.display = "none"
+            document.getElementById("caroselConstructionLand").style.display = "none";
+
         }
         else if (type == 'Home') {
             document.getElementById("caroselHome").style.display = "block";
@@ -115,7 +123,8 @@
             document.getElementById("caroselCottage").style.display = "none";
             document.getElementById("caroselBS").style.display = "none";
             document.getElementById("caroselLand").style.display = "none";
-            //document.getElementById("").style.display = "none";
+            document.getElementById("caroselConstructionLand").style.display = "none";
+
         }
         else if (type == 'PoslovniProstor') {
             document.getElementById("caroselBS").style.display = "block";
@@ -123,7 +132,8 @@
             document.getElementById("caroselAppartman").style.display = "none"
             document.getElementById("caroselCottage").style.display = "none";
             document.getElementById("caroselLand").style.display = "none";
-            //document.getElementById("").style.display = "none";
+            document.getElementById("caroselConstructionLand").style.display = "none";
+
         }
         else if (type == 'Zemljiste') {
             document.getElementById("caroselLand").style.display = "block";
@@ -131,7 +141,17 @@
             document.getElementById("caroselHome").style.display = "none";
             document.getElementById("caroselAppartman").style.display = "none"
             document.getElementById("caroselCottage").style.display = "none";
-            //document.getElementById("").style.display = "none";
+            document.getElementById("caroselConstructionLand").style.display = "none";
+
+        }
+        else if (type == 'GradjevinskoZemljiste') {
+            document.getElementById("caroselLand").style.display = "none";
+            document.getElementById("caroselBS").style.display = "none";
+            document.getElementById("caroselHome").style.display = "none";
+            document.getElementById("caroselAppartman").style.display = "none"
+            document.getElementById("caroselCottage").style.display = "none";
+            document.getElementById("caroselConstructionLand").style.display = "block";
+
         }
     }
 </script>
