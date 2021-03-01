@@ -14,6 +14,8 @@ namespace Harmony022.Controllers
     {
         private Harmony022.Models.Harmony022ModelEntities db = new Harmony022.Models.Harmony022ModelEntities();
 
+  
+
         // GET: tblKucas
         public ActionResult Index()
         {

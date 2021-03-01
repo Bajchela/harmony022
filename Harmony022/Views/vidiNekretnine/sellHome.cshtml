@@ -22,105 +22,129 @@
 }
 
 
-<div class="container" style="background-color: white;margin-top: 15px; align-items: left; padding-bottom: 30px; margin-top:  -20px;">
+<div class="container" style="background-color: white;margin-top: 15px; align-items: left;  margin-top:  -20px;">
     <br />
-    <div>
-        <h3 style="text-align: center; ">- Prodaja kuća -</h3>
+    <h3 style="text-align: center; ">- Prodaja kuća -</h3>
 
-        <div class="row">
-           
-                <div class=col-sm-3>
-                    <h4><b>Sortiraj po:</b></h4>
-                    <select onchange="/Pretrazi/prikaziSortiranjeKuce"  class="form-control" id="Kuca" name="Sort" value="@Request["Sort"]">
-                        <option>Cena rastuća</option>
-                        <option>Cena opadajuća</option>
-                        <option>Šifri rastućoj</option>
-                        <option>Šifri opadajućoj</option>
-                    </select>
-                </div>
-          
+    <div class="row">
+
+        <div class="column">
+            <h4><b>Sortiraj po:</b></h4>
         </div>
+        <form action="/vidiNekretnine/prikaziSortiranjeKuce" method="post">
+            <div class="column" style="margin-left: 15px; display: inline-block;
+">
+
+
+
+
+                <select class="form-control" id="Kuca" name="Sort" value="@Request["Sort"]">
+                    <option value="Cena rastuća">Cena rastuća</option>
+                    <option value="Cena opadajuća">Cena opadajuća</option>
+                    <option value="Šifri rastućoj">Šifri rastućoj</option>
+                    <option value="Šifri opadajućoj">Šifri opadajućoj</option>
+                </select>
+
+
+            </div>
+
+            <div class="column" style="display:inline-block; margin-left:15px">
+
+                <input class="btn btn-success" type="submit" style="display: inline-block; background-color: cornflowerblue; display: inline;" value="Sortiraj nekretnine" />
+
+            </div>
+        </form>
     </div>
-            <hr />
-            <row>
-                @if (Model.Count > 20)
-                {
-                    for (int i = 1; i < 10; i++)
-                    {
-                        <column style="background-color: white">
-                            <div class="card" style="margin-left: 60px;margin-top: 15px; float: left; width: 15em; background-color: #f0f0f0 ">
+    </div>
 
-                                <div class="card-body">
+    <hr />
 
-                                    <h5 class="card-title" style="  font-weight: bold;"><h3 style="text-align: center;"> Šifra: @Model.ElementAt(i).Sifra.ToString()</h3></h5>
-                                    <h4 class="card-text" style="  font-weight: bold; text-align: center">Lokacija: @Model.ElementAt(i).Mesto.ToString() <br> @Model.ElementAt(i).Drzava.ToString()</h4>
-                                    <p class="card-text">
-
-                                    </p>
-                                    <p class="card-text bg-light" style="transform: rotate(0);   font-weight: bold; text-align: center">
-                                        Kvadratura: @Model.ElementAt(i).Kvadratura.ToString() m2 <br>Cena: @Model.ElementAt(i).Cena.ToString() Eura
-                                        <br>
-                                        <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;">
-                                        <a href=@Url.Action("showSellHome", "tblKucas", new { kuca = Model.ElementAt(i).Kuca_Id }) style="text-align: center">Detljanije...</a>
-                                    </p>
-                                </div>
-
-                            </div>
-                        </column>
-                    }
-
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
-                    </nav>
-                }
-                else
-                {
-                    for (int i = 0; i < Model.Count; i++)
-                    {
-                        <column>
-                            <div class="card" style="margin-left: 60px;margin-top: 15px; float: left; width: 15em; background-color: #f0f0f0 ">
-
-                                <div class="card-body">
-
-                                    <h5 class="card-title" style="  font-weight: bold;"><h3 style="text-align: center;"> Šifra: @Model.ElementAt(i).Sifra.ToString()</h3></h5>
-                                    <h4 class="card-text" style="  font-weight: bold; text-align: center">Lokacija: @Model.ElementAt(i).Mesto.ToString() <br> @Model.ElementAt(i).Drzava.ToString()</h4>
-                                    <p class="card-text">
-
-                                    </p>
-                                    <p class="card-text bg-light" style="transform: rotate(0); font-weight: bold; text-align: center">
-                                        Kvadratura: @Model.ElementAt(i).Kvadratura.ToString() m2 <br>Cena: @Model.ElementAt(i).Cena.ToString() Eura
-                                        <br>
-                                        <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;">
-                                        <a href=@Url.Action("showSellHome", "tblKucas", new { kuca = Model.ElementAt(i).Kuca_Id }) style="text-align: center">Detljanije...</a>
-                                    </p>
-                                </div>
-
-                            </div>
-                        </column>
-                    }
-
-                }
-
-            </row>
-            <row>
-
-
-
-            </row>
-            @if (Model.Count < 5)
+    <row>
+        @if (Model.Count > 20)
+        {
+            for (int i = 1; i < 10; i++)
             {
-                <p style="margin-bottom:510px"></p>
+               
+                    string velicinaFonta = "18px";
+                    if (@Model.ElementAt(i).Mesto.ToString().Length > 13) { velicinaFonta = "17px"; }
+               
+                <column style="background-color: white">
+                    <div class="card" style="margin-left: 60px;margin-top: 15px; float: left; width: 15em; background-color: #f0f0f0 ">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title" style="  font-weight: bold;"><h3 style="text-align: center;"> Šifra: @Model.ElementAt(i).Sifra.ToString()</h3></h5>
+                            <h4 class="card-text" style="  font-weight: bold; text-align: center;font-size:@velicinaFonta">Lokacija: @Model.ElementAt(i).Mesto.ToString() <br> @Model.ElementAt(i).Drzava.ToString()</h4>
+                            <p class="card-text">
+
+                            </p>
+                            <p class="card-text bg-light" style="transform: rotate(0);   font-weight: bold; text-align: center">
+                                Kvadratura: @Model.ElementAt(i).Kvadratura.ToString() m2 <br>Cena: @Model.ElementAt(i).Cena.ToString() Eura
+                                <br>
+                                <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;">
+                                <a href=@Url.Action("showSellHome", "tblKucas", new { kuca = Model.ElementAt(i).Kuca_Id }) style="text-align: center">Detljanije...</a>
+                            </p>
+                        </div>
+
+                    </div>
+                </column>
             }
 
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        }
+        else
+        {
+            for (int i = 0; i < Model.Count; i++)
+            {
+                
+                    string velicinaFonta = "18px";
+                    if (@Model.ElementAt(i).Mesto.ToString().Length > 13) { velicinaFonta = "17px"; }
+               
+                <column>
+                    <div class="card" style="margin-left: 60px;margin-top: 15px; float: left; width: 15em; background-color: #f0f0f0 ">
+
+                        <div class="card-body">
+                            <h5 class="card-title" style="  font-weight: bold;"><h3 style="text-align: center;"> Šifra: @Model.ElementAt(i).Sifra.ToString()</h3></h5>
+                            <h4 class="card-text" style="  font-weight: bold; text-align: center;  font-size:@velicinaFonta">Lokacija: @Model.ElementAt(i).Mesto.ToString() <br> @Model.ElementAt(i).Drzava.ToString()</h4>
+                            <p class="card-text">
+
+                            </p>
+                            <p class="card-text bg-light" style="transform: rotate(0); font-weight: bold; text-align: center">
+                                Kvadratura: @Model.ElementAt(i).Kvadratura.ToString() m2 <br>Cena: @Model.ElementAt(i).Cena.ToString() Eura
+                                <br>
+                                <img src="@Model.ElementAt(i).Slika.ToString()" class="card-img-top" alt="0001" style="height: 100px; width: 204px;">
+                                <a href=@Url.Action("showSellHome", "tblKucas", new { kuca = Model.ElementAt(i).Kuca_Id }) style="text-align: center">Detljanije...</a>
+                            </p>
+                        </div>
+
+                    </div>
+                </column>
+            }
+
+        }
+
+    </row>
+    <row>
 
 
-    </div>
+
+    </row>
+    @if (Model.Count < 5)
+    {
+        <p style="margin-bottom:510px"></p>
+    }
+
+
+
+</div>
 
 <hr />
 

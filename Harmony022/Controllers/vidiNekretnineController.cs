@@ -18,6 +18,8 @@ namespace Harmony022.Controllers
             return View();
         }
 
+
+
         public ActionResult prikaziStanove(int? page)
         {
             List<tblStan> listaStanova = new List<tblStan>();
@@ -193,8 +195,6 @@ namespace Harmony022.Controllers
 
             return View("rentConstructionLand", pretrazeno.ToList().ToPagedList(page ?? 5, 8));
         }
-
-
         public ActionResult showAllPicture(int? page = 1)
         {
             List<tblSlike> listaZemljiste = new List<tblSlike>();
@@ -206,6 +206,63 @@ namespace Harmony022.Controllers
                              select c;
 
             return View("../tblSlike/Index",pretrazeno.ToList().ToPagedList(page ?? 5, 20));
+        }
+
+
+
+        [HttpPost]
+        public ActionResult prikaziSortiranjeKuce(string Sort, int? page = 1)
+        {
+            List<tblKuca> listPretraga = new List<tblKuca>();
+
+            listPretraga = db.tblKuca.ToList();
+
+            var pretrazeno = from c in listPretraga
+                             select c;
+
+            if (Sort == "Cena rastuća")
+            {
+                var pretrazenoCenaRastuca = db.tblKuca.ToList();
+
+                var pretrazenoCA = from c in pretrazenoCenaRastuca
+                                   orderby c.Cena ascending
+                                   select c;
+
+                return View("sellHome", pretrazenoCA.ToList().ToPagedList(page ?? 5, 8));
+            }
+            else if (Sort == "Cena opadajuća")
+            {
+                var pretrazenoCenaOpadajuca = db.tblKuca.ToList();
+
+                var pretrazenoCD = from c in pretrazenoCenaOpadajuca
+                                   orderby c.Cena descending
+                                   select c;
+
+                return View("sellHome", pretrazenoCD.ToList().ToPagedList(page ?? 5, 8));
+            }
+            else if (Sort == "Šifri rastućoj")
+            {
+                var pretrazenoSifraRastuca = db.tblKuca.ToList();
+
+                var pretrazenoSR = from c in pretrazenoSifraRastuca
+                                   orderby c.Sifra ascending
+                                   select c;
+
+                return View("sellHome", pretrazenoSR.ToList().ToPagedList(page ?? 5, 8));
+            }
+            else if (Sort == "Šifri opadajućoj")
+            {
+                var pretrazenoSifraOpadajuca = db.tblKuca.ToList();
+
+                var pretrazenoSO = from c in pretrazenoSifraOpadajuca
+                                   orderby c.Sifra descending
+                                   select c;
+
+                return View("sellHome", pretrazenoSO.ToList().ToPagedList(page ?? 5, 8));
+            }
+
+
+            return View("sellHome", pretrazeno.ToList().ToPagedList(page ?? 5, 8));
         }
     }
 

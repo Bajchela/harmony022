@@ -17,61 +17,7 @@ namespace Harmony.Controllers
             return View();
         }
 
-        [HttpGet]
-
-        public ActionResult prikaziSortiranjeKuce(string Sort)
-        {
-            List<tblKuca> listPretraga = new List<tblKuca>();
-
-            listPretraga = db.tblKuca.ToList();
-
-            var pretrazeno = from c in listPretraga                      
-                             select c;
-
-            if (Sort == "Cena rastuća")
-            {
-                var pretrazenoCenaRastuca = db.tblKuca.ToList();
-
-                var pretrazenoCA = from c in pretrazenoCenaRastuca
-                                   orderby c.Cena ascending
-                                   select c;
-
-                return View("sellHome", pretrazeno.ToList());
-            }
-            else if (Sort == "Cena opadajuća")
-            {
-                var pretrazenoCenaOpadajuca = db.tblKuca.ToList();
-
-                var pretrazenoCD = from c in pretrazenoCenaOpadajuca
-                                   orderby c.Cena descending
-                                   select c;
-
-                return View("sellHome", pretrazeno.ToList());
-            }
-            else if (Sort == "Šifri rastućoj")
-            {
-                var pretrazenoSifraRastuca= db.tblKuca.ToList();
-
-                var pretrazenoSR = from c in pretrazenoSifraRastuca
-                                   orderby c.Sifra ascending
-                                   select c;
-
-                return View("sellHome", pretrazeno.ToList());
-            }
-            else if (Sort == "Šifri opadajućoj")
-            {
-                var pretrazenoSifraOpadajuca = db.tblKuca.ToList();
-
-                var pretrazenoSO = from c in listPretraga
-                                   orderby c.Sifra descending
-                                   select c;
-
-                return View("sellHome", pretrazeno.ToList());
-            }
-
-
-            return View("sellHome", pretrazeno.ToList());
-        }
+     
 
 
         [HttpPost]
