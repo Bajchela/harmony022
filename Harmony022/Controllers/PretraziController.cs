@@ -45,6 +45,10 @@ namespace Harmony.Controllers
             {
                 txtKvadraturaOd = 0;
             }
+            if(VrstaLokacije == "Kuća")
+            {
+                VrstaLokacije = "Kuca";
+            }
 
             if (Mesto == "Sve")
             {
@@ -54,10 +58,11 @@ namespace Harmony.Controllers
                     listPretraga = db.prikaziPretragaHarmony.ToList();
                     var pretrazeno = from c in listPretraga
                                      where c.Vrsta_Nekretnine == TipLokacije &&
+                                           c.Nekretnina == VrstaLokacije &&
                                            c.Cena > txtCenaOd &&
                                            c.Cena <= txtCenaDo &&
                                            c.Kvadratura > txtKvadraturaOd &&
-                                           c.Kvadratura <= txtKvadraturaDo
+                                           c.Kvadratura <= txtKvadraturaDo 
                                      orderby c.Cena descending
                                      select c;
 
@@ -68,6 +73,7 @@ namespace Harmony.Controllers
                     listPretraga = db.prikaziPretragaHarmony.ToList();
                     var pretrazeno = from c in listPretraga
                                      where c.Vrsta_Nekretnine == TipLokacije &&
+                                           c.Nekretnina == VrstaLokacije &&
                                            c.Cena > txtCenaOd &&
                                            c.Cena <= txtCenaDo &&
                                            c.Kvadratura > txtKvadraturaOd &&
@@ -82,6 +88,7 @@ namespace Harmony.Controllers
                     listPretraga = db.prikaziPretragaHarmony.ToList();
                     var pretrazeno = from c in listPretraga
                                      where c.Vrsta_Nekretnine == TipLokacije &&
+                                           c.Nekretnina == VrstaLokacije &&
                                            c.Cena > txtCenaOd &&
                                            c.Cena <= txtCenaDo &&
                                            c.Kvadratura > txtKvadraturaOd &&
@@ -96,6 +103,7 @@ namespace Harmony.Controllers
                     listPretraga = db.prikaziPretragaHarmony.ToList();
                     var pretrazeno = from c in listPretraga
                                      where c.Vrsta_Nekretnine == TipLokacije &&
+                                           c.Nekretnina == VrstaLokacije &&
                                            c.Cena > txtCenaOd &&
                                            c.Cena <= txtCenaDo &&
                                            c.Kvadratura > txtKvadraturaOd &&
@@ -115,6 +123,7 @@ namespace Harmony.Controllers
 
                                  where c.Mesto == Mesto &&
                                        c.Vrsta_Nekretnine == TipLokacije &&
+                                       c.Nekretnina == VrstaLokacije &&
                                        c.Cena > txtCenaOd &&
                                        c.Cena < txtCenaDo &&
                                        c.Kvadratura > txtKvadraturaOd &&

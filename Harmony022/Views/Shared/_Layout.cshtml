@@ -10,9 +10,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="~/Content/footer/bootstrap-grid.css">
+    <script type="text/javascript">
+        window.onload = function () {
+            var $recaptcha = document.querySelector('#g-recaptcha-response');
+
+            if ($recaptcha) {
+                $recaptcha.setAttribute("required", "required");
+            }
+        };
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
 
     <style>
-       
+
         li.dropdown-submenu:hover ul {
             display: block;
             left: 100%;
@@ -64,11 +75,14 @@
         .img-fluid {
             width: 20vw;
         }
+
         .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
             color: rgb(241, 162, 85) !important;
         }
     </style>
 </head>
+
+
 <body style=" padding-bottom: 0px;background-color: white;padding-top: 110px;">
 
 
@@ -90,217 +104,222 @@
         </div>
         <div class="container">
 
-         
-        
-               
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menu">
-                            <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                        </button>
-                    
-                        <a class="navbar-brand navbar-logo" href="@Url.Action("Index", "home")" target="_blank">
-                            <img src="~/Content/Images/megachain.png" alt="" />
-                        </a>
-                    </div>
-                    <div class="navbar-collapse collapse navbar-menu">
-                        <ul class="nav navbar-nav">
-                            <li>@Html.ActionLink("Harmony022", "Index", "Home")</li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nekretnine<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown dropdown-submenu">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stanovi</a>
-                                        <ul class="dropdown-menu">
-                                            <li>@Html.ActionLink("Prodaja", "prikaziStanoveProdaja", "vidiNekretnine")</li>
-                                            <li>@Html.ActionLink("Izdavanje", "prikaziStanoveRenta", "vidiNekretnine")</li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown dropdown-submenu">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kuće</a>
-                                        <ul class="dropdown-menu">
-                                            <li>@Html.ActionLink("Prodaja", "showHomeSell", "vidiNekretnine")</li>
-                                            <li>@Html.ActionLink("Izdavanje", "showHomeRent", "vidiNekretnine")</li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown dropdown-submenu">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vikendice</a>
-                                        <ul class="dropdown-menu">
-                                            <li>@Html.ActionLink("Prodaja", "showCottageSell", "vidiNekretnine")</li>
-                                            <li>@Html.ActionLink("Izdavanje", "showCottageRent", "vidiNekretnine")</li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown dropdown-submenu">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Poslovni prostor</a>
-                                        <ul class="dropdown-menu">
-                                            <li>@Html.ActionLink("Prodaja", "showBSSell", "vidiNekretnine")</li>
-                                            <li>@Html.ActionLink("Izdavanje", "showBSRent", "vidiNekretnine")</li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown dropdown-submenu">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Poljoprivredno zemljište</a>
-                                        <ul class="dropdown-menu">
-                                            <li>@Html.ActionLink("Prodaja", "showLandSell", "vidiNekretnine")</li>
-                                            <li>@Html.ActionLink("Izdavanje", "showLandRent", "vidiNekretnine")</li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown dropdown-submenu">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Građevinsko zemljište</a>
-                                        <ul class="dropdown-menu">
-                                            <li>@Html.ActionLink("Prodaja", "showConstructionLandSell", "vidiNekretnine")</li>
-                                            <li>@Html.ActionLink("Izdavanje", "showConstructionLandRent", "vidiNekretnine")</li>
 
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Legalizacija<b class="caret"></b></a>
+
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menu">
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand navbar-logo" href="@Url.Action("Index", "home")" target="_blank">
+                    <img src="~/Content/Images/megachain.png" alt="" />
+                </a>
+            </div>
+            <div class="navbar-collapse collapse navbar-menu">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Harmony022", "Index", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nekretnine<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stanovi</a>
                                 <ul class="dropdown-menu">
-                                    <li class="dropdown dropdown-submenu">
-                                    <li>@Html.ActionLink("Geometar", "prikaziGeometarStranicu", "Home")</li>
-                                    <li>@Html.ActionLink("Projektant", "prikaziProjektantStranicu", "Home")</li>
+                                    <li>@Html.ActionLink("Prodaja", "prikaziStanoveProdaja", "vidiNekretnine")</li>
+                                    <li>@Html.ActionLink("Izdavanje", "prikaziStanoveRenta", "vidiNekretnine")</li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Katastar nepokretnosti<b class="caret"></b></a>
+                            <li class="dropdown dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kuće</a>
                                 <ul class="dropdown-menu">
-                                    <li class="dropdown dropdown-submenu">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sve vrsta usluga u katastru</a>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a>Uknjižba</a>
-                                            </li>
-                                            <li>
-                                                <a>Vlasnički list</a>
-                                            </li>
-                                            <li>
-                                                <a>Kopija plana</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    <li>@Html.ActionLink("Prodaja", "showHomeSell", "vidiNekretnine")</li>
+                                    <li>@Html.ActionLink("Izdavanje", "showHomeRent", "vidiNekretnine")</li>
                                 </ul>
                             </li>
-                            <li>@Html.ActionLink("O nama", "prikaziONamaStranicu", "Home")</li>
-                            <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                            <li class="dropdown dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vikendice</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Prodaja", "showCottageSell", "vidiNekretnine")</li>
+                                    <li>@Html.ActionLink("Izdavanje", "showCottageRent", "vidiNekretnine")</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Poslovni prostor</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Prodaja", "showBSSell", "vidiNekretnine")</li>
+                                    <li>@Html.ActionLink("Izdavanje", "showBSRent", "vidiNekretnine")</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Poljoprivredna zemljišta</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Prodaja", "showLandSell", "vidiNekretnine")</li>
+                                    <li>@Html.ActionLink("Izdavanje", "showLandRent", "vidiNekretnine")</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Građevinska zemljišta</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Prodaja", "showConstructionLandSell", "vidiNekretnine")</li>
+                                    <li>@Html.ActionLink("Izdavanje", "showConstructionLandRent", "vidiNekretnine")</li>
+
+                                </ul>
+                            </li>
                         </ul>
-                          
-                        @Html.Partial("_LoginPartial")
-                    </div>
-           
-        
-            @*<div class="navbar-collapse collapse text-center">
-            <ul class="nav navbar-nav">
-                <li>
-
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Nekretnine <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-submenu">
-                            <a href="#">Stanovi</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Legalizacija<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown dropdown-submenu">
+                            <li>@Html.ActionLink("Geometar", "prikaziGeometarStranicu", "Home")</li>
+                            <li>@Html.ActionLink("Projektant", "prikaziProjektantStranicu", "Home")</li>
+                        </ul>
+                    </li>
+                    @*<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Katastar nepokretnosti<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Prodaja", "prikaziStanoveProdaja", "vidiNekretnine")</li>
-                                <li>@Html.ActionLink("Izdavanje", "prikaziStanoveRenta", "vidiNekretnine")</li>
-
-                            </ul>
-                        </li>
-                        <li class="dropdown-submenu">
-                            <a href="#">Kuće</a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Prodaja", "showHomeSell", "vidiNekretnine")</li>
-                                <li>@Html.ActionLink("Izdavanje", "showHomeRent", "vidiNekretnine")</li>
-
-                            </ul>
-                        </li>
-                        <li class="dropdown-submenu">
-                            <a href="#">Vikendice</a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Prodaja", "showCottageSell", "vidiNekretnine")</li>
-                                <li>@Html.ActionLink("Izdavanje", "showCottageRent", "vidiNekretnine")</li>
-
-                            </ul>
-                        </li>
-
-                        <li class="dropdown-submenu">
-                            <a href="#">Poslovni prostor</a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Prodaja", "showBSSell", "vidiNekretnine")</li>
-                                <li>@Html.ActionLink("Izdavanje", "showBSRent", "vidiNekretnine")</li>
-
-                            </ul>
-                        </li>
-                        <li class="dropdown-submenu">
-                            <a href="#">Poljoprivredno zemljište</a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Prodaja", "showLandSell", "vidiNekretnine")</li>
-                                <li>@Html.ActionLink("Izdavanje", "showLandRent", "vidiNekretnine")</li>
-
-                            </ul>
-                        </li>
-                        <li class="dropdown-submenu">
-                            <a href="#">Građevinsko zemljište</a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Prodaja", "showConstructionLandSell", "vidiNekretnine")</li>
-                                <li>@Html.ActionLink("Izdavanje", "showConstructionLandRent", "vidiNekretnine")</li>
-
-                            </ul>
-                        </li>
-                        <li class="nav-divider"></li>
-
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Legalizacija <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-submenu">
-                        <li>@Html.ActionLink("Geometar", "prikaziGeometarStranicu", "Home")</li>
-                        <li>@Html.ActionLink("Projektant", "prikaziProjektantStranicu", "Home")</li>
-                    </ul>
-
-                </li>
-
-                <li>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Katastar nepokretnosti<span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-submenu">
-                            <a>Sve vrsta usluga u katastru</a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a>Uknjižba</a>
-                                </li>
-                                <li>
-                                    <a>Vlasnički list</a>
-                                </li>
-                                <li>
-                                    <a>Kopija plana</a>
+                                <li class="dropdown dropdown-submenu">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sve vrsta usluga u katastru</a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a>Uknjižba</a>
+                                        </li>
+                                        <li>
+                                            <a>Vlasnički list</a>
+                                        </li>
+                                        <li>
+                                            <a>Kopija plana</a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
-                        </li>
-                    </ul>
-                </li>
-
-
-                <li>@Html.ActionLink("O nama", "prikaziONamaStranicu", "Home")</li>
-                <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-
-
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                @if (@User.Identity.Name != "")
-                {
-                    <li>@Html.ActionLink(" Admin panel  ", "prikaziGlavnuStranicu", "Admin")</li>
-                }
+                        </li>*@
+                    <li>@Html.ActionLink("O nama", "prikaziONamaStranicu", "Home")</li>
+                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (@User.Identity.Name != "")
+                    {
+                        <li>@Html.ActionLink(" Admin panel  ", "prikaziGlavnuStranicu", "Admin")</li>
+                    }
+                </ul>
                 @Html.Partial("_LoginPartial")
-            </ul>
+            </div>
 
-        </div>*@
+
+            @*<div class="navbar-collapse collapse text-center">
+                    <ul class="nav navbar-nav">
+                        <li>
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Nekretnine <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a href="#">Stanovi</a>
+                                    <ul class="dropdown-menu">
+                                        <li>@Html.ActionLink("Prodaja", "prikaziStanoveProdaja", "vidiNekretnine")</li>
+                                        <li>@Html.ActionLink("Izdavanje", "prikaziStanoveRenta", "vidiNekretnine")</li>
+
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a href="#">Kuće</a>
+                                    <ul class="dropdown-menu">
+                                        <li>@Html.ActionLink("Prodaja", "showHomeSell", "vidiNekretnine")</li>
+                                        <li>@Html.ActionLink("Izdavanje", "showHomeRent", "vidiNekretnine")</li>
+
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a href="#">Vikendice</a>
+                                    <ul class="dropdown-menu">
+                                        <li>@Html.ActionLink("Prodaja", "showCottageSell", "vidiNekretnine")</li>
+                                        <li>@Html.ActionLink("Izdavanje", "showCottageRent", "vidiNekretnine")</li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-submenu">
+                                    <a href="#">Poslovni prostor</a>
+                                    <ul class="dropdown-menu">
+                                        <li>@Html.ActionLink("Prodaja", "showBSSell", "vidiNekretnine")</li>
+                                        <li>@Html.ActionLink("Izdavanje", "showBSRent", "vidiNekretnine")</li>
+
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a href="#">Poljoprivredno zemljište</a>
+                                    <ul class="dropdown-menu">
+                                        <li>@Html.ActionLink("Prodaja", "showLandSell", "vidiNekretnine")</li>
+                                        <li>@Html.ActionLink("Izdavanje", "showLandRent", "vidiNekretnine")</li>
+
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a href="#">Građevinsko zemljište</a>
+                                    <ul class="dropdown-menu">
+                                        <li>@Html.ActionLink("Prodaja", "showConstructionLandSell", "vidiNekretnine")</li>
+                                        <li>@Html.ActionLink("Izdavanje", "showConstructionLandRent", "vidiNekretnine")</li>
+
+                                    </ul>
+                                </li>
+                                <li class="nav-divider"></li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Legalizacija <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                <li>@Html.ActionLink("Geometar", "prikaziGeometarStranicu", "Home")</li>
+                                <li>@Html.ActionLink("Projektant", "prikaziProjektantStranicu", "Home")</li>
+                            </ul>
+
+                        </li>
+
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Katastar nepokretnosti<span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a>Sve vrsta usluga u katastru</a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a>Uknjižba</a>
+                                        </li>
+                                        <li>
+                                            <a>Vlasnički list</a>
+                                        </li>
+                                        <li>
+                                            <a>Kopija plana</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li>@Html.ActionLink("O nama", "prikaziONamaStranicu", "Home")</li>
+                        <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        @if (@User.Identity.Name != "")
+                        {
+                            <li>@Html.ActionLink(" Admin panel  ", "prikaziGlavnuStranicu", "Admin")</li>
+                        }
+                        @Html.Partial("_LoginPartial")
+                    </ul>
+
+                </div>*@
         </div>
     </div>
 
@@ -398,13 +417,7 @@
                             <th> -Projektant</th>
                         </tr>
                         <tr>
-                            <th><b>Katastar nepokretnosti:</b></th>
-                        </tr>
-                        <tr>
-                            <th>- Sve vrste usluga u katastru</th>
-                        </tr>
-                        <tr>
-                            <th> - List nepokretnosti, kopija, informacija o lokaciji, lokacijski uslovi i dr...</th>
+                            <th>- Sve vrste usluga u katastru i urbanizmu (list nepokretnosti, kopija plana, informacija o lokaciji, lokacijski uslovi i dr...)</th>
                         </tr>
                     </tbody>
 
@@ -434,7 +447,13 @@
 
 </body>
 
+
+
+
 </html>
+
+
+
 <script>
     $(window).scroll(function () {
         var scroll = $(window).scrollTop();
@@ -447,15 +466,18 @@
     })
 </script>
 
+
+
+
 <script type="text/javascript">
 
-    window.onload = function () {
-        var $recaptcha = document.querySelector('#g-recaptcha-response');
+    //window.onload = function () {
+    //    var $recaptcha = document.querySelector('#g-recaptcha-response');
 
-        if ($recaptcha) {
-            $recaptcha.setAttribute("required", "required");
-        }
-    };
+    //    if ($recaptcha) {
+    //        $recaptcha.setAttribute("required", "required");
+    //    }
+    //};
     (function ($) {
         $(document).ready(function () {
             $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function (event) {
@@ -468,4 +490,4 @@
     })(jQuery);
 </script>
 
-<script src='https://www.google.com/recaptcha/api.js'></script>
+

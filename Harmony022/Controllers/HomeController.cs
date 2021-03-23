@@ -7,6 +7,7 @@ using Harmony022.Models;
 using System.Net.Mail;
 using System.IO;
 using System.Net;
+using System.Diagnostics;
 
 namespace Harmony022.Controllers
 {
@@ -73,15 +74,28 @@ namespace Harmony022.Controllers
             string strPort = "587";
 
 
+            //var client = new SmtpClient("smtp.gmail.com", 587)
+            //{
+            //   UseDefaultCredentials = true,
+            //  Credentials = new NetworkCredential("harmony022beska@gmail.com", "harmonybeska022"),
+            //    EnableSsl = true
+            //};
 
-            var client = new SmtpClient("smtp.gmail.com", 587)
-            {
-               UseDefaultCredentials = true,
-              Credentials = new NetworkCredential("harmony022beska@gmail.com", "harmonybeska022"),
-                EnableSsl = true
-            };
-            client.Send("harmony022beska@gmail.com", "harmony022beska@gmail.com", "Poruka sa sajta " + "Sifra: " + Sifra,"Poruku salje korisnikom sa mejlom "+ Email+ " \n"  + Poruka);
-
+            //    client.Send(Email.ToString(), "bajchela@gmail.com", "Poruka sa sajta " + "Sifra: " + Sifra, "Poruku salje korisnikom sa mejlom " + Email + " \n" + Poruka + "\n"+Ime.ToString());
+            SmtpClient SmtpServer = new SmtpClient("smtp.live.com");
+            var mail = new MailMessage();
+            mail.From = new MailAddress("harmony022Beska@hotmail.com");
+            mail.To.Add("harmony022beska@gmail.com");
+            mail.Subject = "Poruka sa sajta";
+            mail.IsBodyHtml = true;
+            string htmlBody;
+            htmlBody =  "Sifra: " + Sifra + "," + Environment.NewLine + "Poruku salje korisnikom sa mejlom " + Email + "." + Environment.NewLine + Poruka + Environment.NewLine + Ime.ToString();
+            mail.Body = htmlBody;
+            SmtpServer.Port = 587;
+            SmtpServer.UseDefaultCredentials = false;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("harmony022Beska@hotmail.com", "harmoni022beska");
+            SmtpServer.EnableSsl = true;
+            SmtpServer.Send(mail);
 
             return View("Index");
         }
