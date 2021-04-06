@@ -71,7 +71,7 @@ namespace Harmony022.Controllers
                                  select c;
                 return View("../tblVikendica/Index", pretrazeno.ToList());
             }
-            if (strDugme == "PoslovniProstor")
+            if (strDugme == "Poslovni prostor")
             {
                 List<tblPoslovniProstor> listPretraga = new List<tblPoslovniProstor>();
                 listPretraga = db.tblPoslovniProstor.ToList();
@@ -79,7 +79,7 @@ namespace Harmony022.Controllers
                                  select c;
                 return View("../tblPoslovniProstor/Index", pretrazeno.ToList());
             }
-            if (strDugme == "Zemljiste")
+            if (strDugme == "Poljoprivredno zemljište")
             {
                 List<tblZemljiste> listPretraga = new List<tblZemljiste>();
                 listPretraga = db.tblZemljiste.ToList();
@@ -88,7 +88,7 @@ namespace Harmony022.Controllers
                 return View("../tblZemljistes/Index", pretrazeno.ToList());
             }
 
-            if (strDugme == "Građevinskozemljište")
+            if (strDugme == "Građevinsko zemljište")
             {
                 List<tblGradjevinskoZemljiste> listPretraga = new List<tblGradjevinskoZemljiste>();
                 listPretraga = db.tblGradjevinskoZemljiste.ToList();
