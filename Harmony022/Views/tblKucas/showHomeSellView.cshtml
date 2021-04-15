@@ -1,7 +1,7 @@
 ﻿@model List<Harmony022.Models.tblKuca>
 
 @{
-    ViewBag.Title = "Kuće-prodaja";
+    ViewBag.Title = "Kuća " + @Model.ElementAt(0).Mesto + ", " + @Model.ElementAt(0).Lokacija;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -371,6 +371,9 @@
 </style>
 
 <body>
+    
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60785e4dd3ecc8db"></script>
+
     <div id="section-container" class="container p-5 text-left" style="background: #f0f0f0;">
         <div class="row">
             <div class=" col-12 col-lg-8">
@@ -424,22 +427,23 @@
                 {
 
 
-                <ul class="overviewList">
-                    <li>Šifra: <span>@Model.ElementAt(i).Sifra</span></li>
-                    <li>Mesto: <span>@Model.ElementAt(i).Mesto</span></li>
-                    <li>Lokacija: <span>@Model.ElementAt(i).Lokacija</span></li>
-                    <li>Površina placa: <span>@Model.ElementAt(i).Povrsina_Placa m2</span></li>
-                    <li>Kvadratura: <span>@Model.ElementAt(i).Kvadratura m2</span></li>
-                    <li>Grejanje: <span>@Model.ElementAt(i).Grejanje</span></li>
-                    <li>Sobnost: <span>@Model.ElementAt(i).Sobnost</span></li>
-                    <li>Sprat: <span>@Model.ElementAt(i).Sprat</span></li>
-                    <li>Terasa: <span>@Model.ElementAt(i).Terasa</span></li>
-                    <li>Uknjižen: <span>@Model.ElementAt(i).Uknjizen</span></li>
-                    <li>Cena: <span>@Model.ElementAt(i).Cena €</span></li>
-                    <li>Ažuriran: <span>@Model.ElementAt(i).Azuriran.ToString().Substring(0, 10)</span></li>
-                </ul>
-
+                    <ul class="overviewList">
+                        <li>Šifra: <span>@Model.ElementAt(i).Sifra</span></li>
+                        <li>Mesto: <span>@Model.ElementAt(i).Mesto</span></li>
+                        <li>Lokacija: <span>@Model.ElementAt(i).Lokacija</span></li>
+                        <li>Površina placa: <span>@Model.ElementAt(i).Povrsina_Placa m2</span></li>
+                        <li>Kvadratura: <span>@Model.ElementAt(i).Kvadratura m2</span></li>
+                        <li>Grejanje: <span>@Model.ElementAt(i).Grejanje</span></li>
+                        <li>Sobnost: <span>@Model.ElementAt(i).Sobnost</span></li>
+                        <li>Sprat: <span>@Model.ElementAt(i).Sprat</span></li>
+                        <li>Terasa: <span>@Model.ElementAt(i).Terasa</span></li>
+                        <li>Uknjižen: <span>@Model.ElementAt(i).Uknjizen</span></li>
+                        <li>Cena: <span>@Model.ElementAt(i).Cena €</span></li>
+                        <li>Ažuriran: <span>@Model.ElementAt(i).Azuriran.ToString().Substring(0, 10)</span></li>
+                    </ul>
                     <div class="clearfix"></div>
+                   
+                    <div style="margin-top:5px; text-align-last:center" class="addthis_inline_share_toolbox" addthis:media="@Model.ElementAt(i).Slika.ToString()"></div>
 
                 }
             </div>
@@ -470,4 +474,7 @@
     @Scripts.Render("~/Scripts/prikaziNekretninu/bootstrap.min.js")
     @Scripts.Render("~/Scripts/prikaziNekretninu/script.js")
     <script src="https://kit.fontawesome.com/5b6c3ae83b.js" crossorigin="anonymous"></script>
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+
 </body>

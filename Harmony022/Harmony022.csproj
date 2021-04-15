@@ -426,6 +426,7 @@
     <Content Include="Views\tblSlike\Details.cshtml" />
     <Content Include="Views\tblSlike\Edit.cshtml" />
     <Content Include="Views\tblSlike\Index.cshtml" />
+    <Content Include="Views\Home\OpstiUsloviONama.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

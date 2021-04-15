@@ -15,6 +15,10 @@ namespace Harmony022.Controllers
     {
         private Harmony022.Models.Harmony022ModelEntities db = new Harmony022.Models.Harmony022ModelEntities();
 
+        public ActionResult prikaziOpstiUsloviONama()
+        {
+            return View("OpstiUsloviONama");
+        }
         public ActionResult prikaziONamaStranicu()
         {
             return View("ONama");
