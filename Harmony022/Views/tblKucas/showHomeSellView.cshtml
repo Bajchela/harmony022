@@ -4,7 +4,12 @@
     ViewBag.Title = "Kuća " + @Model.ElementAt(0).Mesto + ", " + @Model.ElementAt(0).Lokacija;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<head>
+    @{ 
+        string strSlikaMeta = "https://harmony022.rs" + @Model.ElementAt(0).Slika.ToString();
+    }
+    <meta content="@strSlikaMeta" property=og:image>
+</head>
 
 <style>
     .carousell {
